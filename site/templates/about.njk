@@ -1,0 +1,145 @@
+{% extends "layout.njk" %}
+{% import "_macros.njk" as m %}
+
+{% block main %}
+  {% set h = s.hero %}
+  <!-- ============ PAGE HERO ============ -->
+  <section class="page-hero">
+    <div class="wrap page-hero__in">
+      <p class="eyebrow">{{ h.eyebrow }}</p>
+      <h1>{{ h.headline | accent }}</h1>
+      <p class="sub">{{ h.sub }}</p>
+    </div>
+  </section>
+
+  {% set lo = s.local %}
+  <!-- ============ LOCAL BUSINESS ============ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="grid g2" style="gap:44px; align-items:center;">
+        <div>
+          <p class="eyebrow reveal">{{ lo.eyebrow }}</p>
+          <h2 class="section-h reveal">{{ lo.headline | accent }}</h2>
+          <p class="section-sub reveal">{{ lo.body }}</p>
+          <div style="margin-top:26px;">
+            {{ m.btn(lo.button, 'btn--dark', true) }}
+          </div>
+        </div>
+        <figure class="photo photo--tall reveal"><img src="{{ lo.image.src }}" alt="{{ lo.image.alt }}" loading="lazy" /></figure>
+      </div>
+    </div>
+  </section>
+
+  {% set en = s.entities %}
+  <!-- ============ THE FOUR ENTITIES ============ -->
+  <section class="section section--surface">
+    <div class="wrap">
+      <p class="eyebrow reveal">{{ en.eyebrow }}</p>
+      <h2 class="section-h reveal">{{ en.headline | accent }}</h2>
+      <div class="grid g2" style="margin-top:36px;">
+        {% for c in en.cards %}<div class="card split-card reveal">
+          <p class="eyebrow eyebrow--muted">{{ c.eyebrow }}</p>
+          <h3 style="font-size:var(--s1); font-weight:400;">{{ c.heading }}</h3>
+          <p>{{ c.body }}</p>
+          {{ m.btn(c.button, 'btn--ghost btn--sm', true) }}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {% set v = s.values %}
+  <!-- ============ CORE VALUES ============ -->
+  <section class="section section--band">
+    <div class="wrap">
+      <p class="eyebrow reveal">{{ v.eyebrow }}</p>
+      <h2 class="section-h reveal">{{ v.headline | accent }}</h2>
+      <p class="section-sub reveal">{{ v.body }}</p>
+      <div style="margin-top:30px;">
+        {% for val in items('values') %}{{ m.principle(val, loop.index) }}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {% set fm = s.fund_manager %}
+  {% set bd = s.board %}
+  <!-- ============ FUND MANAGER ============ -->
+  <section class="section" id="fund-manager">
+    <div class="wrap">
+      <div class="grid g2" style="gap:44px; align-items:start;">
+        <div>
+          <p class="eyebrow reveal">{{ fm.eyebrow }}</p>
+          <h2 class="section-h reveal">{{ fm.headline | accent }}</h2>
+          <p class="section-sub reveal">{{ fm.body_1 }}</p>
+          <p class="section-sub reveal" style="margin-top:14px;">{{ fm.body_2 }}</p>
+          <p class="section-sub reveal" style="margin-top:14px;">{{ fm.body_3 }}</p>
+        </div>
+        <div class="card reveal" id="board">
+          <p class="eyebrow eyebrow--muted">{{ bd.eyebrow }}</p>
+          <p style="color:var(--muted); margin-top:12px;">{{ bd.body }}</p>
+          <div class="factlist" style="margin-top:16px;">
+            {% for p in items('board') %}{{ m.boardrow(p) }}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% set sa = s.shareholder_admin %}
+  <!-- ============ SHAREHOLDER ADMIN ============ -->
+  <section class="section section--surface" id="shareholder-admin">
+    <div class="wrap">
+      <div class="grid g2" style="gap:44px; align-items:start;">
+        <div>
+          <p class="eyebrow reveal">{{ sa.eyebrow }}</p>
+          <h2 class="section-h reveal">{{ sa.headline | accent }}</h2>
+          <p class="section-sub reveal">{{ sa.body }}</p>
+        </div>
+        <div class="grid" style="gap:16px;">
+          <div class="card reveal">
+            <p class="eyebrow eyebrow--muted">{{ sa.admin_heading }}</p>
+            <p style="color:var(--muted); margin-top:10px; font-size:0.95rem;">{% for f in sa.admin_forms %}{% if not loop.first %} &middot; {% endif %}{{ m.formlink(f) }}{% endfor %}</p>
+          </div>
+          <div class="card reveal">
+            <p class="eyebrow eyebrow--muted">{{ sa.dividend_heading }}</p>
+            <p style="color:var(--muted); margin-top:10px; font-size:0.95rem;">{% for f in sa.dividend_forms %}{% if not loop.first %} &middot; {% endif %}{{ m.formlink(f) }}{% endfor %}</p>
+          </div>
+          <div class="card reveal">
+            <p class="eyebrow eyebrow--muted">{{ sa.transfer_heading }}</p>
+            <p style="color:var(--muted); margin-top:10px; font-size:0.95rem;">{% for f in sa.transfer_forms %}{% if not loop.first %} &middot; {% endif %}{{ m.formlink(f) }}{% endfor %}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% set ca = s.careers %}
+  <!-- ============ CAREERS ============ -->
+  <section class="section" id="careers">
+    <div class="wrap">
+      <div class="card reveal split-uneven">
+        <div>
+          <p class="eyebrow">{{ ca.eyebrow }}</p>
+          <h3 style="font-size:var(--s2); font-weight:300; margin-top:10px;">{{ ca.heading }}</h3>
+          <p style="color:var(--muted); margin-top:12px;">{{ ca.body }}</p>
+        </div>
+        <div class="card" style="background:var(--ground);">
+          <p class="eyebrow eyebrow--muted">{{ ca.openings_eyebrow }}</p>
+          {% for o in ca.openings %}<p style="font-weight:500; margin-top:10px;">{{ o.title }}</p>
+          <p style="color:var(--muted); font-size:0.9rem;">{{ o.location }}</p>
+          {% endfor %}
+          {{ m.btn(ca.button, 'btn--accent btn--sm', true, 'margin-top:14px;') }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      {{ m.ctaband(s.cta) }}
+    </div>
+  </section>
+{% endblock %}

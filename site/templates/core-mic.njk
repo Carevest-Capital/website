@@ -1,0 +1,146 @@
+{% extends "layout.njk" %}
+{% import "_macros.njk" as m %}
+
+{% block main %}
+  {% set h = s.hero %}
+  <!-- ============ PAGE HERO ============ -->
+  <section class="page-hero">
+    <div class="wrap page-hero__in">
+      <p class="eyebrow">{{ h.eyebrow }}</p>
+      <h1>{{ h.headline | accent }}</h1>
+      <p class="sub">{{ h.sub }}</p>
+      <div style="margin-top:30px; display:flex; gap:12px; flex-wrap:wrap;">
+        {{ m.btn(h.primary_cta, 'btn--accent', true) }}
+        {{ m.btn(h.secondary_cta, 'btn--onband') }}
+      </div>
+    </div>
+  </section>
+
+  {% set o = s.objectives %}
+  <!-- ============ INVESTMENT OBJECTIVES ============ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="grid g2" style="align-items:center; gap:44px;">
+        <div>
+          <p class="eyebrow reveal">{{ o.eyebrow }}</p>
+          <h2 class="section-h reveal">{{ o.headline | accent }}</h2>
+          <p class="section-sub reveal">{{ o.body }}</p>
+          <p class="section-sub reveal" style="margin-top:14px;">{{ o.body_2 }}</p>
+        </div>
+        <figure class="photo photo--tall reveal"><img src="{{ o.image.src }}" alt="{{ o.image.alt }}" loading="lazy" /></figure>
+      </div>
+    </div>
+  </section>
+
+  {% set hl = s.highlights %}
+  <!-- ============ FUND HIGHLIGHTS ============ -->
+  <section class="section section--band">
+    <div class="wrap">
+      <p class="eyebrow reveal">{{ hl.eyebrow }}</p>
+      <h2 class="section-h reveal">{{ hl.headline | accent }}</h2>
+      <div class="statrow reveal" style="margin-top:44px; grid-template-columns:repeat(3, 1fr);">
+        {% for item in hl.stats %}{{ m.stat(item, refs=item.refs) }}
+        {% endfor %}
+      </div>
+      <div class="footnotes footnotes--band reveal">
+        <span class="footnotes__label">{{ hl.notes_label }}</span>
+        {% for note in hl.notes %}<p>({{ loop.index }}) {{ note.text }}</p>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {% set f = s.facts %}
+  {% set mc = s.mic_card %}
+  {% set rs = s.resources %}
+  <!-- ============ FUND FACTS AT A GLANCE ============ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="grid g2" style="align-items:start; gap:44px;">
+        <div>
+          <p class="eyebrow reveal">{{ f.eyebrow }}</p>
+          <h2 class="section-h reveal">{{ f.headline | accent }}</h2>
+          <div class="factlist reveal" style="margin-top:26px;">
+            {% for r in f.rows %}<div class="factrow"><span>{{ r.label }}</span><b{% if r.align_digits %} class="tnum"{% endif %}>{{ r.value }}</b></div>
+            {% endfor %}
+          </div>
+          <p class="fine reveal" style="margin-top:18px;">{{ f.fine }}</p>
+        </div>
+        <div style="display:grid; gap:16px;">
+          <div class="card reveal">
+            <p class="eyebrow eyebrow--muted">{{ mc.eyebrow }}</p>
+            <h3 style="font-size:var(--s2); font-weight:300; margin-top:10px;">{{ mc.heading }}</h3>
+            <p style="color:var(--muted); margin-top:12px;">{{ mc.body }}</p>
+            <div style="margin-top:20px; display:flex; align-items:center; gap:10px; flex-wrap:wrap; font-size:0.85rem; font-weight:500;">
+              {% for fl in mc.flow %}{% if loop.last %}<span style="padding:8px 14px; background:var(--accent-soft); color:var(--accent); border-radius:999px;">{{ fl.node }}</span>{% else %}<span style="padding:8px 14px; border:1px solid var(--line); border-radius:999px;">{{ fl.node }}</span>{% endif %}
+              {% if fl.verb %}<span style="color:var(--accent);">&rarr; {{ fl.verb }} &rarr;</span>
+              {% endif %}{% endfor %}
+            </div>
+          </div>
+          <div class="card reveal">
+            <p class="eyebrow eyebrow--muted">{{ rs.eyebrow }}</p>
+            <div style="margin-top:14px; display:grid; gap:10px;">
+              {% for l in rs.links %}<a class="btn {{ 'btn--dark' if loop.first else 'btn--ghost' }}" href="{{ l.document | docurl }}" style="justify-content:center;">{{ l.label }}</a>
+              {% endfor %}
+            </div>
+            <p class="fine" style="margin-top:14px;">{{ rs.fine }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% set inv = s.investors %}
+  <!-- ============ FOR INVESTORS (Real Values) ============ -->
+  <section class="section section--surface">
+    <div class="wrap">
+      <p class="eyebrow reveal">{{ inv.eyebrow }}</p>
+      <h2 class="section-h reveal">{{ inv.headline | accent }}</h2>
+      <div class="grid g2" style="margin-top:36px; gap:44px; align-items:start;">
+        <div class="reveal">
+          <p style="color:var(--muted);">{{ inv.left_1 }}</p>
+          <p style="color:var(--muted); margin-top:16px;">{{ inv.left_2 }}</p>
+          <p class="fine" style="margin-top:16px;">{{ inv.left_fine }}</p>
+        </div>
+        <div class="reveal">
+          <p style="color:var(--muted);">{{ inv.right_1 }}</p>
+          <p style="color:var(--muted); margin-top:16px;">{{ inv.right_2 }}</p>
+          <div class="note" style="margin-top:22px;">{{ inv.note | inlinep }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% set pr = s.promotion %}
+  <!-- ============ PROMOTION ============ -->
+  <section class="section" id="promotion">
+    <div class="wrap">
+      <div class="ctaband reveal" style="text-align:left;">
+        <p class="eyebrow">{{ pr.eyebrow }}</p>
+        <h2 style="margin-inline:0;">{{ pr.headline | accent }}</h2>
+        <p style="margin-inline:0;">{{ pr.body }}</p>
+        <div class="cta" style="justify-content:flex-start;">
+          {{ m.btn(pr.button, 'btn--accent') }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% set gt = s.get_in_touch %}
+  <!-- ============ GET IN TOUCH ============ -->
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="card reveal split-uneven">
+        <div>
+          <p class="eyebrow">{{ gt.eyebrow }}</p>
+          <h3 style="font-size:var(--s2); font-weight:300; margin-top:10px;">{{ gt.heading }}</h3>
+          <p style="color:var(--muted); margin-top:12px;">{{ gt.body }}</p>
+        </div>
+        <div style="display:grid; gap:10px;">
+          {{ m.btn(gt.primary_cta, 'btn--accent', true, 'justify-content:center;') }}
+          {{ m.btn(gt.secondary_cta, 'btn--ghost', false, 'justify-content:center;') }}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "layout.njk" %}
+{% import "_macros.njk" as m %}
+
+{% block main %}
+  {% set h = s.hero %}
+  <!-- ============ PAGE HERO ============ -->
+  <section class="page-hero">
+    <div class="wrap page-hero__in">
+      <p class="eyebrow">{{ h.eyebrow }}</p>
+      <h1>{{ h.headline | accent }}</h1>
+      <p class="sub">{{ h.sub }}</p>
+    </div>
+  </section>
+
+  <!-- ============ TEAM GRID ============ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="grid g3">
+
+        {% for p in col.team | where('group', 'Leadership') %}{{ m.person(p) }}
+
+        {% endfor %}{% for p in col.team | where('group', 'Team') %}{{ m.person(p) }}
+
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {% set bd = s.board %}
+  <!-- ============ BOARD ============ -->
+  <section class="section section--surface">
+    <div class="wrap">
+      <div class="grid g2" style="gap:44px; align-items:start;">
+        <div>
+          <p class="eyebrow reveal">{{ bd.eyebrow }}</p>
+          <h2 class="section-h reveal">{{ bd.headline | accent }}</h2>
+          <p class="section-sub reveal">{{ bd.body }}</p>
+        </div>
+        <div class="card reveal">
+          <div class="factlist">
+            {% for p in items('board') %}{{ m.boardrow(p) }}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="section">
+    <div class="wrap">
+      {{ m.ctaband(s.cta) }}
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="description" content="Plan for the CareVest CORE MIC investor welcome series: six entry points into one shared nine-email education series, built in Constant Contact." />
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+<title>CORE MIC Welcome Series</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+
+<style>
+:root{
+  --ground:#FAF7F0; --panel:#F2ECE1; --panel-2:#EAE2D4;
+  --ink:#16273F; --ink-soft:#40536B; --muted:#6E8398;
+  --accent:#9C7440; --accent-soft:#B58B54;
+  --line:rgba(22,39,63,0.13); --line-strong:rgba(22,39,63,0.26);
+  --good:#3F6B57; --warn:#A6703A; --crit:#8C3B3B;
+  --chip:rgba(22,39,63,0.06);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0F1926; --panel:#172533; --panel-2:#1E2E3F;
+    --ink:#EDE6DA; --ink-soft:#BCC7D3; --muted:#8698AA;
+    --accent:#D3A76A; --accent-soft:#C0925A;
+    --line:rgba(237,230,218,0.14); --line-strong:rgba(237,230,218,0.28);
+    --good:#79B296; --warn:#D9A46B; --crit:#D98B8B;
+    --chip:rgba(237,230,218,0.07);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0F1926; --panel:#172533; --panel-2:#1E2E3F;
+  --ink:#EDE6DA; --ink-soft:#BCC7D3; --muted:#8698AA;
+  --accent:#D3A76A; --accent-soft:#C0925A;
+  --line:rgba(237,230,218,0.14); --line-strong:rgba(237,230,218,0.28);
+  --good:#79B296; --warn:#D9A46B; --crit:#D98B8B;
+  --chip:rgba(237,230,218,0.07);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:"Hanken Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16.5px; font-weight:400; line-height:1.62; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px 110px}
+@media (max-width:640px){ .wrap{padding:0 18px 70px} body{font-size:16px} }
+
+h1,h2,h3{font-family:"Newsreader",Georgia,serif;font-weight:400;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.3rem,5.2vw,3.4rem);line-height:1.07;letter-spacing:-0.015em}
+h2{font-size:clamp(1.6rem,3.1vw,2.05rem);line-height:1.15;letter-spacing:-0.01em}
+h3{font-size:1.18rem;line-height:1.3}
+h4{font-family:"Hanken Grotesk",sans-serif;font-size:0.74rem;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:var(--muted);margin:0}
+p{margin:0}
+a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent-soft);padding-bottom:1px}
+a:hover{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+strong{font-weight:600}
+
+.eyebrow{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted)}
+.lede{font-size:1.1rem;color:var(--ink-soft);max-width:66ch}
+.tiny{font-size:0.8rem;color:var(--muted)}
+
+/* header */
+header.masthead{padding:72px 0 0}
+.rule-top{height:3px;background:var(--accent);width:64px;margin-bottom:28px}
+.masthead h1{margin-bottom:20px;max-width:19ch}
+.masthead .lede{margin-bottom:36px}
+.metastrip{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:1px;background:var(--line);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.metastrip div{background:var(--ground);padding:15px 18px 17px}
+.metastrip .k{font-family:"IBM Plex Mono",monospace;font-size:0.64rem;letter-spacing:0.13em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:5px}
+.metastrip .v{font-size:0.92rem;line-height:1.35}
+
+section{padding-top:80px}
+.sechead{display:flex;align-items:baseline;gap:16px;margin-bottom:12px}
+.sechead .num{font-family:"IBM Plex Mono",monospace;font-size:0.78rem;color:var(--accent);letter-spacing:0.08em;padding-top:4px}
+.secintro{max-width:66ch;color:var(--ink-soft);margin-bottom:30px}
+
+.callout{background:var(--panel);border-left:3px solid var(--accent);border-radius:0 3px 3px 0;padding:19px 23px;display:flex;flex-direction:column;gap:9px}
+.callout .label{font-family:"IBM Plex Mono",monospace;font-size:0.67rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent)}
+.callout p{font-size:0.96rem;color:var(--ink-soft)}
+.callout p strong{color:var(--ink)}
+
+/* flow diagram */
+.flow{display:grid;grid-template-columns:1fr 34px 1fr 34px 1fr;align-items:stretch;gap:0;border:1px solid var(--line);background:var(--line)}
+.flow > .col{background:var(--ground);padding:22px 20px 24px;display:flex;flex-direction:column;gap:10px}
+.flow > .arrow{background:var(--ground);display:flex;align-items:center;justify-content:center;font-family:"IBM Plex Mono",monospace;color:var(--accent);font-size:1.05rem}
+.flow .col h3{font-size:1rem}
+.flow .col .w{font-family:"IBM Plex Mono",monospace;font-size:0.65rem;letter-spacing:0.13em;text-transform:uppercase;color:var(--accent)}
+.flow .col ul{margin:2px 0 0;padding-left:16px;display:flex;flex-direction:column;gap:4px}
+.flow .col li{font-size:0.85rem;color:var(--ink-soft)}
+.flow .col li::marker{color:var(--accent-soft)}
+.flow .col .note{font-size:0.82rem;color:var(--muted);margin-top:auto;padding-top:10px}
+@media (max-width:820px){
+  .flow{grid-template-columns:1fr}
+  .flow > .arrow{padding:6px 0;transform:rotate(90deg)}
+}
+
+/* tables */
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:3px}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:0.91rem}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{font-family:"IBM Plex Mono",monospace;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:500;background:var(--panel);white-space:nowrap}
+tbody tr:last-child td{border-bottom:none}
+td.num,th.num{font-variant-numeric:tabular-nums;font-family:"IBM Plex Mono",monospace;white-space:nowrap}
+td code{font-family:"IBM Plex Mono",monospace;font-size:0.82rem;background:var(--chip);padding:2px 6px;border-radius:2px;white-space:nowrap}
+
+/* sequence */
+.step{display:grid;grid-template-columns:104px 1fr}
+.step .when{padding:28px 22px 28px 0;text-align:right}
+.step .when .day{font-family:"IBM Plex Mono",monospace;font-size:0.93rem;font-variant-numeric:tabular-nums;display:block}
+.step .when .idx{font-family:"IBM Plex Mono",monospace;font-size:0.67rem;letter-spacing:0.12em;color:var(--muted);display:block;margin-top:4px}
+.step .body{border-left:1px solid var(--line-strong);padding:28px 0 28px 30px;position:relative}
+.step .body::before{content:"";position:absolute;left:-5px;top:36px;width:9px;height:9px;border-radius:50%;background:var(--ground);border:2px solid var(--accent)}
+.step:last-child .body{padding-bottom:8px}
+.step h3{margin-bottom:6px}
+.step .job{font-size:0.94rem;color:var(--ink-soft);margin-bottom:16px;max-width:62ch}
+.subs{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.subs .sl{font-family:"IBM Plex Mono",monospace;font-size:0.82rem;background:var(--chip);border-radius:2px;padding:7px 11px;display:flex;gap:10px;align-items:baseline}
+.subs .sl span{color:var(--muted);font-size:0.67rem;letter-spacing:0.1em;text-transform:uppercase;flex-shrink:0}
+.beats{margin:0 0 16px;padding-left:18px;display:flex;flex-direction:column;gap:5px}
+.beats li{font-size:0.93rem;color:var(--ink-soft)}
+.beats li::marker{color:var(--accent-soft)}
+.stepmeta{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:13px 26px;padding-top:15px;border-top:1px solid var(--line)}
+.stepmeta .k{font-family:"IBM Plex Mono",monospace;font-size:0.62rem;letter-spacing:0.13em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:4px}
+.stepmeta .v{font-size:0.88rem;line-height:1.4}
+@media (max-width:640px){
+  .step{grid-template-columns:1fr}
+  .step .when{text-align:left;padding:24px 0 0;display:flex;gap:12px;align-items:baseline}
+  .step .when .idx{margin-top:0}
+  .step .body{border-left:none;padding:10px 0 24px}
+  .step .body::before{display:none}
+}
+
+.pill{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:0.64rem;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;border-radius:2px;border:1px solid var(--line-strong);color:var(--ink-soft);white-space:nowrap}
+.pill.emd{border-color:var(--crit);color:var(--crit)}
+.pill.asset{border-color:var(--warn);color:var(--warn)}
+.pill.ok{border-color:var(--good);color:var(--good)}
+
+/* checklist */
+.checklist{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line)}
+.check{background:var(--ground);padding:17px 22px;display:grid;grid-template-columns:26px 1fr;gap:13px;align-items:start}
+.check .box{width:14px;height:14px;border:1.5px solid var(--line-strong);border-radius:2px;margin-top:5px}
+.check .t b{display:block;margin-bottom:2px;font-size:0.97rem}
+.check .t span{color:var(--ink-soft);font-size:0.89rem}
+
+/* phases */
+.phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.phase{background:var(--ground);padding:21px 21px 25px;display:flex;flex-direction:column;gap:8px}
+.phase .w{font-family:"IBM Plex Mono",monospace;font-size:0.67rem;letter-spacing:0.13em;text-transform:uppercase;color:var(--accent)}
+.phase h3{font-size:1rem}
+.phase ul{margin:3px 0 0;padding-left:17px;display:flex;flex-direction:column;gap:4px}
+.phase li{font-size:0.87rem;color:var(--ink-soft)}
+.phase li::marker{color:var(--accent-soft)}
+
+/* two col split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.split > div{background:var(--ground);padding:22px 24px 26px;display:flex;flex-direction:column;gap:11px}
+.split ul{margin:0;padding-left:17px;display:flex;flex-direction:column;gap:6px}
+.split li{font-size:0.91rem;color:var(--ink-soft)}
+.split li::marker{color:var(--accent-soft)}
+@media (max-width:700px){ .split{grid-template-columns:1fr} }
+
+footer{margin-top:88px;padding-top:30px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div class="rule-top"></div>
+  <div class="eyebrow">CareVest Core MIC &nbsp;/&nbsp; Email marketing &nbsp;/&nbsp; Plan for approval</div>
+  <h1>The CORE MIC investor welcome series</h1>
+  <p class="lede">Ten emails over five weeks. A short welcome tailored to how the contact reached us, then a single shared education series that ends in a conversation with a Dealing Representative. Built in Constant Contact.</p>
+  <div class="metastrip">
+    <div><span class="k">Date</span><span class="v">August 30, 2026</span></div>
+    <div><span class="k">Platform</span><span class="v">Constant Contact</span></div>
+    <div><span class="k">Jurisdiction</span><span class="v">BC and Alberta only</span></div>
+    <div><span class="k">Goal</span><span class="v">A booked DR conversation</span></div>
+  </div>
+</header>
+
+<section id="shape">
+  <div class="sechead"><span class="num">01</span><h2>How the series is put together</h2></div>
+  <p class="secintro">Six entry points, one welcome email each, then everyone converges into the same nine-email education series. One engine to maintain, not six.</p>
+
+  <div class="flow">
+    <div class="col">
+      <span class="w">Stage 1</span>
+      <h3>Entry point</h3>
+      <ul>
+        <li>Speaker series attendee</li>
+        <li>Speaker series no show</li>
+        <li>Lunch and Learn attendee</li>
+        <li>Website enquiry</li>
+        <li>LinkedIn or referral</li>
+        <li>Event follow-up, sent later</li>
+      </ul>
+      <p class="note">One Constant Contact list per entry point.</p>
+    </div>
+    <div class="arrow">&rarr;</div>
+    <div class="col">
+      <span class="w">Stage 2</span>
+      <h3>Welcome email</h3>
+      <ul>
+        <li>Sent day 0</li>
+        <li>References how they reached us</li>
+        <li>Delivers whatever was promised</li>
+        <li>Sets expectations for the series</li>
+        <li>Tags the contact, then adds them to the core list</li>
+      </ul>
+      <p class="note">Six short variants. Same closing paragraph.</p>
+    </div>
+    <div class="arrow">&rarr;</div>
+    <div class="col">
+      <span class="w">Stage 3</span>
+      <h3>Core education series</h3>
+      <ul>
+        <li>Nine emails, days 2 to 35</li>
+        <li>Identical for everyone</li>
+        <li>Ends with the ask</li>
+        <li>Graduates into the monthly investor letter</li>
+      </ul>
+      <p class="note">One automation. Written once, approved once.</p>
+    </div>
+  </div>
+
+  <div style="height:24px"></div>
+
+  <div class="callout">
+    <span class="label">The conversion event</span>
+    <p>The series does not sell an investment and cannot. CareVest Private Capital Inc. is the registered Exempt Market Dealer and suitability is determined by a Dealing Representative. <strong>Success is a booked conversation with a DR.</strong> The series also runs alongside the existing 12-hour thank you and 48-hour phone attempt in the capital raising plan. It does not replace either.</p>
+  </div>
+</section>
+
+<section id="entry">
+  <div class="sechead"><span class="num">02</span><h2>Entry points and the welcome email</h2></div>
+  <p class="secintro">Each welcome email is roughly 150 words. Its only jobs are to acknowledge the specific context, hand over what was promised, and set up the five weeks that follow.</p>
+
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Entry point</th><th>Constant Contact list</th><th>Welcome email opens with</th><th>Delivers</th><th class="num">Sent</th></tr></thead>
+    <tbody>
+      <tr><td><b>Speaker series attendee</b></td><td><code>Entry - Event Attendee</code></td><td>Thank you for joining us, and the one takeaway from the speaker</td><td>Event recap and deck</td><td class="num">Same evening</td></tr>
+      <tr><td><b>Speaker series no show</b></td><td><code>Entry - Event No Show</code></td><td>Sorry we missed you, here is what you missed</td><td>Recap, plus replay if recorded</td><td class="num">Next morning</td></tr>
+      <tr><td><b>Lunch and Learn attendee</b></td><td><code>Entry - Lunch and Learn</code></td><td>Thanks for the hour, framed around the tax and registered account discussion</td><td>Session summary</td><td class="num">Same day</td></tr>
+      <tr><td><b>Website enquiry</b></td><td><code>Entry - Website</code></td><td>Thanks for getting in touch, here is what you asked for</td><td>The requested document</td><td class="num">Immediate</td></tr>
+      <tr><td><b>LinkedIn or referral</b></td><td><code>Entry - LinkedIn Referral</code></td><td>Good to connect, or names the person who introduced us</td><td>Short CORE MIC overview</td><td class="num">Within 24 hours</td></tr>
+      <tr><td><b>Event follow-up, sent later</b></td><td><code>Entry - Event Follow-up</code></td><td>Thank you for joining us, with no reference to when the event was</td><td>Event recap and deck</td><td class="num">Any time after</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div style="height:22px"></div>
+
+  <div class="split">
+    <div>
+      <h4>Every welcome email closes the same way</h4>
+      <ul>
+        <li>What is coming: a short course on how private mortgage lending works, roughly two emails a week for five weeks</li>
+        <li>Unsubscribe any time, stated plainly</li>
+        <li>CASL express consent confirmation</li>
+        <li>The sender's name and direct line</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Province gate</h4>
+      <ul>
+        <li>Province is a required field on every form and every event sign in sheet</li>
+        <li>Contacts outside BC and Alberta never enter the series</li>
+        <li>They receive one courteous note explaining the dealer registration, then sit on a suppressed list</li>
+        <li>This is enforced at intake, not at send time</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="series">
+  <div class="sechead"><span class="num">03</span><h2>The core education series</h2></div>
+  <p class="secintro">Nine emails, identical for every contact regardless of entry point. Each is 200 to 400 words with one call to action. Two subject lines per email so the first send can be split tested. Flags mark what needs EMD sign off and what asset does not exist yet.</p>
+
+  <div class="seq">
+
+    <div class="step">
+      <div class="when"><span class="day">Day 2</span><span class="idx">Core 01</span></div>
+      <div class="body">
+        <h3>What a MIC actually is, in plain English</h3>
+        <p class="job">Category comprehension. Most prospects have heard the acronym and cannot explain it. This is the email they forward to their spouse.</p>
+        <div class="subs">
+          <div class="sl"><span>A</span>What a MIC actually is, in plain English</div>
+          <div class="sl"><span>B</span>Mortgages, not stocks: how the fund is built</div>
+        </div>
+        <ul class="beats">
+          <li>You buy shares in a corporation. The corporation owns a portfolio of mortgages. Borrowers pay interest. The corporation pays it out.</li>
+          <li>The flow through structure, and why the corporation itself pays no income tax</li>
+          <li>The legal requirements that shape every MIC, including the residential holding and distribution requirements</li>
+          <li>Why the return is not tied to a stock market screen</li>
+          <li>Risk stated in the same breath as return, including that this is not CDIC insured</li>
+        </ul>
+        <div class="stepmeta">
+          <div><span class="k">Answers</span><span class="v">I do not understand what I would be buying</span></div>
+          <div><span class="k">Call to action</span><span class="v">Read the full explainer on the site</span></div>
+          <div><span class="k">Tag on click</span><span class="v"><code>Clicked - Education</code></span></div>
+          <div><span class="k">Flags</span><span class="v"><span class="pill emd">EMD review</span> <span class="pill ok">Copy exists</span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="when"><span class="day">Day 5</span><span class="idx">Core 02</span></div>
+      <div class="body">
+        <h3>What we look at before we lend a dollar</h3>
+        <p class="job">Security. Turn abstract percentages into a picture of someone walking a construction site with a checklist.</p>
+        <div class="subs">
+          <div class="sl"><span>A</span>What we look at before we lend a dollar</div>
+          <div class="sl"><span>B</span>How a mortgage gets into the portfolio</div>
+        </div>
+        <ul class="beats">
+          <li>The journey of one loan: origination through the Mortgage Broker, structuring, review, approval, funding, active management</li>
+          <li>First position security explained without jargon, and why priority matters if things go wrong</li>
+          <li>Fund highlights with footnotes intact and dated: 100 percent primary mortgages, 62 percent weighted average loan to value, 10 percent gross weighted average</li>
+          <li>On site visits by the team: location, development quality, credit profile</li>
+          <li>Lending where we live: Vancouver and the Lower Mainland, Calgary, Edmonton, Interior BC</li>
+        </ul>
+        <div class="stepmeta">
+          <div><span class="k">Answers</span><span class="v">Is there anything real behind this</span></div>
+          <div><span class="k">Call to action</span><span class="v">Download the CORE MIC fact sheet</span></div>
+          <div><span class="k">Tag on click</span><span class="v"><code>High Intent - Fact Sheet</code></span></div>
+          <div><span class="k">Flags</span><span class="v"><span class="pill emd">EMD review</span> <span class="pill asset">Fact sheet PDF</span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="when"><span class="day">Day 8</span><span class="idx">Core 03</span></div>
+      <div class="body">
+        <h3>Thirty years, several cycles, one market</h3>
+        <p class="job">Manager trust. The founder voice email. It should not read like it was written by a marketing department.</p>
+        <div class="subs">
+          <div class="sl"><span>A</span>Thirty years, several cycles, one market</div>
+          <div class="sl"><span>B</span>Why we only lend where we live</div>
+        </div>
+        <ul class="beats">
+          <li>1994 to now, told as a story: the Mortgage Broker, the Fund Manager, the Dealer, and how the pieces fit together</li>
+          <li>Over 2.1 billion dollars funded, and what that represents in actual loans and projects</li>
+          <li>What operating through 2008 and through the recent rate cycle taught the underwriting</li>
+          <li>Real estate lending is a local business, and the team is local</li>
+          <li>Named people, with an invitation to meet them at the next event</li>
+        </ul>
+        <div class="stepmeta">
+          <div><span class="k">Answers</span><span class="v">Who is actually managing my money</span></div>
+          <div><span class="k">Call to action</span><span class="v">Meet the team, or register for the next event</span></div>
+          <div><span class="k">Tag on click</span><span class="v"><code>Clicked - Team</code> or <code>High Intent - Event</code></span></div>
+          <div><span class="k">Flags</span><span class="v"><span class="pill emd">EMD review</span> <span class="pill asset">Jeevan input</span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="when"><span class="day">Day 12</span><span class="idx">Core 04</span></div>
+      <div class="body">
+        <h3>What happens when a borrower stops paying</h3>
+        <p class="job">The differentiator. Almost no competitor puts this in writing. It is the most common unasked question from conservative investors.</p>
+        <div class="subs">
+          <div class="sl"><span>A</span>What happens when a borrower stops paying</div>
+          <div class="sl"><span>B</span>The question we get asked most often</div>
+        </div>
+        <ul class="beats">
+          <li>Honest opening: in three decades of lending, some borrowers do not pay on time. Here is what happens next.</li>
+          <li>Early warning signs, active management, workout and restructuring before enforcement</li>
+          <li>What first position priority means in a recovery, and where the equity cushion sits at 62 percent LTV</li>
+          <li>The limits: a speculative offering with real risk factors, capital is not guaranteed, past performance may not be repeated</li>
+          <li>Why saying this out loud is the point</li>
+        </ul>
+        <div class="stepmeta">
+          <div><span class="k">Answers</span><span class="v">What is the downside and are you hiding it</span></div>
+          <div><span class="k">Call to action</span><span class="v">Reply with your question, answered by a DR</span></div>
+          <div><span class="k">Tag on click</span><span class="v">Replies handled manually, contact removed from series</span></div>
+          <div><span class="k">Flags</span><span class="v"><span class="pill emd">EMD review, high sensitivity</span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="when"><span class="day">Day 16</span><span class="idx">Core 05</span></div>
+      <div class="body">
+        <h3>Monthly income, DRIP, and registered accounts</h3>
+        <p class="job">How you get paid, and the tax conversation that makes accountants comfortable. The highest intent email in the series.</p>
+        <div class="subs">
+          <div class="sl"><span>A</span>How you get paid, and how it is taxed</div>
+          <div class="sl"><span>B</span>Monthly income, DRIP, and registered accounts</div>
+        </div>
+        <ul class="beats">
+          <li>Dividends paid monthly, and what that looks like on a statement</li>
+          <li>The DRIP option, and what compounding at net asset value per Class A share means over time</li>
+          <li>Distributions are generally taxed as interest income for Canadian resident taxable investors, which is exactly why registered accounts matter</li>
+          <li>RRSP, TFSA, RRIF, RESP and FHSA eligibility as qualified investments, and self directed account mechanics</li>
+          <li>Explicit line: general information only, not tax advice, speak to your accountant and to a DR</li>
+        </ul>
+        <div class="stepmeta">
+          <div><span class="k">Answers</span><span class="v">How does this actually pay me, and what does CRA do with it</span></div>
+          <div><span class="k">Call to action</span><span class="v">Open the returns illustration on the site</span></div>
+          <div><span class="k">Tag on click</span><span class="v"><code>High Intent - Calculator</code></span></div>
+          <div><span class="k">Flags</span><span class="v"><span class="pill emd">EMD review, tax language</span> <span class="pill asset">Calculator sign off</span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="when"><span class="day">Day 20</span><span class="idx">Core 06</span></div>
+      <div class="body">
+        <h3>Where this fits, and who it is not for</h3>
+        <p class="job">Honest positioning against the alternatives already in their portfolio. Disqualifying people builds trust and protects suitability.</p>
+        <div class="subs">
+          <div class="sl"><span>A</span>A MIC is not a GIC. Here is the difference</div>
+          <div class="sl"><span>B</span>Where this fits, and who it is not for</div>
+        </div>
+        <ul class="beats">
+          <li>Side by side against a GIC, a bond fund, and a listed REIT: what you gain, what you give up</li>
+          <li>Liquidity is the real trade. Redemption terms, notice periods, and why this is not a chequing account</li>
+          <li>No CDIC insurance, no guarantee, real risk of loss</li>
+          <li>Who this is genuinely not for: anyone who may need the capital back on short notice, anyone who cannot tolerate a speculative private investment</li>
+          <li>Who it does tend to suit, framed as a description and not a recommendation</li>
+        </ul>
+        <div class="stepmeta">
+          <div><span class="k">Answers</span><span class="v">Why not just renew the GIC</span></div>
+          <div><span class="k">Call to action</span><span class="v">Read the full comparison and risk page</span></div>
+          <div><span class="k">Tag on click</span><span class="v"><code>Clicked - Comparison</code></span></div>
+          <div><span class="k">Flags</span><span class="v"><span class="pill emd">EMD review, comparative claims</span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="when"><span class="day">Day 25</span><span class="idx">Core 07</span></div>
+      <div class="body">
+        <h3>One loan, start to finish</h3>
+        <p class="job">Proof. Everything taught so far, made concrete in a single real transaction the reader could drive past.</p>
+        <div class="subs">
+          <div class="sl"><span>A</span>One loan, start to finish</div>
+          <div class="sl"><span>B</span>A build in the Fraser Valley, from term sheet to discharge</div>
+        </div>
+        <ul class="beats">
+          <li>The borrower and the project, in ordinary language</li>
+          <li>Why a bank would not or could not do it, and why speed and structure mattered to the developer</li>
+          <li>The terms, the security position, the LTV at funding, the term length</li>
+          <li>How it was managed and how it was repaid</li>
+          <li>The community outcome: homes built, trades employed, a neighbourhood finished</li>
+        </ul>
+        <div class="stepmeta">
+          <div><span class="k">Answers</span><span class="v">Show me this is real, not a brochure</span></div>
+          <div><span class="k">Call to action</span><span class="v">See more representative transactions</span></div>
+          <div><span class="k">Tag on click</span><span class="v"><code>Clicked - Transactions</code></span></div>
+          <div><span class="k">Flags</span><span class="v"><span class="pill emd">EMD review</span> <span class="pill asset">Real deal figures needed</span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="when"><span class="day">Day 30</span><span class="idx">Core 08</span></div>
+      <div class="body">
+        <h3>What happens on a first call</h3>
+        <p class="job">Remove the fear of the sales call. Most people do not book because they do not know what they are agreeing to.</p>
+        <div class="subs">
+          <div class="sl"><span>A</span>What happens on a first call</div>
+          <div class="sl"><span>B</span>Minimums, timelines, and getting started</div>
+        </div>
+        <ul class="beats">
+          <li>Who a Dealing Representative is, what they are registered to do, and what they are not</li>
+          <li>The call is 20 minutes, it is a suitability conversation, and it is not a pitch</li>
+          <li>Know your client, eligibility, minimum subscription, the Offering Memorandum, and the paperwork sequence</li>
+          <li>Typical timeline from first call to first monthly distribution</li>
+          <li>You can stop at any point, and plenty of people do</li>
+        </ul>
+        <div class="stepmeta">
+          <div><span class="k">Answers</span><span class="v">I do not want to be sold to</span></div>
+          <div><span class="k">Call to action</span><span class="v">Book 20 minutes with a Dealing Representative</span></div>
+          <div><span class="k">Tag on click</span><span class="v"><code>High Intent - Booking</code></span></div>
+          <div><span class="k">Flags</span><span class="v"><span class="pill emd">EMD review, process accuracy</span> <span class="pill asset">DR booking link or phone</span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="when"><span class="day">Day 35</span><span class="idx">Core 09</span></div>
+      <div class="body">
+        <h3>Worth twenty minutes?</h3>
+        <p class="job">The direct ask, plus a graceful landing for everyone who is not ready. Nobody falls off a cliff at the end of the series.</p>
+        <div class="subs">
+          <div class="sl"><span>A</span>Worth twenty minutes?</div>
+          <div class="sl"><span>B</span>Where we go from here</div>
+        </div>
+        <ul class="beats">
+          <li>Short recap of the five weeks, framed as what you now know</li>
+          <li>The ask, made once and made plainly, with the DR's name and direct line</li>
+          <li>The alternative path: stay on the monthly investor letter, come to the next event, no pressure</li>
+          <li>A link to update email preferences so people can choose less rather than choose nothing</li>
+          <li>Genuine close from the sender</li>
+        </ul>
+        <div class="stepmeta">
+          <div><span class="k">Answers</span><span class="v">Timing, not interest</span></div>
+          <div><span class="k">Call to action</span><span class="v">Book the call. Secondary: stay on the monthly letter</span></div>
+          <div><span class="k">On completion</span><span class="v">Added to <code>Monthly Investor Letter</code></span></div>
+          <div><span class="k">Flags</span><span class="v"><span class="pill emd">EMD review</span></span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="build-cc">
+  <div class="sechead"><span class="num">04</span><h2>How it is built in Constant Contact</h2></div>
+  <p class="secintro">Seven automations in total: six short welcome series and one core series. Lists do the routing, tags do the reporting.</p>
+
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Component</th><th>Setup in Constant Contact</th></tr></thead>
+    <tbody>
+      <tr><td><b>Entry lists</b></td><td>Six lists, one per entry point. Contacts are added by form submission, event import, or manually by a DR after an event.</td></tr>
+      <tr><td><b>Welcome automations</b></td><td>Six automated series, each triggered by <code>contact joins a list</code>. Each contains one email and then adds the contact to the core list.</td></tr>
+      <tr><td><b>Core automation</b></td><td>One automated series triggered by <code>contact joins</code> the <code>Core Series</code> list. Nine emails on the day schedule above.</td></tr>
+      <tr><td><b>Tags</b></td><td>Applied on entry (source) and on click (interest and intent). Tags are what the weekly DR pull is built on.</td></tr>
+      <tr><td><b>Graduation</b></td><td>After core 09, the contact is added to the <code>Monthly Investor Letter</code> list and removed from the core list.</td></tr>
+      <tr><td><b>Suppression</b></td><td>A do-not-send list holding existing shareholders, out of province contacts, staff and related parties, and anyone the CCO flags. Excluded from every send.</td></tr>
+      <tr><td><b>Split testing</b></td><td>Subject line A/B on the first cohort of each email, then the winner is locked in.</td></tr>
+      <tr><td><b>Resend</b></td><td>Automatic resend to non-openers, enabled on core 02, 05 and 08 only. Not on every email.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div style="height:22px"></div>
+
+  <div class="split">
+    <div>
+      <h4>What Constant Contact handles well here</h4>
+      <ul>
+        <li>List-join triggered series, which is exactly the structure above</li>
+        <li>Adding a contact to another list from inside an automation, which is how the welcome emails feed the core series</li>
+        <li>Tagging contacts based on which link they clicked</li>
+        <li>Built in engagement segments, most to least engaged</li>
+        <li>Link level click reporting per email</li>
+        <li>Automatic resend to non-openers</li>
+      </ul>
+    </div>
+    <div>
+      <h4>What it does not do, and the workaround</h4>
+      <ul>
+        <li>No lead scoring. Replaced by tags plus a weekly manual review.</li>
+        <li>No page-level or time-on-page tracking. We measure clicks only.</li>
+        <li>No CRM tasks. DR follow up is a standing weekly routine, not a system notification.</li>
+        <li>Limited conditional branching below the top tier. The plan deliberately avoids needing it.</li>
+        <li>No automatic pause on reply. Replies are handled by whoever monitors the inbox, who removes the contact from the series.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="height:22px"></div>
+
+  <div class="callout">
+    <span class="label">Account note</span>
+    <p>At roughly 200 to 300 contacts today, the current plan tier is likely sufficient. The one thing worth confirming before build is whether the account supports <strong>adding a contact to a list from inside an automation</strong>. If it does not, the fallback is a weekly manual move from the entry lists into the core list, which costs about ten minutes a week at this volume.</p>
+  </div>
+</section>
+
+<section id="tracking">
+  <div class="sechead"><span class="num">05</span><h2>What we track</h2></div>
+  <p class="secintro">Only what Constant Contact reports natively. No inferred metrics, no time-on-page, no attribution modelling.</p>
+
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Metric</th><th>Source</th><th>Reviewed</th><th>Reference point</th></tr></thead>
+    <tbody>
+      <tr><td>Open rate per email</td><td>Constant Contact report</td><td>Weekly</td><td class="num">Sector norm is high 20s to high 30s</td></tr>
+      <tr><td>Click rate per email</td><td>Constant Contact report</td><td>Weekly</td><td class="num">Watch the trend, not the number</td></tr>
+      <tr><td>Clicks per link</td><td>Link level click report</td><td>Weekly</td><td>Tells us which topics land</td></tr>
+      <tr><td>High intent tags applied</td><td>Tag counts</td><td>Weekly</td><td>Fact sheet, calculator, booking, event</td></tr>
+      <tr><td>Replies received</td><td>Monitored inbox</td><td>Daily</td><td>The strongest signal available</td></tr>
+      <tr><td>Unsubscribes and bounces</td><td>Constant Contact report</td><td>Weekly</td><td class="num">Investigate above 0.5 percent</td></tr>
+      <tr><td>Spam complaints</td><td>Constant Contact report</td><td>Weekly</td><td class="num">Investigate above 0.1 percent</td></tr>
+      <tr><td>Contacts entering the series</td><td>List growth by entry list</td><td>Monthly</td><td>Shows which channel is feeding the engine</td></tr>
+      <tr><td>Calls booked and kept</td><td>Logged manually by the DR team</td><td>Monthly</td><td>The outcome that matters</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p class="tiny" style="margin-top:12px">Reference points are context for reading the numbers, not targets. With a list of 200 to 300, individual percentages will move on small numbers of people and should be read as direction rather than performance.</p>
+</section>
+
+<section id="handoff">
+  <div class="sechead"><span class="num">06</span><h2>The weekly handoff to the DR team</h2></div>
+  <p class="secintro">Without lead scoring, this is a fifteen minute standing routine rather than an automated alert. At current list size that is entirely workable.</p>
+
+  <div class="checklist">
+    <div class="check"><div class="box"></div><div class="t"><b>Pull the high intent tags</b><span>Anyone tagged fact sheet, calculator, booking, or event in the past seven days.</span></div></div>
+    <div class="check"><div class="box"></div><div class="t"><b>Pull the most engaged segment</b><span>Constant Contact's built in engagement segment, filtered to contacts currently in the core series.</span></div></div>
+    <div class="check"><div class="box"></div><div class="t"><b>Add anyone who replied</b><span>Replies go to the top of the list and come out of the automation.</span></div></div>
+    <div class="check"><div class="box"></div><div class="t"><b>Assign and call</b><span>Each name goes to a named DR with the tag attached, so the call opens on the right subject. Called within one business day.</span></div></div>
+    <div class="check"><div class="box"></div><div class="t"><b>Log the outcome</b><span>Called, booked, not reached, not interested. This is the only reliable record of what the series produced.</span></div></div>
+  </div>
+
+  <div style="height:22px"></div>
+
+  <div class="callout">
+    <span class="label">Owner</span>
+    <p>This routine needs one named owner. It is the difference between a series that generates conversations and a series that generates open rates.</p>
+  </div>
+</section>
+
+<section id="compliance">
+  <div class="sechead"><span class="num">07</span><h2>Compliance guardrails</h2></div>
+  <p class="secintro">Two regimes apply to every message: Canadian securities regulation through the EMD, and CASL.</p>
+
+  <div class="checklist">
+    <div class="check"><div class="box"></div><div class="t"><b>Every asset reviewed and approved before deployment</b><span>Emails, landing pages, the returns illustration, and every linked document go through the EMD and Chief Compliance Officer. A dated approval log is kept and approved versions are locked.</span></div></div>
+    <div class="check"><div class="box"></div><div class="t"><b>No offer to sell, anywhere</b><span>The series is educational. The call to action is always a conversation with a registered Dealing Representative. The full site disclaimer appears in every footer.</span></div></div>
+    <div class="check"><div class="box"></div><div class="t"><b>Performance figures carry their footnote and their date</b><span>The historical compound annual yield is used only with the approved footnote verbatim, with the as at date, net of fees, and with past performance may not be repeated. Reviewed again whenever the reference month changes.</span></div></div>
+    <div class="check"><div class="box"></div><div class="t"><b>Risk sits next to return, in the same email</b><span>Wherever a yield appears, the speculative offering and risk factors language appears.</span></div></div>
+    <div class="check"><div class="box"></div><div class="t"><b>No guarantees or capital protection language</b><span>Guaranteed, safe, secure income, and principal protected do not appear. Secured is used only in its technical sense, meaning secured by a mortgage lien.</span></div></div>
+    <div class="check"><div class="box"></div><div class="t"><b>No suitability determination by email</b><span>The series describes who the fund tends to suit. It never tells a reader it is right for them.</span></div></div>
+    <div class="check"><div class="box"></div><div class="t"><b>No return specific testimonials</b><span>If used at all, testimonials are relationship focused and approved individually.</span></div></div>
+    <div class="check"><div class="box"></div><div class="t"><b>BC and Alberta only, enforced at intake</b><span>Province is a required field on every form and sign in sheet, and a hard suppression rule in Constant Contact.</span></div></div>
+    <div class="check"><div class="box"></div><div class="t"><b>CASL express consent, recorded</b><span>Consent wording, source and date captured at every entry point. Implied consent from an enquiry runs six months, so the welcome email is designed to convert it to express consent early.</span></div></div>
+    <div class="check"><div class="box"></div><div class="t"><b>CASL message requirements in every send</b><span>Clear identification of CareVest, the full mailing address, a working unsubscribe honoured within 10 business days, and no misleading subject lines.</span></div></div>
+    <div class="check"><div class="box"></div><div class="t"><b>Records retained</b><span>All sends, consent records and approvals archived and exportable, in line with registrant record keeping obligations.</span></div></div>
+  </div>
+</section>
+
+<section id="build-plan">
+  <div class="sechead"><span class="num">08</span><h2>Build plan</h2></div>
+  <p class="secintro">Five weeks from approval to first live send, assuming EMD review runs in parallel with writing rather than after it.</p>
+
+  <div class="phases">
+    <div class="phase">
+      <span class="w">Week 1</span>
+      <h3>Account and structure</h3>
+      <ul>
+        <li>Audit the existing Constant Contact account and clean the current list</li>
+        <li>Build the six entry lists, the core list, the newsletter list and the suppression list</li>
+        <li>Set up the tag structure</li>
+        <li>Confirm sender identity, address block and unsubscribe wording</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <span class="w">Week 2</span>
+      <h3>Copy, first half</h3>
+      <ul>
+        <li>Six welcome emails written</li>
+        <li>Core 01 to 05 written</li>
+        <li>Submitted to the EMD as one batch</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <span class="w">Week 3</span>
+      <h3>Copy, second half</h3>
+      <ul>
+        <li>Core 06 to 09 written</li>
+        <li>Second EMD batch submitted</li>
+        <li>Website forms connected to the entry lists</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <span class="w">Week 4</span>
+      <h3>Automation build</h3>
+      <ul>
+        <li>Seven automations built and timed</li>
+        <li>Click tagging and resend rules configured</li>
+        <li>Test contacts run the full 35 days on an accelerated schedule</li>
+        <li>Rendering and inbox tests</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <span class="w">Week 5</span>
+      <h3>Live</h3>
+      <ul>
+        <li>First cohort enters, ideally a live event audience</li>
+        <li>Weekly DR handoff routine starts</li>
+        <li>First review at day 45</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="asks">
+  <div class="sechead"><span class="num">09</span><h2>What we need to start writing</h2></div>
+  <p class="secintro">Items 1 to 3 block all copy. Items 4 to 7 block specific emails only.</p>
+
+  <div class="checklist">
+    <div class="check"><div class="box"></div><div class="t"><b>1. Approve the structure</b><span>Six welcome variants plus a nine email core series, 35 days, ending in a booked DR conversation.</span></div></div>
+    <div class="check"><div class="box"></div><div class="t"><b>2. Sender identity</b><span>Does the series come from Jeevan throughout, from the assigned Dealing Representative, or a mix? This sets the voice of all fifteen emails.</span></div></div>
+    <div class="check"><div class="box"></div><div class="t"><b>3. EMD review process and turnaround</b><span>Who signs off, in what format, and roughly how long a batch takes. This drives the whole schedule.</span></div></div>
+    <div class="check"><div class="box"></div><div class="t"><b>4. Constant Contact access</b><span>Admin access to the account, and confirmation of the current plan tier and contact count.</span></div></div>
+    <div class="check"><div class="box"></div><div class="t"><b>5. Asset inventory</b><span>Which of these exist in usable form today: CORE MIC Fact Sheet PDF, Offering Memorandum, event recap deck, any recorded event, current monthly performance data.</span></div></div>
+    <div class="check"><div class="box"></div><div class="t"><b>6. One real transaction, with figures</b><span>Core 07 needs a genuine closed loan with amount, LTV at funding, term and outcome. Six deal titles exist on the site with no numbers behind them. Without real figures this email becomes generic.</span></div></div>
+    <div class="check"><div class="box"></div><div class="t"><b>7. Who owns the weekly handoff</b><span>One named person to run the fifteen minute routine in section 06 and log the outcomes.</span></div></div>
+  </div>
+</section>
+
+<footer>
+  <p class="tiny">Yeshanew Consulting. Marketing services only. Nothing in this document is legal, securities, tax, or financial advice. All investor facing materials are subject to review and approval by CareVest's Exempt Market Dealer and legal counsel before publication or use.</p>
+</footer>
+
+</div>
+</body>
+</html>

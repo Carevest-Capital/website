@@ -1,0 +1,6 @@
+{
+  "name": "carevest-shared",
+  "private": true,
+  "type": "module",
+  "description": "The content model shared by the site build and the admin dashboard."
+}

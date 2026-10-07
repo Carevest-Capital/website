@@ -1,0 +1,106 @@
+{#
+  Reusable pieces of markup. Everything here is page design: classes, arrows, numbering and
+  attributes stay exactly as the original site had them. Only the words come from content.
+#}
+
+{#- A button. `cls` is the style variant, `arrow` adds the trailing arrow, `style` an inline style. -#}
+{%- macro btn(l, cls, arrow=false, style='') -%}
+<a class="btn {{ cls }}" href="{{ l.href }}"{% if style %} style="{{ style }}"{% endif %}>{{ l.label }}{% if arrow %} <span class="arw">&rarr;</span>{% endif %}</a>
+{%- endmacro -%}
+
+{#- Just the large number of a stat. Animated by default (data-count); `count` false renders it static. -#}
+{%- macro statnum(stat, count=true, placeholder='0') -%}
+{%- set r = stat | resolve -%}
+{%- if count === false -%}
+<div class="n tnum">{{ r.prefix }}{{ r.value | fixed(r.decimals) }}{% if r.suffix %}<span style="font-weight:275;">{{ r.suffix }}</span>{% endif %}</div>
+{%- else -%}
+<div class="n tnum" data-count data-target="{{ r.value }}"{% if r.prefix %} data-prefix="{{ r.prefix }}"{% endif %}{% if r.suffix %} data-suffix="{{ r.suffix }}"{% endif %}{% if r.decimals %} data-decimals="{{ r.decimals }}"{% endif %}>{{ placeholder }}</div>
+{%- endif -%}
+{%- endmacro -%}
+
+{#- One cell of a stat row: number, label, optional small note. `footnote` adds the asterisk link, `refs` the small note references. -#}
+{%- macro stat(item, footnote=false, refs='') -%}
+{%- set r = item.stat | resolve -%}
+<div>
+{{ statnum(item.stat, item.count) }}
+<div class="l">{{ r.label }}{% if footnote %}<a href="#yield-note" style="text-decoration:none; color:var(--accent);">*</a>{% endif %}{% if refs %} <sup>{{ refs }}</sup>{% endif %}</div>
+{%- if r.note %}
+<div class="foot">{{ r.note }}</div>
+{%- endif %}
+</div>
+{%- endmacro -%}
+
+{#- A representative transaction card. -#}
+{%- macro deal(d, cls='deal', style='') -%}
+<div class="{{ cls }}"{% if style %} style="{{ style }}"{% endif %}><img class="deal__img" src="{{ d.image.src }}" alt="{{ d.image.alt }}" loading="lazy" /><div class="deal__body"><div class="k">{{ d.category }}</div><h4>{{ d.title }}</h4></div></div>
+{%- endmacro -%}
+
+{#- A team member card. Shows initials when there is no photo. -#}
+{%- macro person(p) -%}
+<div class="person reveal">
+{% if p.photo and p.photo.src %}<img class="person__photo" src="{{ p.photo.src }}" alt="{{ p.photo.alt }}" loading="lazy" />{% else %}<div class="person__initials" role="img" aria-label="{{ p.photo.alt }}">{{ p.initials }}</div>{% endif %}
+<div class="person__b">
+<b>{{ p.name }}</b>
+<span>{{ p.title }}</span>
+<p class="person__bio" hidden>{{ p.bio | inlinep }}</p>
+<button class="person__more" type="button">Read more</button>
+</div>
+</div>
+{%- endmacro -%}
+
+{#- An expandable question. `number` prefixes the question with a two-digit step number. -#}
+{%- macro faq(f, number='') -%}
+<div class="faq__item">
+<button class="faq__q" aria-expanded="false"><span>{% if number %}<span class="tnum" style="color:var(--accent); margin-right:14px;">{{ number }}</span>{% endif %}{{ f.question }}</span><span class="pm">+</span></button>
+<div class="faq__a"><div>
+{{ f.answer | accentlinks }}
+{%- if f.footnote %}
+<p style="font-size:0.8rem;">{{ f.footnote }}</p>
+{%- endif %}
+</div></div>
+</div>
+{%- endmacro -%}
+
+{#- A numbered step. -#}
+{%- macro step(st, n) -%}
+<div class="step">
+<div class="num tnum">{{ n | pad2 }}</div>
+<h4>{{ st.heading }}</h4>
+<p>{{ st.body }}</p>
+</div>
+{%- endmacro -%}
+
+{#- A numbered core value. -#}
+{%- macro principle(v, n) -%}
+<div class="principle reveal">
+<div class="num tnum">{{ n | pad2 }}</div>
+<div>
+<h4>{{ v.heading }}</h4>
+<p>{{ v.body }}</p>
+</div>
+</div>
+{%- endmacro -%}
+
+{#- The closing call-to-action band. -#}
+{%- macro ctaband(s) -%}
+<div class="ctaband reveal">
+<p class="eyebrow">{{ s.eyebrow }}</p>
+<h2>{{ s.headline | accent }}</h2>
+<p>{{ s.body }}</p>
+<div class="cta">
+{{ btn(s.primary_cta, 'btn--accent') }}
+{{ btn(s.secondary_cta, 'btn--onband') }}
+</div>
+</div>
+{%- endmacro -%}
+
+{#- A form name that becomes a download link once a file is uploaded into its slot. -#}
+{%- macro formlink(f) -%}
+{%- set u = f.document | docfile -%}
+{%- if u %}<a href="{{ u }}">{{ f.label }}</a>{% else %}{{ f.label }}{% endif -%}
+{%- endmacro -%}
+
+{#- A row of the Board of Directors list. -#}
+{%- macro boardrow(p) -%}
+<div class="factrow"><span>{{ p.title }}</span><b>{{ p.name }}</b></div>
+{%- endmacro -%}

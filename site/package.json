@@ -1,0 +1,16 @@
+{
+  "name": "carevest-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "CareVest public website: Nunjucks templates rendered to static HTML from the shared content model.",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "node build.js",
+    "build:blue": "THEME=blue node build.js",
+    "verify": "node scripts/verify.js"
+  },
+  "dependencies": {
+    "nunjucks": "^3.2.4"
+  }
+}

@@ -1,0 +1,103 @@
+{% extends "layout.njk" %}
+{% import "_macros.njk" as m %}
+
+{% block main %}
+  {% set h = s.hero %}
+  <!-- ============ PAGE HERO ============ -->
+  <section class="page-hero">
+    <div class="wrap page-hero__in">
+      <p class="eyebrow">{{ h.eyebrow }}</p>
+      <h1>{{ h.headline | accent }}</h1>
+      <p class="sub">{{ h.sub }}</p>
+      <div style="margin-top:30px; display:flex; gap:12px; flex-wrap:wrap;">
+        {{ m.btn(h.primary_cta, 'btn--accent', true) }}
+        {{ m.btn(h.secondary_cta, 'btn--onband') }}
+      </div>
+    </div>
+  </section>
+
+  {% set b = s.broker %}
+  <!-- ============ ABOUT THE BROKER ============ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="grid g2" style="gap:44px; align-items:center;">
+        <div>
+          <p class="eyebrow reveal">{{ b.eyebrow }}</p>
+          <h2 class="section-h reveal">{{ b.headline | accent }}</h2>
+          <p class="section-sub reveal">{{ b.body_1 }}</p>
+          <p class="section-sub reveal" style="margin-top:14px;">{{ b.body_2 }}</p>
+        </div>
+        <div style="display:grid; gap:16px;">
+          <figure class="photo photo--43 reveal"><img src="{{ b.image.src }}" alt="{{ b.image.alt }}" loading="lazy" /></figure>
+          <div class="statcard reveal">
+            {% set r = b.stat | resolve %}
+            {{ m.statnum(b.stat, true, r.prefix + '0') }}
+            <div class="l">{{ r.label }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% set p = s.projects %}
+  {% set half = ((p.project_types | length) + 1) // 2 %}
+  <!-- ============ TYPES OF PROJECTS / FINANCING ============ -->
+  <section class="section section--band">
+    <div class="wrap">
+      <p class="eyebrow reveal">{{ p.eyebrow }}</p>
+      <h2 class="section-h reveal">{{ p.headline | accent }}</h2>
+      <p class="section-sub reveal">{{ p.body }}</p>
+      <div class="grid g2" style="margin-top:36px; gap:30px;">
+        <ul class="checklist reveal" style="color:var(--band-fg);">
+          {% for pt in p.project_types.slice(0, half) %}<li><span class="mrk">&#10003;</span> {{ pt.label }}</li>
+          {% endfor %}
+        </ul>
+        <ul class="checklist reveal" style="color:var(--band-fg);">
+          {% for pt in p.project_types.slice(half) %}<li><span class="mrk">&#10003;</span> {{ pt.label }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="reveal" style="margin-top:34px; display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+        <span class="eyebrow" style="color:var(--band-muted);">{{ p.financing_label }}</span>
+        {% for ft in p.financing_types %}<span style="padding:9px 18px; border:1px solid var(--band-line); border-radius:999px; font-size:0.9rem;">{{ ft.label }}</span>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {% set pr = s.process %}
+  <!-- ============ LENDING PROCESS ============ -->
+  <section class="section">
+    <div class="wrap wrap--narrow">
+      <p class="eyebrow reveal">{{ pr.eyebrow }}</p>
+      <h2 class="section-h reveal">{{ pr.headline | accent }}</h2>
+      <div class="faq reveal" style="margin-top:36px;">
+
+        {% for f in items('process') %}{{ m.faq(f, loop.index | pad2) }}
+
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {% set tr = s.transactions %}
+  <!-- ============ REPRESENTATIVE TRANSACTIONS ============ -->
+  <section class="section section--surface" id="transactions">
+    <div class="wrap">
+      <p class="eyebrow reveal">{{ tr.eyebrow }}</p>
+      <h2 class="section-h reveal">{{ tr.headline | accent }}</h2>
+      <div class="grid g3" style="margin-top:36px;">
+        {% for d in items('transactions') %}{{ m.deal(d, 'deal reveal', 'flex:none;') }}
+        {% endfor %}
+      </div>
+      <p class="fine reveal" style="margin-top:16px;">{{ tr.fine }}</p>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="section">
+    <div class="wrap">
+      {{ m.ctaband(s.cta) }}
+    </div>
+  </section>
+{% endblock %}

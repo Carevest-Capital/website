@@ -1,0 +1,197 @@
+{% extends "layout.njk" %}
+{% import "_macros.njk" as m %}
+
+{% block main %}
+  {% set h = s.hero %}
+  <!-- ============ HERO ============ -->
+  <section class="hero-cine">
+    <img class="hero-cine__bg" src="{{ h.background.src }}" alt="{{ h.background.alt }}" aria-hidden="true" fetchpriority="high" />
+    <div class="hero-cine__scrim" aria-hidden="true"></div>
+    <div class="wrap hero-cine__in">
+      <p class="eyebrow">{{ h.eyebrow }}</p>
+      <h1>{{ h.headline | accent }}</h1>
+      <p class="sub">{{ h.sub }}</p>
+      <div class="cta">
+        {{ m.btn(h.primary_cta, 'btn--accent', true) }}
+        {{ m.btn(h.secondary_cta, 'btn--onband') }}
+      </div>
+      <div class="hero-stats">
+        {% for item in h.stats %}{{ m.stat(item, footnote=(item.stat.figure == 'yield')) }}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {% set t = s.trustbar %}
+  <!-- ============ TRUST BAR ============ -->
+  <div class="trustbar">
+    <div class="wrap trustbar__in">
+      {% for it in t.items %}<div class="trust-item"><div class="k">{{ it.label }}</div><div class="v">{{ it.value }}</div></div>
+      {% endfor %}<div class="trust-item"><div class="k">{{ t.phone_label }}</div><div class="v"><a href="tel:{{ g.phone_investor_relations | tel }}" style="text-decoration:none; color:inherit;" class="tnum">{{ g.phone_investor_relations }}</a></div></div>
+    </div>
+  </div>
+
+  {% set a = s.audiences %}
+  <!-- ============ INVESTORS / BORROWERS ============ -->
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow reveal">{{ a.eyebrow }}</p>
+      <h2 class="section-h reveal">{{ a.headline | accent }}</h2>
+      <p class="lede reveal" style="margin-top:20px;">{{ a.lede }}</p>
+      <div class="grid g2" style="margin-top:40px;">
+        <div class="card split-card reveal">
+          <p class="eyebrow eyebrow--muted">{{ a.investors_eyebrow }}</p>
+          <h3>{{ a.investors_heading }}</h3>
+          <p>{{ a.investors_body }}</p>
+          {{ m.btn(a.investors_button, 'btn--dark', true) }}
+        </div>
+        <div class="card split-card reveal">
+          <p class="eyebrow eyebrow--muted">{{ a.borrowers_eyebrow }}</p>
+          <h3>{{ a.borrowers_heading }}</h3>
+          <p>{{ a.borrowers_body }}</p>
+          {{ m.btn(a.borrowers_button, 'btn--dark', true) }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% set n = s.numbers %}
+  <!-- ============ NUMBERS BAND ============ -->
+  <section class="section section--band">
+    <div class="wrap">
+      <p class="eyebrow reveal">{{ n.eyebrow }}</p>
+      <h2 class="section-h reveal">{{ n.headline | accent }}<a href="#yield-note" style="text-decoration:none; color:var(--accent);">*</a></h2>
+      <p class="section-sub reveal">{{ n.body }}</p>
+      <div class="statrow reveal" style="margin-top:44px;">
+        {% for item in n.stats %}{{ m.stat(item) }}
+        {% endfor %}
+      </div>
+      <p class="footnotes footnotes--band reveal" id="yield-note"><span class="footnotes__label">{{ n.footnote_label }}</span>*{{ fig.yield.note | inlinep }}</p>
+    </div>
+  </section>
+
+  {% set c = s.calculator %}
+  <!-- ============ CALCULATOR ============ -->
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow reveal">{{ c.eyebrow }}</p>
+      <h2 class="section-h reveal">{{ c.headline | accent }}</h2>
+      <p class="section-sub reveal">{{ c.body }}</p>
+      <div class="calc reveal" style="margin-top:32px;">
+        <div class="calc__in">
+          <div class="calc__field">
+            <label for="calcAmt">{{ c.amount_label }}</label>
+            <div class="amt tnum" id="calcAmtLabel">{{ 100000 | money }}</div>
+            <input id="calcAmt" type="range" min="10000" max="1000000" step="5000" value="100000" data-yield="{{ fig.yield.value }}" aria-label="{{ c.amount_label }}" />
+          </div>
+          <div class="calc__field">
+            <label>{{ c.account_label }}</label>
+            <div class="calc__pills" id="calcAcct">
+              <button class="calc__pill is-on" type="button" data-acct="RRSP">RRSP</button>
+              <button class="calc__pill" type="button" data-acct="TFSA">TFSA</button>
+              <button class="calc__pill" type="button" data-acct="Cash">Cash</button>
+            </div>
+          </div>
+          <div class="calc__field" style="margin-bottom:0;">
+            <label>{{ c.distributions_label }}</label>
+            <p style="color:var(--muted); font-size:0.92rem;">{{ c.distributions_text }}</p>
+          </div>
+        </div>
+        <div class="calc__out">
+          <div>
+            <div class="calc__lbl">{{ c.monthly_label }}</div>
+            <div class="calc__big tnum" id="calcMonthly">{{ (100000 * fig.yield.value / 100 / 12) | money }}</div>
+          </div>
+          <div style="display:flex; gap:30px; flex-wrap:wrap;">
+            <div><div class="calc__lbl">{{ c.yearly_label }}</div><div class="tnum" style="font-size:var(--s2); font-weight:300; color:var(--band-fg);" id="calcYear">{{ (100000 * fig.yield.value / 100) | money }}</div></div>
+            <div><div class="calc__lbl">{{ c.yield_label }}</div><div class="tnum" style="font-size:var(--s2); font-weight:300; color:var(--band-fg);">{{ fig.yield.value | fixed(fig.yield.decimals) }}%</div></div>
+          </div>
+          <div class="calc__bars" id="calcBars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+      <p class="fine fine--wide reveal" style="margin-top:16px;">{{ c.fine }}</p>
+    </div>
+  </section>
+
+  {% set hw = s.how_it_works %}
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="section section--surface">
+    <div class="wrap">
+      <p class="eyebrow reveal">{{ hw.eyebrow }}</p>
+      <h2 class="section-h reveal">{{ hw.headline | accent }}</h2>
+      <p class="section-sub reveal">{{ hw.body }}</p>
+      <div class="steps reveal" style="margin-top:36px;">
+        {% for st in hw.steps %}{{ m.step(st, loop.index) }}
+        {% endfor %}
+      </div>
+      <div style="margin-top:26px; display:flex; gap:12px; flex-wrap:wrap;">
+        {{ m.btn(hw.primary_cta, 'btn--accent', true) }}
+        {{ m.btn(hw.secondary_cta, 'btn--ghost') }}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ IMAGE BAND ============ -->
+  <section class="section--tight">
+    <div class="wrap">
+      <figure class="photo photo--wide reveal"><img src="{{ s.image_band.image.src }}" alt="{{ s.image_band.image.alt }}" loading="lazy" /></figure>
+    </div>
+  </section>
+
+  {% set v = s.values %}
+  <!-- ============ VALUES BAND ============ -->
+  <section class="section section--band">
+    <div class="wrap">
+      <p class="eyebrow reveal">{{ v.eyebrow }}</p>
+      <h2 class="section-h reveal">{{ v.headline | accent }}</h2>
+      <p class="section-sub reveal">{{ v.body }}</p>
+      <div style="margin-top:30px;">
+        {% for val in items('values') %}{{ m.principle(val, loop.index) }}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  {% set tr = s.transactions %}
+  <!-- ============ REPRESENTATIVE TRANSACTIONS ============ -->
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow reveal">{{ tr.eyebrow }}</p>
+      <h2 class="section-h reveal">{{ tr.headline | accent }}</h2>
+      <p class="section-sub reveal">{{ tr.body }}</p>
+      <div class="carousel reveal" style="margin-top:30px;">
+        {% for d in items('transactions') %}{{ m.deal(d) }}
+        {% endfor %}
+      </div>
+      <p class="fine reveal" style="margin-top:10px;">{{ tr.fine }}</p>
+    </div>
+  </section>
+
+  {% set te = s.teasers %}
+  <!-- ============ EVENTS + HISTORY TEASERS ============ -->
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="grid g2">
+        <div class="card split-card reveal">
+          <p class="eyebrow">{{ te.events_eyebrow }}</p>
+          <h3>{{ te.events_heading }}</h3>
+          <p>{{ te.events_body }}</p>
+          {{ m.btn(te.events_button, 'btn--dark', true) }}
+        </div>
+        <div class="card split-card reveal">
+          <p class="eyebrow">{{ te.history_eyebrow }}</p>
+          <h3>{{ te.history_heading }}</h3>
+          <p>{{ te.history_body }}</p>
+          {{ m.btn(te.history_button, 'btn--ghost', true) }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      {{ m.ctaband(s.final_cta) }}
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ meta.title }}</title>
+  <meta name="description" content="{{ meta.description }}" />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap site-header__in">
+    <a class="brand" href="/"><img class="logo-img" src="{{ g.logo.src }}" alt="{{ g.logo.alt }}" /></a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Menu">≡</button>
+    <nav class="site-nav">
+      {% for n in g.nav %}<a href="{{ n.href }}"{% if n.href == pg.path %} class="is-active"{% endif %}>{{ n.label }}</a>
+      {% endfor %}<a class="btn btn--accent btn--sm" href="{{ g.header_cta.href }}">{{ g.header_cta.label }}</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+{% block main %}{% endblock %}
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap site-footer__in">
+    <div class="site-footer__cols">
+      <div>
+        <a class="brand" href="/"><img class="logo-img logo-img--footer" src="{{ g.logo_footer.src }}" alt="{{ g.logo_footer.alt }}" /></a>
+        <p>{{ g.footer_tagline }}</p>
+        <p><b style="color:var(--band-fg); font-weight:500;">{{ g.footer_phone_label }}</b><br />{{ g.phone_investor_relations }}</p>
+      </div>
+      <div>
+        <h5>{{ g.footer_invest_heading }}</h5>
+        {% for l in g.footer_invest_links %}<a href="{{ l.href }}">{{ l.label }}</a>
+        {% endfor %}
+      </div>
+      <div>
+        <h5>{{ g.footer_company_heading }}</h5>
+        {% for l in g.footer_company_links %}<a href="{{ l.href }}">{{ l.label }}</a>
+        {% endfor %}
+      </div>
+      <div>
+        <h5>{{ g.footer_offices_heading }}</h5>
+        {% for o in col.offices %}<p><b style="color:var(--band-fg); font-weight:500;">{{ o.name }}</b><br />{{ o.street }}<br />{{ o.city_line }}<br />{{ o.phone_label }}: {{ o.phone }}</p>
+        {% endfor %}
+      </div>
+    </div>
+    <p class="disclaimer">{{ g.disclaimer | inlinep }}</p>
+    <div class="legalrow">
+      {% for l in g.legal_links %}<a href="{{ l.document | docurl }}">{{ l.label }}</a>
+      {% endfor %}<p class="copyright">{{ g.copyright }}</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+{% extends "layout.njk" %}
+{% import "_macros.njk" as m %}
+
+{% block main %}
+  {% set h = s.hero %}
+  <!-- ============ PAGE HERO ============ -->
+  <section class="page-hero">
+    <div class="wrap page-hero__in">
+      <p class="eyebrow">{{ h.eyebrow }}</p>
+      <h1>{{ h.headline | accent }}</h1>
+      <p class="sub">{{ h.sub }}</p>
+    </div>
+  </section>
+
+  {% set f = s.form %}
+  {% set d = s.details %}
+  <!-- ============ FORM + DETAILS ============ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="split-uneven split-uneven--top">
+        <div class="card reveal">
+          <p class="eyebrow">{{ f.eyebrow }}</p>
+          <form class="form" data-demo style="margin-top:18px;">
+            <div class="field">
+              <label for="ct-type">I am contacting you as *</label>
+              <select id="ct-type" required>
+                <option value="">Please select</option>
+                <option>An investor / prospective investor</option>
+                <option>A borrower / prospective borrower</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <div class="field"><label for="ct-fn">First name *</label><input id="ct-fn" type="text" autocomplete="given-name" required /></div>
+              <div class="field"><label for="ct-ln">Last name *</label><input id="ct-ln" type="text" autocomplete="family-name" required /></div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="ct-prov">Province *</label>
+                <select id="ct-prov" required>
+                  <option value="">Please select</option>
+                  <option>British Columbia</option>
+                  <option>Alberta</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="field"><label for="ct-em">Email *</label><input id="ct-em" type="email" autocomplete="email" required /></div>
+            </div>
+            <div class="field"><label for="ct-msg">Message</label><textarea id="ct-msg" placeholder="Leave your message here..."></textarea></div>
+            <button class="btn btn--accent" type="submit" style="justify-content:center;">{{ f.button_label }}</button>
+            <p class="form-confirm" hidden style="color:var(--accent); font-weight:500;">{{ f.confirm }}</p>
+            <p class="fine">{{ f.consent }}</p>
+          </form>
+        </div>
+        <div style="display:grid; gap:20px;">
+          <div class="card reveal">
+            <p class="eyebrow eyebrow--muted">{{ d.ir_heading }}</p>
+            <p style="font-size:var(--s2); font-weight:300; margin-top:8px;" class="tnum">{{ g.phone_investor_relations }}</p>
+            <p style="color:var(--muted); font-size:0.92rem; margin-top:8px;">{{ d.ir_emails }}</p>
+          </div>
+          {% for o in items('details') %}<div class="card reveal">
+            <p class="eyebrow eyebrow--muted">{{ o.name }}</p>
+            <p style="color:var(--muted); margin-top:10px;">{{ o.street }}<br />{{ o.city_line }}</p>
+            <p style="color:var(--muted); margin-top:8px;">{{ o.phone_label }}: {{ o.phone }}</p>
+          </div>
+          {% endfor %}<div class="card reveal">
+            <p class="eyebrow eyebrow--muted">{{ d.borrowers_heading }}</p>
+            <p style="color:var(--muted); margin-top:10px;">{{ d.borrowers_email }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

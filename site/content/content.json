@@ -1,0 +1,876 @@
+{
+  "pages": {
+    "index": {
+      "_meta": {
+        "title": "CareVest Group | Investing Since 1994",
+        "description": "The CareVest Group has a long history of facilitating alternative lending to borrowers and providing income-producing alternative investments to investors in Western Canada."
+      },
+      "hero": {
+        "background": { "src": "/assets/img/hero-townhomes.jpg", "alt": "" },
+        "eyebrow": "CareVest Group · Investing Since 1994",
+        "headline": "Generating [[Prosperity]] for Investors, Developers, and Communities",
+        "sub": "Three Decades of Facilitating Lending in Western Canadian Commercial Real Estate Financing.",
+        "primary_cta": { "label": "Explore the Core Fund", "href": "/core-mic" },
+        "secondary_cta": { "label": "Get in Touch", "href": "/contact" },
+        "stats": [
+          { "id": "yield", "stat": { "figure": "yield", "label": "historical compound annual yield", "note": "" }, "count": true },
+          { "id": "funded", "stat": { "figure": "funded", "label": "of loans funded as a non-bank lender", "note": "" }, "count": true },
+          { "id": "first-mortgages", "stat": { "figure": "first_mortgages", "label": "first mortgages currently held", "note": "" }, "count": false }
+        ]
+      },
+      "trustbar": {
+        "items": [
+          { "id": "dealer", "label": "Registered Dealer", "value": "Exempt Market Dealer in Alberta and British Columbia" },
+          { "id": "broker", "label": "Licensed Broker", "value": "Mortgage Broker operating since 1994" },
+          { "id": "offices", "label": "Offices", "value": "Vancouver and Calgary" }
+        ],
+        "phone_label": "Investor Relations"
+      },
+      "audiences": {
+        "eyebrow": "Two ways we serve Western Canada",
+        "headline": "Investors and borrowers, one disciplined platform.",
+        "lede": "The CareVest® Group (“CareVest”) is comprised of multiple regulated entities and has a long history of facilitating alternative lending to borrowers and providing income-producing alternative investments to investors in Western Canada.",
+        "investors_eyebrow": "Investors",
+        "investors_heading": "Income-producing alternative investments",
+        "investors_body": "CareVest® Core Mortgage Investment Corporation has successfully delivered prudential returns to investors since inception from a portfolio of secured mortgages managed by CareVest Management Corp.",
+        "investors_button": { "label": "Learn More", "href": "/core-mic" },
+        "borrowers_eyebrow": "Borrowers",
+        "borrowers_heading": "Flexible, competitive financing",
+        "borrowers_body": "As a non-bank lender that has funded over $2.1 billion of loans, CareVest® Capital Inc. facilitates solutions to achieve flexible and competitive financing terms that allow developers and other property owners to build and create prosperous real estate communities.",
+        "borrowers_button": { "label": "Learn More", "href": "/lending" }
+      },
+      "numbers": {
+        "eyebrow": "Delivering Results for Investors",
+        "headline": "Historical Compound Annual Yield Over 7.75%",
+        "body": "CareVest Core Mortgage Investment Corporation targets short-term commercial mortgage investment opportunities across Western Canada, generating a historical compound annual return over 7.75%* per year.",
+        "stats": [
+          { "id": "yield", "stat": { "figure": "yield", "label": "historical compound annual yield*", "note": "Class A Shares, net of all fees and expenses" } },
+          { "id": "funded", "stat": { "figure": "funded", "label": "funded in real estate lending", "note": "across MICs managed by CareVest Management Corp." } },
+          { "id": "aua", "stat": { "figure": "aua", "label": "assets under administration", "note": "as of December 31, 2024" } },
+          { "id": "ltv", "stat": { "figure": "ltv", "label": "loan to value ratio", "note": "75% or lower for most mortgages" } }
+        ],
+        "footnote_label": "About the yield figure"
+      },
+      "calculator": {
+        "eyebrow": "See it for yourself",
+        "headline": "What could your investment earn?",
+        "body": "Move the slider to see estimated monthly income at the CareVest Core MIC historical compound annual yield, then get in touch with a registered dealing representative.",
+        "amount_label": "Amount invested",
+        "account_label": "Register the investment as",
+        "distributions_label": "Distributions",
+        "distributions_text": "Monthly dividends, with a Dividend Reinvestment Plan (DRIP) available at Net Asset Value per Class A Share.",
+        "monthly_label": "Estimated monthly income",
+        "yearly_label": "Per year",
+        "yield_label": "Yield used",
+        "fine": "Illustrative only, based on the historical compound annual yield for Class A Shares, net of all fees and expenses. Past performance may not be repeated and returns are not guaranteed. This is not an offer to sell or a solicitation of an offer to purchase any security. CareVest Core MIC is a speculative offering that involves risk factors."
+      },
+      "how_it_works": {
+        "eyebrow": "How it Works",
+        "headline": "A tax-efficient way to invest in real mortgages on real property.",
+        "body": "CareVest Core MIC is structured as a Mortgage Investment Corporation (“MIC”). Investors purchase shares of CareVest Core MIC – an investment fund which acquires and maintains a portfolio of mortgages. Therefore, a MIC structure provides a tax-efficient opportunity to indirectly participate and passively invest in the real estate lending market.",
+        "steps": [
+          { "id": "learn", "heading": "Learn and ask questions", "body": "Review the fund facts and the offering documents, and use our investor education resources. We encourage our clients and prospects to ask questions." },
+          { "id": "talk", "heading": "Talk to a Dealing Representative", "body": "Our team of Dealing Representatives will work closely with you to understand your personal financial position to help you make an informed decision." },
+          { "id": "invest", "heading": "Invest and receive monthly dividends", "body": "Fund through cash, RRSP, or TFSA, then receive monthly dividends with the option to reinvest through the DRIP." }
+        ],
+        "primary_cta": { "label": "How investing works", "href": "/how-investing-works" },
+        "secondary_cta": { "label": "Read the fund facts", "href": "/core-mic" }
+      },
+      "image_band": {
+        "image": { "src": "/assets/img/townhomes-woodframe.jpg", "alt": "Woodframe ground-oriented townhomes in Western Canada" }
+      },
+      "values": {
+        "eyebrow": "Core Values",
+        "headline": "True Canadian values of transparency, accountability, and honesty.",
+        "body": "CareVest believes in the potential of Western Canadian land and the bright entrepreneurs who build thriving communities. These values continue to drive our service and operations today."
+      },
+      "transactions": {
+        "eyebrow": "Representative Transactions",
+        "headline": "What the capital builds.",
+        "body": "A selection of transactions facilitated across Western Canada. Scroll for more.",
+        "fine": "Please note that some of the photos displayed are stock images and may not accurately represent the actual end products."
+      },
+      "teasers": {
+        "events_eyebrow": "Speaker Series",
+        "events_heading": "Join the next evening.",
+        "events_body": "CareVest partners with leading professionals for evenings on the Western Canadian economy and the CareVest Core MIC. Seating is limited.",
+        "events_button": { "label": "See upcoming events", "href": "/events" },
+        "history_eyebrow": "Our History",
+        "history_heading": "Three decades in Western Canada.",
+        "history_body": "From 1994 to the CareVest Core MIC today: the story of the CareVest Group, its track record, and the discipline that guides it.",
+        "history_button": { "label": "Read our history", "href": "/our-history" }
+      },
+      "final_cta": {
+        "eyebrow": "Get in Touch",
+        "headline": "Interested in placing an investment, or want to learn more?",
+        "body": "If you are interested in placing an investment or would like to learn more from a registered dealer, please contact us. Available in British Columbia and Alberta.",
+        "primary_cta": { "label": "Contact us", "href": "/contact" },
+        "secondary_cta": { "label": "Call 1 (855) 278-3611", "href": "tel:18552783611" }
+      }
+    },
+
+    "core-mic": {
+      "_meta": {
+        "title": "CareVest Core MIC | CareVest Group",
+        "description": "CareVest Core Mortgage Investment Corporation provides investors with the opportunity to passively invest in commercial mortgages, generating a historical compounded annual yield over 7.75%*."
+      },
+      "hero": {
+        "eyebrow": "CareVest Core Mortgage Investment Corporation",
+        "headline": "Real Mortgages. [[Real Values.]]",
+        "sub": "CareVest Core Mortgage Investment Corporation (“CareVest Core MIC”) provides investors with the opportunity to passively invest in commercial mortgages. Generating a historical compounded annual yield over 7.75%* while currently holding 100% first mortgages, CareVest Core MIC targets a diverse range of opportunities from commercial to residential real estate, including raw land, multi-family, infills, office, industrial, and retail.",
+        "primary_cta": { "label": "Talk to a registered dealer", "href": "/contact" },
+        "secondary_cta": { "label": "How investing works", "href": "/how-investing-works" }
+      },
+      "objectives": {
+        "eyebrow": "Investment Objectives",
+        "headline": "Preserve capital. Generate returns. Pay distributions.",
+        "body": "The investment objectives of a MIC are to preserve investor capital and generate a return that pays distributions. They are also an opportunity to own shares in a tax-efficient fund that invests in real mortgages on real property.",
+        "body_2": "CareVest Core MIC has successfully delivered attractive returns to investors since its inception in 2021.",
+        "image": { "src": "/assets/img/townhomes-bluehour.jpg", "alt": "Woodframe ground-oriented townhomes at blue hour with warm interior lights" }
+      },
+      "highlights": {
+        "eyebrow": "Fund Highlights and Resources",
+        "headline": "The discipline, in three numbers.",
+        "stats": [
+          { "id": "first-mortgages", "stat": { "figure": "first_mortgages", "label": "Primary Mortgages", "note": "Secured by a first mortgage lien on real property. A high percentage of primary mortgages in the portfolio ensures the lender is in priority position." }, "refs": "(1)" },
+          { "id": "gross-weighted-average", "stat": { "figure": "gross_weighted_average", "label": "Gross Weighted Average", "note": "With the majority of mortgages yielding upwards of 10% interest per annum, before deductions of fees and expenses. Net yield to investors will differ." }, "refs": "(1)(2)" },
+          { "id": "ltv", "stat": { "figure": "ltv", "label": "Loan to Value Ratio", "note": "With a loan-to-value ratio of 75% or lower for most mortgages, the CareVest Core MIC is constructed to maximize risk-adjusted returns." }, "refs": "(1)(3)" }
+        ],
+        "notes_label": "Notes to the fund highlights",
+        "notes": [
+          { "id": "as-at", "text": "At June 30, 2026." },
+          { "id": "gross-weighted", "text": "Gross weighted average loan interest rate per annum charged by CareVest Core MIC to borrowers before the deduction of fees and expenses. The gross weighted average loan interest rate per annum may differ from the net yield to investors as a result. Finance income (Loan Interest Rate) is recognized when it is probable that the economic benefits will flow to CareVest Core MIC and the amount of revenue can be measured reliably. Where a Mortgage is not in good standing, the recognition of finance income is dependent on the timing of the receipt of cash flows from the borrower." },
+          { "id": "ltv", "text": "Weighted average estimated Loan-to-Value ratio at the date the mortgage is acquired or funds are initially committed." },
+          { "id": "performance", "text": "There is no assurance that historical performance will be representative of future performance. Future dividends are not guaranteed. Please visit www.carevestmanagement.com for additional information." },
+          { "id": "inception", "text": "Inception is based on the initial issuance of Class A Shares in August 2021 and the first distribution in September 2021. Dividend Reinvestment Plan (DRIP) is at Net Asset Value per Class A Share." }
+        ]
+      },
+      "facts": {
+        "eyebrow": "Fund facts at a glance",
+        "headline": "Everything on one screen.",
+        "rows": [
+          { "id": "structure", "label": "Structure", "value": "Mortgage Investment Corporation (“MIC”)", "align_digits": false },
+          { "id": "inception", "label": "Inception", "value": "Class A Shares first issued August 2021; first distribution September 2021", "align_digits": true },
+          { "id": "distributions", "label": "Distributions", "value": "Monthly dividends, DRIP available", "align_digits": false },
+          { "id": "registered", "label": "Registered eligible", "value": "RRSP and TFSA", "align_digits": false },
+          { "id": "security", "label": "Security", "value": "Currently holding 100% first mortgages", "align_digits": false },
+          { "id": "availability", "label": "Availability", "value": "British Columbia and Alberta, through a registered dealer", "align_digits": false }
+        ],
+        "fine": "Offering details, terms, and risk factors are set out in the offering documents. CareVest Core MIC is a speculative offering that involves risk factors."
+      },
+      "mic_card": {
+        "eyebrow": "How it Works",
+        "heading": "The MIC structure",
+        "body": "CareVest Core MIC is structured as a Mortgage Investment Corporation (“MIC”). Investors purchase shares of CareVest Core MIC – an investment fund which acquires and maintains a portfolio of mortgages. Therefore, a MIC structure provides a tax-efficient opportunity to indirectly participate and passively invest in the real estate lending market.",
+        "flow": [
+          { "id": "investor", "node": "Investor", "verb": "invests" },
+          { "id": "mic", "node": "CareVest Core MIC", "verb": "acquires" },
+          { "id": "portfolio", "node": "Portfolio of Mortgages", "verb": "pays" },
+          { "id": "dividends", "node": "Dividends", "verb": "" }
+        ]
+      },
+      "resources": {
+        "eyebrow": "Resources",
+        "links": [
+          { "id": "om", "label": "Request the Offering Memorandum", "document": "offering_memorandum" },
+          { "id": "fact-sheet", "label": "Request the Fact Sheet", "document": "fact_sheet" }
+        ],
+        "fine": "Documents are provided through CareVest Private Capital Inc., the group’s registered Exempt Market Dealer."
+      },
+      "investors": {
+        "eyebrow": "For Investors",
+        "headline": "Our investors live and work in Western Canada and they want to invest in what they know.",
+        "left_1": "CareVest Core MIC is designed for investors who value real people, real mortgages, and real property. It’s for entrepreneurial-minded individuals driven by the potential of bold real estate lending opportunities. With CareVest Core MIC, investors can directly participate in the real estate lending sector, with the opportunity to earn monthly income while preserving capital.*",
+        "left_2": "CareVest Core MIC is part of an organization with a professional team that generally focuses on first position mortgages to residential, for-profit builders and developers located in Western Canada. This includes thriving urban destinations like Vancouver and the Lower Mainland, Calgary, Edmonton, Interior B.C. and surrounding bedroom communities. When you invest in CareVest Core MIC, you support the growth and vibrancy of these key regions and the pioneering, entrepreneurial communities they support.",
+        "left_fine": "*CareVest Core MIC is a speculative offering that involves risk factors.",
+        "right_1": "We invest where we live, turning hand-selected Western Canadian real estate lending opportunities into a rewarding portfolio of mortgage investments for investors with the objective to preserve capital, generate returns, and provide income. Every mortgage investment is constructed by a management team with deep knowledge of the local markets.",
+        "right_2": "On-site visits are conducted by our team to identify lending opportunities that demonstrate optimal location, development quality, credit profile, the potential for capital appreciation, and prospects for income generation. Every mortgage is structured, reviewed, approved, and actively managed.",
+        "note": "<b>We focus on first-position residential mortgages</b> to profit-focused developers in Western Canada."
+      },
+      "promotion": {
+        "eyebrow": "RRSP & TFSA",
+        "headline": "Ask about our ongoing RRSP & TFSA Promotion.",
+        "body": "Shares of CareVest Core MIC can be held in registered accounts. Contact investor relations for the current promotion details.",
+        "button": { "label": "Contact Us", "href": "mailto:investor@carevest.com" }
+      },
+      "get_in_touch": {
+        "eyebrow": "Get in Touch",
+        "heading": "Interested in placing an investment?",
+        "body": "If you are interested in placing an investment or would like to learn more from a registered dealer, please contact us. Available in British Columbia and Alberta.",
+        "primary_cta": { "label": "Contact us", "href": "/contact" },
+        "secondary_cta": { "label": "1 (855) 278-3611", "href": "tel:18552783611" }
+      }
+    },
+
+    "how-investing-works": {
+      "_meta": {
+        "title": "How Investing Works | CareVest Group",
+        "description": "The exempt market, the Exempt Market Dealer, suitability, and risks, explained in plain language by CareVest Private Capital Inc."
+      },
+      "hero": {
+        "eyebrow": "The exempt market, explained",
+        "headline": "From interested to invested, with [[nothing hidden]].",
+        "sub": "CareVest Private Capital Inc. (“CareVest Private Capital”) is an exempt market dealer providing investors select investment opportunities in private issuers. We encourage our clients and prospects to ask questions."
+      },
+      "dealer": {
+        "eyebrow": "About CareVest Private Capital",
+        "headline": "The registered dealer within the CareVest Group.",
+        "body_1": "Investors interested in alternatives to typical investment vehicles may look to exempt market securities, a class of private investment vehicles operating alongside traditional public markets. The exempt market offers investment products, often in privately owned companies that are not publicly traded.",
+        "body_2": "The CareVest Private Capital team can provide investment opportunities in proprietary products to qualified individuals and corporate investors. Dealing Representatives, serving Alberta and British Columbia, work with you directly – explaining and reviewing, in detail, the private offerings available to determine a fit with your investment goals.",
+        "body_3": "CareVest Private Capital has been active in the prospectus-exempt market since 2005, with a focus on private real estate lending investments in Western Canada, including mortgage investment corporations (“MICs”). As the registered dealer within the CareVest Group, CareVest Private Capital provides investors access to those proprietary products.",
+        "phone_lead": "For more information, call us at",
+        "phone": "1-877-847-6797",
+        "cards": [
+          { "id": "approach", "eyebrow": "Approach to Investing", "body": "The investment opportunities CareVest Private Capital typically offers to qualified investors are in smaller, regional businesses operating in Western Canada." },
+          { "id": "eligibility", "eyebrow": "Eligibility", "body": "Our team of Dealing Representatives will work with you to determine if a private investment is suitable for you." },
+          { "id": "education", "eyebrow": "Investor Education", "body": "Our educational resources cover everything from the basics of exempt market investing to advanced topics such as regulatory information and understanding risks. In addition to our resources, we provide personalized guidance and support to each of our clients. Our team of Dealing Representatives will work closely with you to understand your personal financial position to help you make an informed decision about our investment opportunities." }
+        ]
+      },
+      "steps": {
+        "eyebrow": "The path",
+        "headline": "Three steps, in plain language.",
+        "steps": [
+          { "id": "learn", "heading": "Learn and ask questions", "body": "Read the fund facts and the FAQ below. We are committed to empowering our clients and prospects through education and knowledge-sharing about the exempt market." },
+          { "id": "talk", "heading": "Talk to a Dealing Representative", "body": "CareVest Private Capital’s Dealing Representatives will review available investment opportunities with you and explain the investment process, and assess whether a private investment is suitable for your needs and goals." },
+          { "id": "invest", "heading": "Invest and receive monthly income", "body": "Fund through cash, RRSP, or TFSA, then receive monthly dividends with the option to reinvest through the DRIP." }
+        ]
+      },
+      "faq": {
+        "eyebrow": "Frequently Asked Questions",
+        "headline": "Answers, before you have to ask."
+      },
+      "industry_links": {
+        "eyebrow": "Industry Links",
+        "headline": "Verify us. We encourage it.",
+        "body": "Local Securities Authorities – some of the relevant authorities.",
+        "fine": "NOTE: CareVest Private Capital Inc. is not associated with or specifically endorsed or recommended by the CSA or its Members and although the information contained in their website is believed to be accurate, complete, and up to date when posted, the CSA or its Members cannot guarantee that it is or will remain accurate, complete or current."
+      },
+      "complaints": {
+        "eyebrow": "Complaints",
+        "body_1": "We encourage you to direct any complaints you have about CareVest Private Capital Inc. (“CareVest Private Capital”) to CareVest Private Capital’s Chief Compliance Officer by telephone at 1-888-538-5832, by e-mail at enquiries@carevest.com or by mail to Suite 1150, 510 Burrard St., Vancouver, BC V6C 3A8, Attention: Chief Compliance Officer so we may have the opportunity to resolve your complaint. CareVest Private Capital will acknowledge receipt of your complaint as soon as possible, typically within five business days of receiving your complaint, and in most cases you can expect to receive a final response and decision from CareVest Private Capital within 90 days of receiving your complaint.",
+        "body_2": "If CareVest Private Capital does not provide you with a final response within 90 days of receiving your complaint, you have the right to contact the Ombudsman for Banking Services & Investments (“OBSI”) for a further review of any complaints relating to trading or advising activity. You also have the right to contact OBSI within 180 days of receiving CareVest Private Capital’s final response if your complaint is not resolved to your satisfaction. OBSI is a national independent dispute resolution service for resolving banking services and investment disputes and provides its services at no cost to you. An alternative to the legal system, OBSI can recommend compensation of up to $350,000 and its recommendations are not binding. OBSI can be reached by telephone at 1-888-451-4519, by e-mail at ombudsman@obsi.ca or on its website at www.obsi.ca."
+      },
+      "final_cta": {
+        "eyebrow": "Ready to read the details?",
+        "headline": "Speak with a Dealing Representative.",
+        "body": "CareVest Private Capital’s Dealing Representatives will review available investment opportunities with you and explain the investment process.",
+        "primary_cta": { "label": "Contact us", "href": "/contact" },
+        "secondary_cta": { "label": "Read the fund facts", "href": "/core-mic" }
+      }
+    },
+
+    "our-history": {
+      "_meta": {
+        "title": "Our History | CareVest Group",
+        "description": "Three decades of the CareVest Group in Western Canada, from 1994 to the CareVest Core MIC today."
+      },
+      "hero": {
+        "eyebrow": "Our History",
+        "headline": "Three decades, [[honestly told]].",
+        "sub": "The CareVest Group has operated in Western Canadian real estate lending since 1994, through numerous business cycles in numerous markets. This is the story of where we began, what we learned, and the discipline that defines the CareVest Core MIC today."
+      },
+      "image_band": {
+        "image": { "src": "/assets/img/burrard-street.jpg", "alt": "Burrard Street in downtown Vancouver on a clear morning" }
+      },
+      "timeline": {},
+      "numbers": {
+        "eyebrow": "The track record",
+        "headline": "Thirty years, in numbers.",
+        "stats": [
+          { "id": "founded", "stat": { "figure": "founded_year", "label": "operating since", "note": "CareVest Capital Inc., Mortgage Broker" }, "count": false },
+          { "id": "funded", "stat": { "figure": "funded", "label": "funded in real estate lending", "note": "across MICs managed by CareVest Management Corp." }, "count": true },
+          { "id": "aua", "stat": { "figure": "aua", "label": "assets under administration", "note": "as of December 31, 2024" }, "count": true },
+          { "id": "first-mortgages", "stat": { "figure": "first_mortgages", "label": "first mortgages held today", "note": "CareVest Core MIC, at June 30, 2026" }, "count": true }
+        ]
+      },
+      "cta": {
+        "eyebrow": "Questions about our history?",
+        "headline": "Ask us directly. We encourage it.",
+        "body": "We encourage our clients and prospects to ask questions. A registered Dealing Representative will give you straight answers about the group, the fund, and the risks.",
+        "primary_cta": { "label": "Contact us", "href": "/contact" },
+        "secondary_cta": { "label": "How investing works", "href": "/how-investing-works" }
+      }
+    },
+
+    "events": {
+      "_meta": {
+        "title": "Events & Speaker Series | CareVest Group",
+        "description": "Join the CareVest speaker series: evenings on the Western Canadian economy and the CareVest Core MIC, in Vancouver and Calgary."
+      },
+      "hero": {},
+      "registration": {
+        "eyebrow": "Reserve your seat",
+        "button_label": "Reserve my seat",
+        "confirm": "Thank you. Your seat is reserved. A confirmation and calendar invitation will follow by email.",
+        "consent": "By reserving a seat you consent to receive email communications about this event and future CareVest events. You can unsubscribe at any time."
+      },
+      "image_band": {
+        "image": { "src": "/assets/img/event-ballroom.jpg", "alt": "A CareVest speaker series evening in a downtown Vancouver ballroom" }
+      },
+      "why_attend": {
+        "eyebrow": "Why attend",
+        "headline": "An evening worth the drive downtown.",
+        "cards": [
+          { "id": "outlook", "eyebrow": "The outlook", "heading": "Hear the economics firsthand", "body": "Guest speakers and our professional partners share a grounded read on the Western Canadian economy and real estate markets." },
+          { "id": "fund", "eyebrow": "The fund", "heading": "A CareVest Core MIC update", "body": "Current fund performance and portfolio positioning, presented plainly, with time for your questions." },
+          { "id": "people", "eyebrow": "The people", "heading": "Meet the team behind the fund", "body": "Speak directly with the CareVest team and registered Dealing Representatives. No pressure, no obligation." }
+        ]
+      },
+      "replay": {
+        "eyebrow": "Could not attend?",
+        "heading": "Get the replay and summary.",
+        "body": "Leave your email and receive the event replay and a one-page summary of the evening’s economic outlook.",
+        "button_label": "Send me the replay",
+        "confirm": "Thank you. The replay and summary are on their way."
+      },
+      "past_events": {
+        "eyebrow": "Past evenings",
+        "heading": "A library that keeps working.",
+        "body": "Recent speaker series evenings have drawn full rooms in Vancouver, featuring economists and leading voices on business, communication, and leadership. Past event recaps and replays will be published here.",
+        "button": { "label": "Ask about the next event", "href": "/contact" }
+      },
+      "cta": {
+        "eyebrow": "Between events",
+        "headline": "Can’t make an evening? Start the conversation anyway.",
+        "body": "If you are interested in placing an investment or would like to learn more from a registered dealer, please contact us. Available in British Columbia and Alberta.",
+        "primary_cta": { "label": "Contact us", "href": "/contact" },
+        "secondary_cta": { "label": "Explore the Core Fund", "href": "/core-mic" }
+      }
+    },
+
+    "lending": {
+      "_meta": {
+        "title": "Lending & Financing | CareVest Group",
+        "description": "CareVest Capital Inc. provides flexible and accommodating financing solutions for commercial residential properties in growing communities in Western Canada."
+      },
+      "hero": {
+        "eyebrow": "Lending · CareVest Capital Inc.",
+        "headline": "Creative Commercial Residential [[Financing Solutions]]",
+        "sub": "In contrast to traditional banks and credit unions, CareVest Capital Inc. has built a reputation for providing more flexible and accommodating financing solutions for commercial residential properties in growing communities in Western Canada.",
+        "primary_cta": { "label": "Discuss your project", "href": "/contact" },
+        "secondary_cta": { "label": "Representative transactions", "href": "#transactions" }
+      },
+      "broker": {
+        "eyebrow": "About CareVest Capital Inc.",
+        "headline": "Operating since 1994, through numerous business cycles.",
+        "body_1": "The Mortgage Broker originates, structures, advances and administers on a daily basis the mortgage investments of CareVest Core MIC and other CareVest MIC entities. The Mortgage Broker has been operating since 1994 with offices in Alberta and British Columbia and has facilitated lending in Western Canadian commercial real estate financing.",
+        "body_2": "Over our thirty-year history, we have earned the trust of investors, by applying prudent risk management and rigorous underwriting practices attractive to institutional and retail investors by generating attractive yields.",
+        "image": { "src": "/assets/img/construction-woodframe.jpg", "alt": "Woodframe residential construction site with tower crane" },
+        "stat": { "figure": "funded", "label": "of loans funded as a non-bank lender", "note": "" }
+      },
+      "projects": {
+        "eyebrow": "Types of Projects",
+        "headline": "A complete financing package to get your real estate project off the ground.",
+        "body": "By using private lending funds, CareVest can create a complete financing package. Typical project financings include:",
+        "project_types": [
+          { "id": "acquisition", "label": "Land and building acquisition projects" },
+          { "id": "servicing", "label": "Land servicing projects" },
+          { "id": "single-family", "label": "Single family construction projects" },
+          { "id": "multi-family", "label": "Multi-family construction projects" },
+          { "id": "commercial", "label": "Commercial, industrial and retail construction projects" },
+          { "id": "condo-inventory", "label": "Condominium inventory loans" },
+          { "id": "term-loans", "label": "Term loans on income producing commercial and retail properties" },
+          { "id": "refinancing", "label": "Acquisition, refinancing packages and equity take-out facilities" }
+        ],
+        "financing_label": "Types of Financing",
+        "financing_types": [
+          { "id": "first", "label": "First mortgages" },
+          { "id": "second", "label": "Second mortgages" }
+        ]
+      },
+      "process": {
+        "eyebrow": "The Lending Process",
+        "headline": "Our in-house lenders work with borrowers throughout the lending process."
+      },
+      "transactions": {
+        "eyebrow": "Representative Transactions",
+        "headline": "Recent work across Western Canada.",
+        "fine": "Please note that some of the photos displayed above are stock images and may not accurately represent the actual end products."
+      },
+      "cta": {
+        "eyebrow": "Borrowers",
+        "headline": "An interested borrower, or want to learn more?",
+        "body": "If you are an interested borrower or would like to learn more, please contact us.",
+        "primary_cta": { "label": "Contact us", "href": "/contact" },
+        "secondary_cta": { "label": "borrow@carevest.com", "href": "mailto:borrow@carevest.com" }
+      }
+    },
+
+    "about": {
+      "_meta": {
+        "title": "About the CareVest Group | CareVest Group",
+        "description": "The CareVest Group is comprised of multiple regulated entities with a long history of facilitating alternative lending and providing income-producing alternative investments in Western Canada."
+      },
+      "hero": {
+        "eyebrow": "About Us",
+        "headline": "Strong ties and a [[depth of experience]].",
+        "sub": "The CareVest Group (“CareVest”) has a long history of facilitating alternative lending through its Mortgage Broker and manages Mortgage Investment Corporations."
+      },
+      "local": {
+        "eyebrow": "Where we work",
+        "headline": "Real estate lending is very much a “local business.”",
+        "body": "Our team is deeply established in Western Canada and prides itself on longstanding community relationships, and deep real estate lending industry knowledge along with local insight in the markets and communities where we facilitate lending solutions for borrowers and offer alternative investments to qualified investors. CareVest Group has offices in Vancouver, British Columbia and Calgary, Alberta.",
+        "button": { "label": "Meet our team", "href": "/team" },
+        "image": { "src": "/assets/img/vancouver-aerial-golden.jpg", "alt": "Aerial view of Vancouver, Burrard Inlet, and the Lions Gate Bridge at golden hour" }
+      },
+      "entities": {
+        "eyebrow": "The CareVest Group",
+        "headline": "Multiple regulated entities, one group.",
+        "cards": [
+          { "id": "core-mic", "eyebrow": "Core Fund", "heading": "CareVest Core Mortgage Investment Corporation", "body": "CareVest Core Mortgage Investment Corporation (“CareVest Core MIC”) targets a range of commercial and residential mortgage lending opportunities to include in its portfolio, including raw land, multi-family, infills, office, industrial, and retail. CareVest Core MIC has successfully delivered attractive returns to investors since its inception in 2021.", "button": { "label": "Learn More", "href": "/core-mic" } },
+          { "id": "private-capital", "eyebrow": "Investing", "heading": "CareVest Private Capital Inc.", "body": "The Exempt Market Dealer, CareVest Private Capital Inc. (“CareVest Private Capital”) has operated in the prospectus-exempt market for over 20 years raising capital for private issuers.", "button": { "label": "Learn More", "href": "/how-investing-works" } },
+          { "id": "capital", "eyebrow": "Lending", "heading": "CareVest Capital Inc.", "body": "The Mortgage Broker, CareVest Capital Inc. (“CareVest Capital”) has a three-decade track record through numerous business cycles in numerous markets across Canada, facilitating private financing for for-profit commercial residential real estate and housing development, helping to support the growth of thriving communities. CareVest Capital has operated since 1994, and over its history has successfully established itself in Western Canada with a strong reputation for providing timely and tailored lending solutions.", "button": { "label": "Learn More", "href": "/lending" } },
+          { "id": "management", "eyebrow": "Fund Manager", "heading": "CareVest Management Corp.", "body": "CareVest Management Corp. (“CareVest Management”) has managed Mortgage Investment Corporations that have funded over $2.1 billion dollars in real estate lending, with current assets under administration of $178 million as of December 31, 2024.", "button": { "label": "Learn More", "href": "#fund-manager" } }
+        ]
+      },
+      "values": {
+        "eyebrow": "Core Values",
+        "headline": "The values that drive our service and operations today.",
+        "body": "CareVest believes in the potential of Western Canadian land and the bright entrepreneurs who build thriving communities. We also believe in the true Canadian values of transparency, accountability, and honesty, and these values continue to drive our service and operations today."
+      },
+      "fund_manager": {
+        "eyebrow": "Fund Manager",
+        "headline": "About CareVest Management Corp.",
+        "body_1": "CareVest® Management Corp. was founded in 2010 providing services to mortgage investment corporations (“MICs”) that it manages. These MICs invest in a pool of residential (primarily) and commercial mortgages in Western Canada which are provided to builders and developers.",
+        "body_2": "The residential mortgages are secured by real property, which is intended for housing accommodation or intended to be improved, converted or developed to provide housing accommodation. Commercial mortgages are mortgages to acquire land, construct and / or develop improvements thereon and / or mortgages against existing and / or completed inventory held for resale or held for lease, all secured by real property which have a retail, commercial, service, office and / or industrial use.",
+        "body_3": "CareVest has facilitated the funding of over $2.1 billion in loans over our history, and successfully raised and closed multiple investment funds."
+      },
+      "board": {
+        "eyebrow": "Board of Directors / Executive Committee",
+        "body": "The parent company of CareVest retains a Board of Directors that is responsible for setting the overall direction of CareVest, ensuring compliance with regulatory standards, and safeguarding investors’ interests. The Board aims to foster sustainable growth and maintain transparency for its investors."
+      },
+      "shareholder_admin": {
+        "eyebrow": "Shareholder Administration",
+        "headline": "Forms and services for registered shareholders.",
+        "body": "Registered shareholders of any of the mortgage investment corporations may complete the following forms. If you are a beneficial shareholder and hold your shares through an intermediary such as a broker, dealer, financial institution, trustee or other nominee, you must contact your intermediary directly to provide instructions relating to your shares. We are only able to accept instructions from registered shareholders.",
+        "admin_heading": "Administration Forms",
+        "admin_forms": [
+          { "id": "address-email-change", "label": "Address / Email Change", "document": "form_address_email_change" },
+          { "id": "electronic-delivery", "label": "Electronic Delivery Consent", "document": "form_electronic_delivery_consent" },
+          { "id": "opt-out", "label": "Opt-Out of Financial Statements", "document": "form_opt_out_financial_statements" }
+        ],
+        "dividend_heading": "Dividend Forms",
+        "dividend_forms": [
+          { "id": "direct-deposit", "label": "Direct Deposit", "document": "form_direct_deposit" },
+          { "id": "drip", "label": "Dividend Reinvestment Plan (DRIP)", "document": "form_drip" },
+          { "id": "core-mic-drip", "label": "CareVest® Core MIC Dividend Reinvestment Plan", "document": "form_core_mic_drip" }
+        ],
+        "transfer_heading": "Transfer Forms",
+        "transfer_forms": [
+          { "id": "transfer-request", "label": "Transfer Request", "document": "form_transfer_request" },
+          { "id": "in-kind", "label": "In-Kind Contribution Request", "document": "form_in_kind_contribution" },
+          { "id": "transmission", "label": "Declaration of Transmission", "document": "form_declaration_of_transmission" },
+          { "id": "name-change", "label": "Name Change", "document": "form_name_change" }
+        ]
+      },
+      "careers": {
+        "eyebrow": "Careers",
+        "heading": "Teamwork, hard work, and growth.",
+        "body": "At CareVest, we foster an environment of teamwork, hard work, and growth. If you are interested and possess the attributes outlined in the job description, we would like to hear from you.",
+        "openings_eyebrow": "Current Opportunities",
+        "openings": [
+          { "id": "dealing-representative", "title": "Dealing Representative", "location": "Vancouver, BC or Calgary, AB" }
+        ],
+        "button": { "label": "Apply via contact", "href": "/contact" }
+      },
+      "cta": {
+        "eyebrow": "Get in Touch",
+        "headline": "Talk to the people behind the group.",
+        "body": "If you are interested in placing an investment or would like to learn more from a registered dealer, please contact us. Available in British Columbia and Alberta.",
+        "primary_cta": { "label": "Contact us", "href": "/contact" },
+        "secondary_cta": { "label": "Read our history", "href": "/our-history" }
+      }
+    },
+
+    "team": {
+      "_meta": {
+        "title": "Our Team | CareVest Group",
+        "description": "Meet the CareVest Group team in Vancouver and Calgary."
+      },
+      "hero": {
+        "eyebrow": "Our Team",
+        "headline": "The people behind [[three decades]] of lending.",
+        "sub": "Our team is deeply established in Western Canada and prides itself on longstanding community relationships and deep real estate lending industry knowledge."
+      },
+      "grid": {},
+      "board": {
+        "eyebrow": "Governance",
+        "headline": "Board of Directors / Executive Committee",
+        "body": "The parent company of CareVest retains a Board of Directors that is responsible for setting the overall direction of CareVest, ensuring compliance with regulatory standards, and safeguarding investors’ interests. The Board aims to foster sustainable growth and maintain transparency for its investors."
+      },
+      "cta": {
+        "eyebrow": "Get in Touch",
+        "headline": "Talk to a member of our team.",
+        "body": "If you are interested in placing an investment or would like to learn more from a registered dealer, please contact us. Available in British Columbia and Alberta.",
+        "primary_cta": { "label": "Contact us", "href": "/contact" },
+        "secondary_cta": { "label": "Call 1 (855) 278-3611", "href": "tel:18552783611" }
+      }
+    },
+
+    "contact": {
+      "_meta": {
+        "title": "Contact | CareVest Group",
+        "description": "Get in touch with the CareVest Group in Vancouver or Calgary. Investor relations: 1 (855) 278-3611."
+      },
+      "hero": {
+        "eyebrow": "Contact",
+        "headline": "Get in [[Touch]].",
+        "sub": "If you are interested in placing an investment or would like to learn more from a registered dealer, please contact us. Available in British Columbia and Alberta."
+      },
+      "form": {
+        "eyebrow": "Send us a message",
+        "button_label": "Submit Message",
+        "confirm": "Thank you. Your message has been received. Our team will be in touch soon.",
+        "consent": "If you are an investor, by clicking ‘SUBMIT MESSAGE’ above, you are expressly consenting to receive email communications from CareVest Private Capital Inc. and CareVest Management Corp. You may unsubscribe at any time via the links in those emails, or by contacting invest@carevest.com or investor@carevest.com. If you are a borrower, by clicking ‘SUBMIT MESSAGE’ above, you are expressly consenting to receive email communications from CareVest Capital Inc. You may unsubscribe at any time by contacting borrow@carevest.com."
+      },
+      "details": {
+        "ir_heading": "Investor Relations",
+        "ir_emails": "invest@carevest.com · investor@carevest.com",
+        "borrowers_heading": "Borrowers",
+        "borrowers_email": "borrow@carevest.com"
+      }
+    }
+  },
+
+  "collections": {
+    "team": [
+      {
+        "id": "jeevan-khunkhun",
+        "name": "Jeevan Khunkhun",
+        "title": "Group President",
+        "group": "Leadership",
+        "photo": { "src": "/assets/img/team-jeevan-khunkhun.jpg", "alt": "Jeevan Khunkhun, Group President" },
+        "initials": "JK",
+        "bio": "Jeevan is currently CareVest’s Group President and the President and Director of the group’s mortgage broker, CareVest Capital Inc., as well as CareVest Core MIC. Located in our Vancouver office, Jeevan is responsible for sourcing, underwriting, negotiating and managing both new and existing mortgages in British Columbia and Alberta. Prior to joining CareVest in 2006, Jeevan was a Senior Manager with Commercial Real Estate Division of Royal Bank of Canada Main Centre, Vancouver. Jeevan holds a Bachelor of Commerce degree in Finance from the University of British Columbia, and an MBA from the University of Manitoba. Jeevan currently leads CareVest’s executive committee."
+      },
+      {
+        "id": "clinton-wark",
+        "name": "Clinton Wark",
+        "title": "Senior Vice President, Lending",
+        "group": "Leadership",
+        "photo": { "src": "/assets/img/team-clinton-wark.jpg", "alt": "Clinton Wark, Senior Vice President, Lending" },
+        "initials": "CW",
+        "bio": "Clint is the Senior Vice President, Lending and Director of the group’s mortgage broker, CareVest Capital Inc. Located in our Vancouver office, Clint is responsible for sourcing, underwriting, negotiating and managing both new mortgage transactions and existing accounts in British Columbia and Alberta. Clint has over 35 years of experience in the real estate finance industry including direct lending, and mortgage brokerage involving all commercial real estate product types with an emphasis on land development and construction projects. Clint holds a Bachelor of Commerce (Honors) degree from the University of Manitoba with a major in finance."
+      },
+      {
+        "id": "mike-poettcker",
+        "name": "Mike Poettcker",
+        "title": "Head of Operations",
+        "group": "Leadership",
+        "photo": { "src": "/assets/img/team-mike-poettcker.jpg", "alt": "Mike Poettcker, Head of Operations" },
+        "initials": "MP",
+        "bio": "Mike serves as the Head of Operations for the CareVest Group as well as the Chief Compliance Officer of CareVest Private Capital. With a career in financial services spanning nearly three decades and over 20 years in private lending, he has built a reputation as a trusted leader in mortgage investment, regulatory compliance, and capital markets. His experience navigating the regulatory frameworks of the BCFSA, RECA, and Securities Regulators across multiple provinces gives the group a strong foundation of governance and investor confidence."
+      },
+      {
+        "id": "philip-yee",
+        "name": "Philip Yee, CPA",
+        "title": "Chief Financial Officer",
+        "group": "Leadership",
+        "photo": { "src": "", "alt": "Philip Yee" },
+        "initials": "PY",
+        "bio": "Philip is currently CareVest’s Group Chief Financial Officer. Located in our Vancouver office, Philip is responsible for overseeing the corporate finance activities and reporting obligations of the CareVest group. Philip has over 25 years experience working as CFO, VP (Finance) and/or Corporate Secretary for reporting issuers listed on TSX or TSX Venture exchanges. Philip holds both undergraduate and graduate degrees in business with a finance specialization as well as a graduate degree in engineering and currently holds both a CPA in BC (Canada) and Washington State (USA) as well as the internal audit certification (CIA)."
+      },
+      {
+        "id": "malini-mumick",
+        "name": "Malini Mumick, B.A., CSE®, CME®",
+        "title": "Vice President, Sales & Dealing Representative",
+        "group": "Team",
+        "photo": { "src": "/assets/img/team-malini-mumick.jpg", "alt": "Malini Mumick, Vice President, Sales and Dealing Representative" },
+        "initials": "MM",
+        "bio": "Malini Mumick is the Vice President, Sales and a Dealing Representative with the group’s exempt market dealer, CareVest Private Capital, in the Vancouver office. She leads the British Columbia Regional Sales Team and sells directly to qualified investors across British Columbia. She brings nearly 20 years of sales and marketing experience in financial services, including insurance and global asset management, supporting retail, strategic partnership, and institutional relationships. Using an educational approach, Malini helps clients understand CareVest’s investment opportunities and provides balanced perspectives on alternative investments. She holds a B.A. from the University of British Columbia and completed a post-graduate management diploma from the Sauder School of Business, and earned designations as a Certified Sales Executive® and Certified Marketing Executive®."
+      },
+      {
+        "id": "amber-mcrae",
+        "name": "Amber McRae, CPA, CA, MPAcc",
+        "title": "Group Controller",
+        "group": "Team",
+        "photo": { "src": "/assets/img/team-amber-mcrae.jpg", "alt": "Amber McRae, Group Controller" },
+        "initials": "AM",
+        "bio": "Amber brings an extensive career in accounting and financial controls to her role at the CareVest Group where she has served as our controller since 2011. She started her career in public accounting at PricewaterhouseCoopers’ Calgary and Saskatoon offices where she served financial institutions, public companies and other leading enterprises with their assurance and compliance needs. Her success in public practice opened up an opportunity in the offshore captive industry where she served as Assistant Vice President for one of the world’s leading captive insurance managers headquartered in the Cayman Islands. Amber holds a Masters of Professional Accounting degree from the University of Saskatchewan, qualified as a Chartered Accountant in 2003, holds the CPA, CA professional accounting designation, and has completed the Canadian Securities Course."
+      },
+      {
+        "id": "gary-konrad",
+        "name": "Gary Konrad",
+        "title": "Business Development Manager",
+        "group": "Team",
+        "photo": { "src": "/assets/img/team-gary-konrad.jpg", "alt": "Gary Konrad, Business Development Manager" },
+        "initials": "GK",
+        "bio": "Gary Konrad is a Business Development Manager of CareVest® Management Corp. in the Vancouver office. He brings over 15 years of combined experience in the exempt market, mortgage, and investment advisory fields. He holds a degree in Economics from the University of Alberta and an MBA from the University of Manitoba, specializing in Finance. Gary has been an active investor in equities, exempt market securities, and real estate for many years. He resides in Vancouver with his wife and two children."
+      },
+      {
+        "id": "thomas-miyazaki",
+        "name": "Thomas Miyazaki",
+        "title": "Manager, Lending",
+        "group": "Team",
+        "photo": { "src": "/assets/img/team-thomas-miyazaki.jpg", "alt": "Thomas Miyazaki, Manager, Lending" },
+        "initials": "TM",
+        "bio": "Thomas is a Manager of Lending for CareVest Capital Inc. located in our Vancouver office. Thomas is responsible for assisting in underwriting loans, tracking and reporting real estate market data, and sourcing new mortgage transactions in British Columbia. Thomas holds a Bachelor of Business Administration from Kwantlen Polytechnic University, a Diploma in Urban Land Economics from the University of British Columbia, and is a CFA® Charterholder."
+      },
+      {
+        "id": "danson-nguyen",
+        "name": "Danson Nguyen",
+        "title": "Corporate Strategy & Operations",
+        "group": "Team",
+        "photo": { "src": "/assets/img/team-danson-nguyen.jpg", "alt": "Danson Nguyen, Corporate Strategy and Operations" },
+        "initials": "DN",
+        "bio": "Danson leads strategic initiatives and operational execution across key areas of CareVest. Prior to joining CareVest, Danson worked at a Vancouver-based real estate investment firm, conducting financial analysis as an Investment Associate. Danson also brings prior commercial banking experience with a major Canadian chartered bank where he focused on mid-market deals as a loan analyst. Throughout his roles, he has had exposure to a variety of industries in the capital markets. Danson obtained his bachelor’s degree from the UBC Sauder School of Business with a specialization in finance."
+      },
+      { "id": "board-rav-bains", "name": "Rav Bains", "title": "Director", "group": "Board", "photo": { "src": "", "alt": "" }, "initials": "RB", "bio": "" },
+      { "id": "board-jeevan-khunkhun", "name": "Jeevan Khunkhun", "title": "Director", "group": "Board", "photo": { "src": "", "alt": "" }, "initials": "JK", "bio": "" },
+      { "id": "board-ernest-lang", "name": "Ernest Lang", "title": "Director", "group": "Board", "photo": { "src": "", "alt": "" }, "initials": "EL", "bio": "" },
+      { "id": "board-bob-sanghera", "name": "Bob Sanghera", "title": "Director", "group": "Board", "photo": { "src": "", "alt": "" }, "initials": "BS", "bio": "" }
+    ],
+
+    "transactions": [
+      { "id": "metro-van-lots", "category": "Land Financing", "title": "Land Financing for 10 Single Family Lots in Metro Vancouver", "image": { "src": "/assets/img/deal-1-metro-van-lots.jpg", "alt": "Aerial site plan of single family lots in Metro Vancouver" } },
+      { "id": "strata-20", "category": "Construction", "title": "Construction of 20 Residential Strata Townhome Units", "image": { "src": "/assets/img/deal-2-strata-20.jpg", "alt": "Architectural elevation of residential strata townhome units" } },
+      { "id": "inventory-22", "category": "Inventory Financing", "title": "Inventory Financing for 22 Completed Townhomes", "image": { "src": "/assets/img/deal-3-inventory-22.jpg", "alt": "Completed strata townhomes" } },
+      { "id": "subdivision-19", "category": "Subdivision", "title": "Financing for a 19-Lot Single Family Subdivision", "image": { "src": "/assets/img/deal-4-subdivision-19.jpg", "alt": "Rendering of a single family subdivision" } },
+      { "id": "mixed-10-ab", "category": "Construction", "title": "Construction Financing of 10 Mixed Units in Alberta", "image": { "src": "/assets/img/deal-5-mixed-10-ab.jpg", "alt": "Rendering of mixed unit construction in Alberta" } },
+      { "id": "strata-6", "category": "Construction", "title": "Construction of 6 Residential Strata Townhome Units", "image": { "src": "/assets/img/deal-6-strata-6.jpg", "alt": "Rendering of residential strata townhome units" } }
+    ],
+
+    "faqs": [
+      {
+        "id": "what-is-private-market",
+        "question": "What is the Private Market?",
+        "answer": "<p>The “Private Market” or “Exempt Market” refers to companies raising capital without issuing a prospectus. Securities legislation allows for capital to be raised without a prospectus, provided an exemption from the prospectus use is available. Common prospectus exemptions used are issuing an offering memorandum or selling to accredited investors. Private companies that require capital from investors are not publicly traded but still need investors to achieve the goals for their companies and projects and want to do so without going public.</p><p>In Canada, issuing securities by way of filing a prospectus significantly increases the cost of raising capital so many private companies choose to raise capital using prospectus exemptions.</p><p>Investing in the “Private Market” or “Exempt Market” offers investors an opportunity to invest in an asset class that may not be available at most traditional financial institutions.</p>",
+        "group": "Investor FAQ",
+        "footnote": ""
+      },
+      {
+        "id": "how-regulated",
+        "question": "How is the Private Market Regulated?",
+        "answer": "<p>The securities commissions/regulatory authorities in each province and territory regulate the public and private capital markets in Canada through securities legislation, regulations, rules and national or multilateral instruments. Security law administration and enforcement is overseen by security regulators that have regulatory oversight of issuers of exempt products and market participants – dealers and dealing representatives.</p><p>CareVest Private Capital, as an exempt market dealer, is registered with the Alberta Securities Commission as our principal regulator and we are also registered with the British Columbia Securities Commission for our British Columbia activities. Each of our Dealing Representatives is registered with the regulator of the province in which they reside and may also be registered in the other provinces in which CareVest Private Capital is registered. You can find our registration and our Dealing Representative’s information at the <a href=\"https://www.securities-administrators.ca/\">Canadian Securities Administrators website</a>.</p><p>(NOTE: CareVest Private Capital Inc. is not associated with or specifically endorsed or recommended by the CSA or its Members and that although the information contained in their website is believed to be accurate, complete, and up to date when posted, the CSA or its Members cannot guarantee that it is or will remain accurate, complete or current).</p>",
+        "group": "Investor FAQ",
+        "footnote": ""
+      },
+      {
+        "id": "what-is-emd",
+        "question": "What is an Exempt Market Dealer, or EMD?",
+        "answer": "<p>The term Exempt Market Dealer (usually shortened to “EMD”), defines a company registered with securities regulators to trade in or underwrite investment securities that have not been qualified by a prospectus; instead, the investments are exempt from the prospectus requirement. Often referred to as ‘private capital’, these investments are often not publicly traded like other stocks and securities.</p><p>In 2009, the Canadian Securities Administrator enacted National Instrument 31-103 Registration Requirements, Exemptions and Ongoing Registrant Obligations (“NI 31-103”), creating an investment dealer category called an Exempt Market Dealer (EMD), which would be allowed to trade in prospectus-exempt securities. Under NI 31-103, an EMD must be registered in the province or provinces where they perform dealing activities. Further, NI 31-103 set out fundamental obligations registrants must adhere to including know their investments (often shortened to KYP – Know Your Product), know their clients (KYC – Know Your Clients), suitability and maintain appropriate industry knowledge and proficiencies. These fundamental obligations of registrants include the activities of the EMD and the EMD’s Dealing Representatives. EMDs must also address complaints in a timely fashion and have sufficient insurance.</p><p>In addition, under the Securities Act, CareVest Private Capital and our Dealing Representatives must deal fairly, honestly, and in good faith with their clients. It is important that investors ensure that both the firm and the Dealing Representative they work with regarding the purchase of private securities is appropriately registered. You can confirm CareVest Private Capital and your Dealing Representative’s registration on the <a href=\"https://www.securities-administrators.ca/\">Canadian Securities Administrators website</a>.</p><p>(NOTE: CareVest Private Capital Inc. is not associated with or specifically endorsed or recommended by the CSA or its Members and that although the information contained in their website is believed to be accurate, complete, and up to date when posted, the CSA or its Members cannot guarantee that it is or will remain accurate, complete or current)</p><p>For CareVest Private Capital, we are registered in Alberta and British Columbia as an Exempt Market Dealer and all of our Dealing Representatives are accordingly registered in their respective jurisdictions.</p>",
+        "group": "Investor FAQ",
+        "footnote": ""
+      },
+      {
+        "id": "why-invest",
+        "question": "Why invest in the Private Market?",
+        "answer": "<p>The exempt market provides investors the ability to invest directly into local, privately held companies while providing capital to support their growth. Small and medium-sized enterprises (“SMEs”), are an important contributor to the Canadian economy as they accounted for 53.8% of all employment and employed nearly 9.5 million people in the country in 2023. These businesses have 1 to 499 employees.</p><p>Even though private market investments carry higher risks and lack liquidity – meaning they are subject to resale restrictions and are not readily convertible to cash – they may offer investors an investment opportunity while providing necessary sources of financing to local private businesses.</p><p>Although private market investments are not suitable for everyone and are not necessarily more profitable than traditional investments, there may be good reasons for including them in your investment portfolio. Our team of Dealing Representatives is available to help you understand the investments, explain the risks, and assess whether a private investment is suitable for your needs and goals.</p>",
+        "group": "Investor FAQ",
+        "footnote": "*Source: Statistics Canada, https://www150.statcan.gc.ca/n1/daily-quotidien/250220/dq250220e-eng.htm"
+      },
+      {
+        "id": "who-can-invest",
+        "question": "Who can invest in the Private Market?",
+        "answer": "<p>Many investors are eligible to invest in the private market or exempt market, provided an exempt market dealer determines it is suitable for your personal circumstances. In some circumstances investors have requirements for annual income, assets or annual investment limits to invest in the private market or exempt market, but that is not always the case. Our team of Dealing Representatives is available to explain the requirements to you and assess whether you qualify to invest in the private market.</p><p>Please <a href=\"/contact\">Contact Us</a> and one of our Dealing Representatives will be in touch soon.</p>",
+        "group": "Investor FAQ",
+        "footnote": ""
+      },
+      {
+        "id": "what-are-the-risks",
+        "question": "What are the Risks?",
+        "answer": "<p>All investments have associated risks which investors should be aware of. We believe it is of the utmost importance that investors have a clear understanding of the risks and any conflicts of interest associated with their investments.</p><p>Each investment has its own risks which will be explained to you by our team of Dealing Representatives. Investment products sold in the exempt market are generally considered high risk because of some of the following factors:</p><ul><li>Private issuers are not publicly traded on a stock exchange and there may be other limitations that restrict you from liquidating your investment at will, meaning it is illiquid;</li><li>Offering Memorandums and other offering documentation are not reviewed by securities regulators;</li><li>A Prospectus is not prepared by the issuer, meaning you will not receive the benefits of having the document reviewed by securities regulators;</li><li>Exempt market investments are not guaranteed or insured;</li><li>Ongoing disclosure obligations are lower or non-existent for private companies, compared to publicly listed companies; and</li><li>There are generally fewer governance standards for private companies compared to publicly listed companies.</li></ul><p>An Offering Memorandum (“OM”) is a type of disclosure document that may be used in investing in private market investments. Set out within this document is prescribed standard information regarding the company seeking your investment. Some of these sections include ‘Use of Available Funds’, ‘Business of the Corporation’, ‘Capital Structure’, ‘Description of Securities Offered’ and within the section called ‘Risk Factors’ is a listing of applicable risks of the investment. Risks outlined in the OM are there to help you learn and understand the risks that may impact the investment’s performance or ability to perform.</p><p>You are not alone in trying to understand the investment’s risks. CPC’s Dealing Representatives will review the risks for the investments with you and assess the suitability of the product given your specific risk tolerance and investment objectives. The Dealing Representative will answer any questions you have along the way. In the end, we want you to be an informed investor.</p>",
+        "group": "Investor FAQ",
+        "footnote": ""
+      },
+      {
+        "id": "how-can-i-invest",
+        "question": "How can I invest in the Exempt Market?",
+        "answer": "<p>Contact CareVest Private Capital Inc., an Exempt Market Dealer (EMD), in order to speak with a Dealing Representative for further information on investing in the exempt market.</p><p>Please <a href=\"/contact\">Contact Us</a> and fill out our contact form. CareVest Private Capital’s Dealing Representatives will review available investment opportunities with you and explain the investment process.</p>",
+        "group": "Investor FAQ",
+        "footnote": ""
+      },
+      {
+        "id": "origination",
+        "question": "Origination phase",
+        "answer": "<p>The origination phase includes the participation of our in-house lenders in local markets to better understand local market trends and changes in local market economics. This hands-on approach and knowledge of local market participants is a cornerstone in our evaluating lending opportunities brought to us for financing. Our initial assessment includes, but is not limited to, a thorough understanding of an opportunity’s “fit” in the market place, its sponsorship, and financial realities.</p><p>Based on initial assessments, our in-house lenders may request additional background and overview information to assist them in the development of a letter of intent which outlines the terms and conditions upon which the lender is prepared to consider financing for the project under review. Our letter of intent outlines:</p><ul><li>Proposed loan terms</li><li>Proposed structure of the loan</li><li>Security granted</li><li>Borrower release for credit bureau and other review items, and</li><li>Additional information as required – project dependent</li></ul>",
+        "group": "Lending Process",
+        "footnote": ""
+      },
+      {
+        "id": "underwriting",
+        "question": "Underwriting phase",
+        "answer": "<p>The underwriting phase involves our in-house lenders reviewing all provided information and other sourced data, and the preparation and presentation of a credit submission to the lender’s credit committee. Credit submissions typically include discussions on the project, its market fit, project budget, sales and / or leasing projections, construction specifications, floor plans, zoning status, location details, environmental reports, geotechnical investigation, building condition analysis, as well as:</p><ul><li>Borrower and guarantor(s) – financial statements, experience, prior loan history, personal financial information, credit bureau reports</li><li>Third party market reports – appraisal, realtor interviews, physical inspection comments, competing project analysis, demographics, market dynamics</li><li>Lending terms and conditions</li><li>Security to be granted, and</li><li>Exit strategy – exploration of all potential sources of repayment</li></ul>",
+        "group": "Lending Process",
+        "footnote": ""
+      },
+      {
+        "id": "credit-approval",
+        "question": "Credit approval phase",
+        "answer": "<p>The credit approval phase includes, but is not limited to, a detailed discussion and review of the data points included in the credit submission.</p>",
+        "group": "Lending Process",
+        "footnote": ""
+      },
+      {
+        "id": "contracting",
+        "question": "Contracting phase",
+        "answer": "<p>The contracting phase involves the borrower and guarantor(s) acceptance of a commitment letter generated by the lender after credit submissions have been reviewed and approved by the lender’s credit committee.</p>",
+        "group": "Lending Process",
+        "footnote": ""
+      },
+      {
+        "id": "funding-administration",
+        "question": "Funding and administration phase",
+        "answer": "<p>The funding and administration phase is managed by the lender’s mortgage services group and involves the review and satisfaction of all conditions precedent to funding and registration of security granted in the commitment letter.</p>",
+        "group": "Lending Process",
+        "footnote": ""
+      }
+    ],
+
+    "events": [
+      {
+        "id": "speaker-series-vancouver",
+        "title": "An evening on the Western Canadian economy.",
+        "summary": "Join CareVest and our professional partners for an economic outlook and a CareVest Core MIC update. Seating is limited, and every evening includes time to speak with our team directly.",
+        "series": "Speaker Series",
+        "city": "Vancouver",
+        "date_text": "To be announced",
+        "location": "Downtown Vancouver",
+        "cost": "Complimentary",
+        "group": "Upcoming"
+      }
+    ],
+
+    "industry_links": [
+      { "id": "asc", "label": "Alberta Securities Commission", "url": "https://www.asc.ca/" },
+      { "id": "bcsc", "label": "British Columbia Securities Commission", "url": "https://www.bcsc.bc.ca/" },
+      { "id": "csa", "label": "Canadian Securities Administrators", "url": "https://www.securities-administrators.ca/" },
+      { "id": "are-they-registered", "label": "‘Are they Registered?’", "url": "https://www.aretheyregistered.ca/" },
+      { "id": "pcma", "label": "Private Capital Markets Association of Canada", "url": "https://www.pcmacanada.com/" }
+    ],
+
+    "timeline": [
+      {
+        "id": "1994",
+        "year": "1994",
+        "heading": "Where we began",
+        "body": "CareVest Capital Inc., the group’s Mortgage Broker, begins operating in Western Canada. Over its history it establishes a strong reputation for providing timely and tailored lending solutions, facilitating private financing for for-profit commercial residential real estate and housing development through numerous business cycles in numerous markets across Canada.",
+        "note": ""
+      },
+      {
+        "id": "2005",
+        "year": "2005",
+        "heading": "The registered dealer",
+        "body": "CareVest Private Capital Inc. becomes active in the prospectus-exempt market, with a focus on private real estate lending investments in Western Canada, including mortgage investment corporations. As the registered dealer within the CareVest Group, it provides investors access to the group’s proprietary products.",
+        "note": ""
+      },
+      {
+        "id": "2010",
+        "year": "2010",
+        "heading": "The fund manager",
+        "body": "CareVest Management Corp. is founded, providing services to the mortgage investment corporations that it manages. The MICs it has managed have funded over $2.1 billion in real estate lending, and CareVest Capital has referred over $2.0 billion in mortgages to the manager since 2010.",
+        "note": ""
+      },
+      {
+        "id": "then",
+        "year": "Then",
+        "heading": "What the market taught us",
+        "body": "Earlier CareVest funds faced difficult market conditions, and we believe investors deserve a direct account of that period and of what changed as a result. The lessons of those years are reflected in how the CareVest Core MIC is constructed today: its investment guidelines, its loan-to-value discipline, and its focus on the markets we know firsthand.",
+        "note": "<b>Draft placeholder:</b> this section’s final wording is to be written with CareVest, the EMD, and counsel before launch."
+      },
+      {
+        "id": "2021",
+        "year": "2021",
+        "heading": "The CareVest Core MIC",
+        "body": "CareVest Core Mortgage Investment Corporation is created to acquire and maintain a portfolio of mortgages that preserves capital and generates returns in order to permit it to pay distributions. Class A Shares are first issued in August 2021, with the first distribution in September 2021. CareVest Core MIC has successfully delivered monthly dividends to investors since its inception that represent the actual return on investment (net fees and expenses).",
+        "note": ""
+      },
+      {
+        "id": "today",
+        "year": "Today",
+        "heading": "The discipline, institutionalized",
+        "body": "The CareVest Core MIC currently holds 100% first mortgages, with a weighted average loan-to-value ratio of 62% and 75% or lower for most mortgages. CareVest Management Corp. administers $178 million in assets as of December 31, 2024. Fund performance is posted online monthly, and electronic investor statements are available.",
+        "note": ""
+      }
+    ],
+
+    "values": [
+      { "id": "honest", "heading": "Honest & Forthright", "body": "CareVest Core MIC successfully delivered monthly dividends to investors since its inception in 2021 that represent the actual return on investment (net fees and expenses)." },
+      { "id": "accountable", "heading": "Accountable & Compliant", "body": "We follow regulatory requirements, mortgage broker laws and licencing requirements, and maintain a compliance team, ensuring our investors best interests are protected." },
+      { "id": "transparent", "heading": "Transparent & Timely", "body": "We post fund performance online monthly and electronic investor statements are available." }
+    ],
+
+    "offices": [
+      { "id": "vancouver", "name": "Vancouver - Head Office", "street": "Suite 1150, 510 Burrard St.", "city_line": "Vancouver, BC V6C 3A8", "phone_label": "Mortgage Broker", "phone": "(604) 632-9919" },
+      { "id": "calgary", "name": "Calgary Office", "street": "Suite 1450, 555 4th Ave SW", "city_line": "Calgary, AB T2P 3E7", "phone_label": "Mortgage Broker", "phone": "(403) 509-0115" }
+    ]
+  },
+
+  "figures": {
+    "yield": {
+      "value": 7.75,
+      "prefix": "",
+      "suffix": "%+",
+      "decimals": 2,
+      "as_of": "January 31, 2026",
+      "note": "The historical compound annual yield for Class A Shares of CareVest Core MIC at January 31, 2026 and the most current month exceeds 8.25% and is net of all fees and expenses, unaudited and prepared by CareVest Management Corp. Annual compound yield is calculated as the (ending value/beginning value)^(12/number of months)-1 with the assumption that dividend reinvestment is compounded at Net Asset Value per Class A Share. Past performance may not be repeated and there are no guarantees of future performance. Visit www.carevestmanagement.com for complete details of the most recent performance of CareVest Core MIC, including simple yield and yield since inception, which differ from the annual compound yield."
+    },
+    "funded": { "value": 2.1, "prefix": "$", "suffix": "B+", "decimals": 1, "as_of": "", "note": "" },
+    "aua": { "value": 178, "prefix": "$", "suffix": "M", "decimals": 0, "as_of": "December 31, 2024", "note": "" },
+    "ltv": { "value": 62, "prefix": "", "suffix": "%", "decimals": 0, "as_of": "June 30, 2026", "note": "" },
+    "first_mortgages": { "value": 100, "prefix": "", "suffix": "%", "decimals": 0, "as_of": "June 30, 2026", "note": "" },
+    "gross_weighted_average": { "value": 10, "prefix": "", "suffix": "%", "decimals": 0, "as_of": "June 30, 2026", "note": "" },
+    "founded_year": { "value": 1994, "prefix": "", "suffix": "", "decimals": 0, "as_of": "", "note": "" },
+    "inception_year": { "value": 2021, "prefix": "", "suffix": "", "decimals": 0, "as_of": "", "note": "" }
+  },
+
+  "documents": {
+    "offering_memorandum": { "title": "Offering Memorandum", "url": "", "version_label": "", "uploaded_at": "" },
+    "fact_sheet": { "title": "Fund Fact Sheet", "url": "", "version_label": "", "uploaded_at": "" },
+    "terms_of_use": { "title": "Terms of Use", "url": "https://www.carevest.com/terms-of-use", "version_label": "", "uploaded_at": "" },
+    "privacy_policy": { "title": "Privacy Policy", "url": "https://www.carevest.com/_files/ugd/bf9305_8633260fac9b4cabbe5f18044bad6a52.pdf", "version_label": "", "uploaded_at": "" },
+    "relationship_disclosure": { "title": "Relationship Disclosure Information", "url": "https://www.carevest.com/_files/ugd/bf9305_149c84d04faf4e36ac0c0ed19cf7479e.pdf", "version_label": "", "uploaded_at": "" },
+    "form_address_email_change": { "title": "Address / Email Change", "url": "", "version_label": "", "uploaded_at": "" },
+    "form_electronic_delivery_consent": { "title": "Electronic Delivery Consent", "url": "", "version_label": "", "uploaded_at": "" },
+    "form_opt_out_financial_statements": { "title": "Opt-Out of Financial Statements", "url": "", "version_label": "", "uploaded_at": "" },
+    "form_direct_deposit": { "title": "Direct Deposit", "url": "", "version_label": "", "uploaded_at": "" },
+    "form_drip": { "title": "Dividend Reinvestment Plan (DRIP)", "url": "", "version_label": "", "uploaded_at": "" },
+    "form_core_mic_drip": { "title": "CareVest Core MIC Dividend Reinvestment Plan", "url": "", "version_label": "", "uploaded_at": "" },
+    "form_transfer_request": { "title": "Transfer Request", "url": "", "version_label": "", "uploaded_at": "" },
+    "form_in_kind_contribution": { "title": "In-Kind Contribution Request", "url": "", "version_label": "", "uploaded_at": "" },
+    "form_declaration_of_transmission": { "title": "Declaration of Transmission", "url": "", "version_label": "", "uploaded_at": "" },
+    "form_name_change": { "title": "Name Change", "url": "", "version_label": "", "uploaded_at": "" }
+  },
+
+  "globals": {
+    "logo": { "src": "/assets/carevest-logo.png", "alt": "CareVest Group" },
+    "logo_footer": { "src": "/assets/carevest-logo-white.png", "alt": "CareVest Group" },
+    "nav": [
+      { "id": "core-fund", "label": "Core Fund", "href": "/core-mic" },
+      { "id": "how-it-works", "label": "How It Works", "href": "/how-investing-works" },
+      { "id": "lending", "label": "Lending", "href": "/lending" },
+      { "id": "about", "label": "About", "href": "/about" },
+      { "id": "team", "label": "Team", "href": "/team" },
+      { "id": "events", "label": "Events", "href": "/events" }
+    ],
+    "header_cta": { "label": "Get in Touch", "href": "/contact" },
+    "phone_investor_relations": "1 (855) 278-3611",
+    "footer_tagline": "Alternative real estate lending and income-producing alternative investments in Western Canada since 1994.",
+    "footer_phone_label": "Investor Relations",
+    "footer_invest_heading": "Invest",
+    "footer_invest_links": [
+      { "id": "core-fund", "label": "Core Fund", "href": "/core-mic" },
+      { "id": "how-investing-works", "label": "How Investing Works", "href": "/how-investing-works" },
+      { "id": "promotions", "label": "Promotions", "href": "/core-mic#promotion" },
+      { "id": "shareholder-admin", "label": "Shareholder Administration", "href": "/about#shareholder-admin" }
+    ],
+    "footer_company_heading": "Company",
+    "footer_company_links": [
+      { "id": "about", "label": "About", "href": "/about" },
+      { "id": "our-history", "label": "Our History", "href": "/our-history" },
+      { "id": "team", "label": "Team", "href": "/team" },
+      { "id": "events", "label": "Events", "href": "/events" },
+      { "id": "lending", "label": "Lending", "href": "/lending" },
+      { "id": "careers", "label": "Careers", "href": "/about#careers" },
+      { "id": "contact", "label": "Contact", "href": "/contact" }
+    ],
+    "footer_offices_heading": "Offices",
+    "disclaimer": "<b>Disclaimer.</b> This website is for information purposes only and the information contained herein is not an offer to sell or a solicitation of an offer to purchase any security. Any offerings of securities will be conducted by a registered dealer in specified jurisdictions using offering documentation prepared in accordance with applicable law. You should read those offering documents before making any investment decision as they will contain required disclosure regarding the offering terms, risks, conflicts of interest and other disclosure relevant to making an investment decision. Investment opportunities available through CareVest Private Capital Inc., an exempt market dealer registered in Alberta and British Columbia, are only suitable for investors who are qualified to purchase the securities, are familiar with, and have the ability and willingness to accept the high risk associated with private investments. Members of the CareVest Group are related and connected to the issuers referred to herein, as set out in the Relationship Disclosure Information. Vancouver office is shared by CareVest Capital Inc. and CareVest Private Capital Inc. CareVest Management Corp. does not have an office in Vancouver.",
+    "legal_links": [
+      { "id": "terms", "label": "Terms of Use", "document": "terms_of_use" },
+      { "id": "privacy", "label": "Privacy Policy", "document": "privacy_policy" },
+      { "id": "relationship", "label": "Relationship Disclosure Information", "document": "relationship_disclosure" }
+    ],
+    "copyright": "©2026 by CareVest Group"
+  }
+}
