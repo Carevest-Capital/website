@@ -62,7 +62,7 @@ create table if not exists public.content (
 );
 
 create or replace function public.touch_content()
-returns trigger language plpgsql as $$
+returns trigger language plpgsql set search_path = public as $$
 begin
   new.updated_at := now();
   new.updated_by := coalesce(auth.uid(), new.updated_by);
@@ -93,7 +93,7 @@ create index if not exists documents_slot_current on public.documents (slot, is_
 
 -- Only one current file per slot.
 create or replace function public.single_current_document()
-returns trigger language plpgsql as $$
+returns trigger language plpgsql set search_path = public as $$
 begin
   if new.is_current then
     update public.documents set is_current = false
@@ -180,7 +180,7 @@ end $$;
 
 -- Does anything differ between draft and published? (Drives the "Unpublished changes" badge.)
 create or replace function public.pending_changes()
-returns table (key text, updated_at timestamptz) language sql stable as $$
+returns table (key text, updated_at timestamptz) language sql stable set search_path = public as $$
   select key, updated_at from public.content where draft is distinct from published;
 $$;
 
@@ -226,17 +226,29 @@ create policy "deploy_targets: editors read" on public.deploy_targets for select
 drop policy if exists "publish_log: editors read" on public.publish_log;
 create policy "publish_log: editors read" on public.publish_log for select using (public.is_editor());
 
--- Public, read-only view of published content for the production build (anon key).
-create or replace view public.published_content with (security_invoker = false) as
-  select key, published as value, published_at from public.content where published is not null;
-grant select on public.published_content to anon, authenticated;
+-- Public read of content (used by the website build with the anon key). Anon may read only these columns;
+-- the two views below simply shape them. Drafts are readable because the preview site is itself public.
+drop policy if exists "content: public read" on public.content;
+create policy "content: public read" on public.content for select to anon using (true);
+revoke select on public.content from anon;
+grant select (key, draft, published, published_at, updated_at) on public.content to anon;
 
--- Public, read-only view of DRAFT content for the preview build (anon key). The preview site is itself
--- public (noindex), so exposing drafts here adds nothing that the preview page does not already show.
-create or replace view public.draft_content with (security_invoker = false) as
+create or replace view public.published_content with (security_invoker = true) as
+  select key, published as value, published_at from public.content where published is not null;
+create or replace view public.draft_content with (security_invoker = true) as
   select key, coalesce(draft, published) as value, updated_at from public.content where coalesce(draft, published) is not null;
+grant select on public.published_content to anon, authenticated;
 grant select on public.draft_content to anon, authenticated;
 grant select on public.documents to anon;
+
+-- Helper functions that only the database itself should call.
+revoke execute on function public.call_deploy_hooks(text) from public, anon, authenticated;
+revoke execute on function public.handle_new_user() from public, anon, authenticated;
+revoke execute on function public.is_editor() from public, anon;
+revoke execute on function public.is_admin() from public, anon;
+revoke execute on function public.publish_all(text) from public, anon;
+revoke execute on function public.request_preview() from public, anon;
+revoke execute on function public.pending_changes() from public, anon;
 
 -- ---------------------------------------------------------------------------
 -- Storage buckets (public read, editor write)
