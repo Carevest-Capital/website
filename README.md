@@ -40,7 +40,7 @@ carevest-cms/
 3. Authentication, Providers: keep Email enabled, turn **off** "Allow new users to sign up" (users are invited).
    Authentication, URL configuration: set Site URL to the dashboard address and add
    `https://<dashboard>/set-password` to Redirect URLs.
-4. Import the current website content:
+4. Import the current website content (already done for the CareVest project; only needed for a fresh database):
    ```bash
    cd carevest-cms
    SUPABASE_URL=https://xxxx.supabase.co SUPABASE_SERVICE_ROLE_KEY=eyJ... node supabase/seed.mjs
@@ -72,8 +72,8 @@ Environment variables:
 `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`, `VITE_SITE_URL` (the live website), `VITE_PREVIEW_URL`.
 
 ### 4. Connect publishing
-Sign in to the dashboard as the administrator, open **Publishing setup**, add each website with its deploy hook
-(`carevest-blue` as Production, `carevest-preview` as Preview). Press Publish once; the site rebuilds. Done.
+Already done for the CareVest project: the deploy hooks of `carevest-blue` (Production) and `carevest-preview`
+(Preview) are registered. Administrators can see or change them under **Publishing setup** in the dashboard.
 
 ## Day to day (for the CareVest team)
 
