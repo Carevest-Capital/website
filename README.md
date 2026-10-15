@@ -38,6 +38,11 @@ carevest-cms/
 2. Database, SQL Editor, New query: paste the whole of `supabase/schema.sql` and run it. It creates the tables,
    the publish functions, the two storage buckets and all access rules. Safe to run again later.
 3. Authentication, Providers: keep Email enabled, turn **off** "Allow new users to sign up" (users are invited).
+   **Set up custom SMTP** (Authentication, Emails, SMTP settings) before inviting anyone outside the Supabase
+   organisation. Supabase's built-in mailer is a shared test sender (noreply@mail.app.supabase.io) limited to a
+   few emails per hour; corporate mail filters such as Microsoft 365 routinely quarantine it, so invitations
+   and password resets to @carevest.com addresses never arrive. Resend (free tier) or Postmark with a sending
+   subdomain such as mail.carevest.com takes about 15 minutes including the DNS records.
    Authentication, URL configuration: set Site URL to the dashboard address and add
    `https://<dashboard>/set-password` to Redirect URLs.
 4. Import the current website content (already done for the CareVest project; only needed for a fresh database):
