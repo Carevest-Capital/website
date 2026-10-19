@@ -34,7 +34,7 @@ export default function Overview() {
 
       {pending.length > 0 && (
         <div className="card" style={{ marginBottom: 22 }}>
-          <div className="card__h"><h3>Waiting to be published</h3><div className="spacer" /><span className="small muted">Use the Publish button at the top right</span></div>
+          <div className="card__h"><h3>Waiting to be published</h3><div className="spacer" /><Link className="btn btn--sm" to="/changes">Review changes</Link></div>
           <div className="card__b" style={{ paddingTop: 10, paddingBottom: 10 }}>
             {pending.map((p) => <div key={p.key} className="row" style={{ justifyContent: 'space-between', padding: '8px 0', borderBottom: '1px solid var(--line)' }}><Link to={rowRoute(p.key)}>{rowLabel(p.key)}</Link><span className="faint small">edited {timeAgo(p.updated_at)}</span></div>)}
           </div>

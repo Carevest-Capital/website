@@ -15,6 +15,7 @@ import Globals from './pages/Globals.jsx';
 import { Users, Settings, History } from './pages/Admin.jsx';
 import PreviewWait from './pages/PreviewWait.jsx';
 import Preview from './pages/Preview.jsx';
+import Changes from './pages/Changes.jsx';
 
 function Gate({ children }) {
   const { session } = useStore();
@@ -41,6 +42,7 @@ function App() {
           <Route index element={<Overview />} />
           <Route path="pages/:slug" element={<PageEditor />} />
           <Route path="collections/:name" element={<CollectionEditor />} />
+          <Route path="changes" element={<Changes />} />
           <Route path="figures" element={<FiguresEditor />} />
           <Route path="documents" element={<Documents />} />
           <Route path="site" element={<Globals />} />

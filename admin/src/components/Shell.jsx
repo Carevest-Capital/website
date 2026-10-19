@@ -50,6 +50,7 @@ export default function Shell() {
         </div>
         <nav onClick={() => setMenu(false)}>
           <NavLink to="/" end className={({ isActive }) => `nav${isActive ? ' active' : ''}`}>Overview</NavLink>
+          <NavLink to="/changes" className={({ isActive }) => `nav${isActive ? ' active' : ''}`}>Unpublished changes{pending.length > 0 && <span className="dot" />}</NavLink>
           <div className="grp">Pages</div>
           {schema.pages.map((p) => (
             <NavLink key={p.slug} to={`/pages/${p.slug}`} className={({ isActive }) => `nav${isActive ? ' active' : ''}`}>
@@ -83,7 +84,7 @@ export default function Shell() {
           <div className="spacer" />
           {store.mode === 'demo' && <span className="badge badge--demo">Demo mode</span>}
           {pending.length > 0
-            ? <span className="badge badge--warn">{pending.length} unpublished change{pending.length === 1 ? '' : 's'}</span>
+            ? <Link className="badge badge--warn badge--link" to="/changes" title="Review, discard or publish your changes">{pending.length} area{pending.length === 1 ? '' : 's'} with unpublished changes · Review</Link>
             : <span className="badge badge--ok">Website is up to date</span>}
           <a className="btn" href={SITE_URL} target="_blank" rel="noopener">View website</a>
           <button className="btn" onClick={doPreview} disabled={previewing} title={currentPage ? `Preview the ${currentPage.title} page with your unpublished changes` : 'Preview the website with your unpublished changes'}>{previewing && <span className="spin" />}Preview changes</button>
@@ -102,7 +103,7 @@ export default function Shell() {
             <button className="btn" onClick={() => setShowPublish(false)} disabled={publishing}>Cancel</button>
             <button className="btn btn--primary" onClick={doPublish} disabled={publishing}>{publishing && <span className="spin" />}{publishing ? 'Publishing' : `Publish ${pending.length} change${pending.length === 1 ? '' : 's'}`}</button>
           </>}>
-          <p className="muted">These areas have changes that visitors cannot see yet. Publishing makes them live on every version of the website within about a minute.</p>
+          <p className="muted">These areas have changes that visitors cannot see yet. Publishing makes them live within about a minute. Want to check or discard individual changes first? <Link to="/changes" onClick={() => setShowPublish(false)}>Review them</Link>.</p>
           <div className="changes">{pending.map((p) => <div key={p.key}><Link to={rowRoute(p.key)} onClick={() => setShowPublish(false)}>{rowLabel(p.key)}</Link><span className="faint">{timeAgo(p.updated_at)}</span></div>)}</div>
           <div className="field"><label>Note for the history (optional)</label><input className="input" value={note} onChange={(e) => setNote(e.target.value)} placeholder="e.g. Updated June fund highlights" /></div>
         </Modal>

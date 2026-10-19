@@ -260,3 +260,21 @@ p { margin: 0; }
 .pv__banner { background: var(--warn-soft); color: var(--warn); padding: 8px 14px; font-size: 13.5px; }
 .pv__frame { flex: 1; width: 100%; border: 0; background: #fff; }
 .pv__error { padding: 40px; color: #fff; }
+
+/* unpublished changes review */
+.badge--link { cursor: pointer; }
+.badge--link:hover { text-decoration: none; filter: brightness(.96); }
+.chg { padding: 6px 10px 10px; }
+.chg__row { padding: 12px 12px 14px; border-top: 1px solid var(--line); }
+.chg__row:first-child { border-top: 0; }
+.chg__head { display: flex; align-items: center; gap: 10px; }
+.chg__label { font-weight: 500; font-size: 14px; }
+.chg__head .spacer { flex: 1; }
+.chg__vals { display: grid; grid-template-columns: 1fr 28px 1fr; gap: 10px; align-items: start; margin-top: 10px; }
+.chg__val { border-radius: 8px; padding: 10px 12px; font-size: 13.5px; line-height: 1.5; min-height: 44px; word-break: break-word; }
+.chg__val--before { background: var(--panel-2); color: var(--muted); }
+.chg__val--after { background: var(--accent-soft); color: var(--fg); }
+.chg__val img { display: block; max-width: 160px; border-radius: 6px; margin: 4px 0 6px; }
+.chg__k { display: block; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); margin-bottom: 4px; }
+.chg__arrow { text-align: center; color: var(--faint); padding-top: 22px; }
+@media (max-width: 700px) { .chg__vals { grid-template-columns: 1fr; } .chg__arrow { display: none; } }

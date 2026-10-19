@@ -91,6 +91,9 @@ Already done for the CareVest project: the deploy hooks of `carevest-blue` (Prod
   picked. It is rendered in your browser with the website's own templates, so nothing has to be built. Click
   around inside it like the real site. "Get a shareable link" builds a copy on the preview website (about a
   minute) that you can send to a colleague.
+- **Review before going live**: click the "unpublished changes" badge at the top (or Unpublished changes in the
+  menu). Every change is listed with what is live now and what it becomes. Discard any single change, a whole
+  area, or everything; then Publish the rest from the same screen.
 - **Go live**: Publish (top right). It lists what changed. About a minute later the website is updated.
 - **Add a team member, transaction, FAQ or event**: the matching screen under Shared content.
 - **Hide a section**: every section card has a Shown / Hidden switch. A hidden section disappears from the
