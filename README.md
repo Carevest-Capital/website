@@ -87,9 +87,10 @@ Already done for the CareVest project: the deploy hooks of `carevest-blue` (Prod
   Update the "as of" date and the footnote with it.
 - **Upload a newer document**: Documents, Upload newer version. Older versions stay in the history.
 - **See before going live**: press Preview (top right, or Preview page / Preview on any section card). A new
-  tab opens, waits while a private copy of the website is rebuilt with your unpublished changes (about a
-  minute) and then shows the page, scrolled to the section you picked. If nothing is unpublished it opens
-  straight away.
+  tab opens instantly with the page rendered from your unpublished drafts, scrolled to the section you
+  picked. It is rendered in your browser with the website's own templates, so nothing has to be built. Click
+  around inside it like the real site. "Get a shareable link" builds a copy on the preview website (about a
+  minute) that you can send to a colleague.
 - **Go live**: Publish (top right). It lists what changed. About a minute later the website is updated.
 - **Add a team member, transaction, FAQ or event**: the matching screen under Shared content.
 - **Hide a section**: every section card has a Shown / Hidden switch. A hidden section disappears from the

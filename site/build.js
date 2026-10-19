@@ -23,6 +23,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import nunjucks from 'nunjucks';
 import * as schema from '../shared/content-schema.js';
+import * as render from '../shared/render-core.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const TEMPLATES = path.join(HERE, 'templates');
@@ -157,84 +158,12 @@ async function loadContent() {
 
 /* ------------------------------------------------------------------ templates */
 
-function escapeHtml(str) {
-  return String(str)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
-}
-
 function createEnvironment(content) {
   const env = new nunjucks.Environment(new nunjucks.FileSystemLoader(TEMPLATES, { noCache: true }), {
     autoescape: true,
     throwOnUndefined: false,
   });
-  const { SafeString } = nunjucks.runtime;
-  const slotDefs = Object.fromEntries(schema.documents.slots.map((s) => [s.key, s]));
-
-  /* [[word]] becomes the accent span; everything else is escaped. */
-  env.addFilter('accent', (str) => {
-    const escaped = escapeHtml(str ?? '');
-    return new SafeString(escaped.replace(/\[\[(.+?)\]\]/g, '<span class="accent-word">$1</span>'));
-  });
-
-  /* A stat with `figure` takes value/prefix/suffix/decimals from that key figure. */
-  const resolve = (stat) => {
-    const st = stat || {};
-    const fig = st.figure ? content.figures?.[st.figure] : null;
-    const src = fig || st;
-    return {
-      value: Number(src.value ?? 0),
-      prefix: src.prefix || '',
-      suffix: src.suffix || '',
-      decimals: Number(src.decimals || 0),
-      label: st.label || '',
-      note: st.note || '',
-      figure: st.figure || '',
-    };
-  };
-  env.addFilter('resolve', resolve);
-
-  /* "7.75%+" style display string for a stat (prefix + fixed decimals + suffix). */
-  env.addFilter('fmt', (stat) => {
-    const r = resolve(stat);
-    return `${r.prefix}${r.value.toFixed(r.decimals)}${r.suffix}`;
-  });
-
-  env.addFilter('fixed', (n, decimals) => Number(n ?? 0).toFixed(Number(decimals || 0)));
-  env.addFilter('money', (n) => `$${Math.round(Number(n || 0)).toLocaleString('en-US')}`);
-  env.addFilter('pad2', (n) => String(n).padStart(2, '0'));
-  env.addFilter('numeric', (str) => /^\d+$/.test(String(str ?? '').trim()));
-  env.addFilter('tel', (str) => String(str ?? '').replace(/\D/g, ''));
-  env.addFilter('where', (arr, key, value) => (Array.isArray(arr) ? arr.filter((x) => x && x[key] === value) : []));
-
-  /* The current file in a document slot, or the slot's fallback (contact page as a last resort). */
-  env.addFilter('docurl', (slot) => {
-    const doc = content.documents?.[slot];
-    if (doc && doc.url) return doc.url;
-    return slotDefs[slot]?.fallback || '/contact';
-  });
-  /* Only a real uploaded file, no fallback. Empty when the slot has no file. */
-  env.addFilter('docfile', (slot) => content.documents?.[slot]?.url || '');
-
-  /* Richtext rendered inside an element that is already a paragraph: drop the <p> wrappers. */
-  env.addFilter('inlinep', (html) => {
-    const s = String(html ?? '')
-      .trim()
-      .replace(/<\/p>\s*<p[^>]*>/gi, '<br /><br />')
-      .replace(/^<p[^>]*>/i, '')
-      .replace(/<\/p>$/i, '');
-    return new SafeString(s);
-  });
-
-  /* Richtext whose links should take the accent colour (FAQ answers). */
-  env.addFilter('accentlinks', (html) => {
-    const s = String(html ?? '').replace(/<a\s+(?![^>]*\bstyle=)([^>]*)>/gi, '<a $1 style="color:var(--accent);">');
-    return new SafeString(s);
-  });
-
+  render.registerFilters(env, { content, schema, SafeString: nunjucks.runtime.SafeString });
   return env;
 }
 
@@ -267,49 +196,15 @@ async function main() {
   console.log(`build: theme=${THEME} state=${STATE} content=${from}`);
   console.log(`build: output ${OUT}`);
 
-  /* Pages the team has hidden in the dashboard (pages[slug]._meta.hidden). They are not rendered, every
-     menu or footer link to them is dropped, and their address redirects to the home page so that nothing
-     on the site can 404 while they are hidden. The home page can never be hidden. */
-  const hiddenPages = schema.pages.filter((p) => p.slug !== 'index' && content.pages?.[p.slug]?._meta?.hidden === true);
+  /* Pages the team has hidden in the dashboard are not rendered, every menu or footer link to them is
+     dropped (render-core), and their address redirects to the home page so nothing can 404. */
+  const hiddenPages = render.hiddenPages(content, schema);
   const hiddenPaths = new Set(hiddenPages.map((p) => p.path));
-  const linksTo = (href) => {
-    const h = String(href || '').split(/[#?]/)[0].replace(/\/$/, '') || '/';
-    return hiddenPaths.has(h);
-  };
-  const globals = structuredClone(content.globals || {});
-  for (const key of ['nav', 'footer_invest_links', 'footer_company_links']) {
-    if (Array.isArray(globals[key])) globals[key] = globals[key].filter((l) => !linksTo(l && l.href));
-  }
-  if (globals.header_cta && linksTo(globals.header_cta.href)) globals.header_cta = { ...globals.header_cta, href: '/contact' };
   if (hiddenPages.length) console.log(`build: hidden pages: ${hiddenPages.map((p) => p.path).join(', ')} (redirected to /)`);
 
   for (const page of schema.pages) {
     if (hiddenPaths.has(page.path)) continue;
-    const sections = content.pages?.[page.slug] || {};
-    const context = {
-      pg: page,
-      meta: sections._meta || {},
-      s: sections,
-      g: globals,
-      /* shown('sectionKey') is false when the team hid that section in the dashboard. */
-      shown: (sectionKey) => !(sections[sectionKey] && sections[sectionKey]._hidden === true),
-      /* Label used for a page when its own opening section is hidden: the menu label, else the page title. */
-      pageLabel: (globals.nav || []).find((n) => n && n.href === page.path)?.label || page.title,
-      hiddenPage: (href) => linksTo(href),
-      col: content.collections || {},
-      fig: content.figures || {},
-      doc: content.documents || {},
-      content,
-      schema,
-      theme: THEME,
-      /* items('sectionKey') returns the collection a section renders, filtered by its group if any. */
-      items: (sectionKey) => {
-        const def = page.sections.find((sec) => sec.key === sectionKey);
-        if (!def || !def.collection) return [];
-        const arr = content.collections?.[def.collection] || [];
-        return def.group ? arr.filter((x) => x && x.group === def.group) : arr;
-      },
-    };
+    const context = render.pageContext({ page, content, schema, theme: THEME });
     const html = env.render(`${page.slug}.njk`, context);
     const file = path.join(OUT, `${page.slug}.html`);
     fs.writeFileSync(file, html);

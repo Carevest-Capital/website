@@ -1,7 +1,8 @@
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { createDemoStore } from './demo.js';
 import { createSupabaseStore } from './supabase.js';
-import { allRowKeys, contentToRows, clone, deepEqual } from './content.js';
+import { allRowKeys, contentToRows, clone, deepEqual, schema } from './content.js';
+const schemaPages = () => schema.pages;
 import seed from '@seed/content.json';
 
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
@@ -111,32 +112,19 @@ export function StoreProvider({ children }) {
   }, [flushAll]);
 
   /**
-   * Open a preview of one page (and optionally jump to one section) in a new tab.
-   * The tab opens immediately (browsers only allow that inside the click), shows a waiting screen,
-   * and moves on to the preview site as soon as the preview build with these drafts has landed.
-   * When nothing is unpublished the preview equals the live site, so it opens straight away.
+   * Instant preview: opens a new tab that renders the page from the current drafts right in the browser
+   * (same templates as the website). Nothing is built or deployed, so it is immediate.
+   * Pending edits are flushed first so the preview tab reads the latest drafts.
    */
   const openPreview = useCallback(async ({ path = '/', section = '' } = {}) => {
-    const hash = section ? `#section=${encodeURIComponent(section)}` : '';
-    const unsaved = Object.values(saving).some((st) => st === 'pending' || st === 'saving');
-    const base = PREVIEW_URL || SITE_URL;
-    if (!PREVIEW_URL || (pending.length === 0 && !unsaved)) {
-      window.open(`${base.replace(/\/$/, '')}${path}${hash}`, '_blank', 'noopener');
-      return { rebuilt: false };
-    }
-    const since = Date.now();
-    const params = new URLSearchParams({ to: path, section, since: String(since) });
-    const tab = window.open(`/preview-wait?${params.toString()}`, '_blank');
-    try {
-      await flushAll();
-      await store.requestPreview();
-      return { rebuilt: true };
-    } catch (e) {
-      try { localStorage.setItem(`cv-preview-error-${since}`, e.message || 'Preview request failed'); } catch {}
-      if (tab && !tab.closed) tab.location.replace(`/preview-wait?${params.toString()}&error=1`);
-      throw e;
-    }
-  }, [flushAll, pending, saving]);
+    const page = allRowKeys && schemaPages().find((p) => p.path === path);
+    const slug = page ? page.slug : 'index';
+    const url = `/preview/${slug}${section ? `?section=${encodeURIComponent(section)}` : ''}`;
+    const tab = window.open(url, '_blank');
+    await flushAll();
+    if (!tab) throw new Error('Your browser blocked the preview tab. Allow pop-ups for this site and try again.');
+    return { rebuilt: false };
+  }, [flushAll]);
 
   const refreshDocuments = useCallback(async () => setDocuments(await store.listDocuments()), []);
 

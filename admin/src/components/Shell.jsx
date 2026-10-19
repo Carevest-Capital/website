@@ -33,8 +33,7 @@ export default function Shell() {
   const doPreview = async () => {
     setPreviewing(true);
     try {
-      const r = await openPreview({ path: currentPage?.path || '/' });
-      if (r.rebuilt) toast('Building your preview. The new tab opens the page when it is ready, about a minute.', 'ok', 6000);
+      await openPreview({ path: currentPage?.path || '/' });
     } catch (e) { toast(`Preview failed: ${e.message}`, 'bad', 7000); }
     finally { setPreviewing(false); }
   };

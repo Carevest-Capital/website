@@ -30,6 +30,17 @@ export function contentToRows(content) {
   return rows;
 }
 
+/** Assemble a full Content JSON object from the dashboard's draft rows plus the current documents. */
+export function rowsToContent(rows, documents = []) {
+  const content = { pages: {}, collections: {}, figures: {}, globals: {}, documents: {} };
+  for (const p of schema.pages) content.pages[p.slug] = rows?.[ROW_KEYS.page(p.slug)]?.draft || {};
+  for (const c of Object.keys(schema.collections)) content.collections[c] = rows?.[ROW_KEYS.collection(c)]?.draft || [];
+  content.figures = rows?.figures?.draft || {};
+  content.globals = rows?.globals?.draft || {};
+  for (const d of documents) if (d && d.is_current && d.slot) content.documents[d.slot] = { title: d.title || '', url: d.url || '', version_label: d.version_label || '', uploaded_at: d.uploaded_at || '' };
+  return content;
+}
+
 /** Human label for a row key, for the "unpublished changes" list. */
 export function rowLabel(key) {
   if (key.startsWith('page:')) {
