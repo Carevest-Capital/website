@@ -5,7 +5,7 @@ import { schema, rowLabel, rowRoute, ROW_KEYS } from '../store/content.js';
 import { Modal, useToast, timeAgo } from './ui.jsx';
 
 export default function Shell() {
-  const { profile, pending, publish, requestPreview, signOut, store, isAdmin, error, clearError, rows } = useStore();
+  const { profile, pending, publish, openPreview, signOut, store, isAdmin, error, clearError, rows } = useStore();
   const [publishing, setPublishing] = useState(false);
   const [previewing, setPreviewing] = useState(false);
   const [showPublish, setShowPublish] = useState(false);
@@ -26,11 +26,15 @@ export default function Shell() {
     finally { setPublishing(false); }
   };
 
+  const currentPage = (() => {
+    const m = loc.pathname.match(/^\/pages\/([^/]+)/);
+    return m ? schema.pages.find((p) => p.slug === m[1]) : null;
+  })();
   const doPreview = async () => {
     setPreviewing(true);
     try {
-      await requestPreview();
-      toast(PREVIEW_URL ? 'Preview is rebuilding. Open it in about a minute.' : 'Preview requested.', 'ok', 6000);
+      const r = await openPreview({ path: currentPage?.path || '/' });
+      if (r.rebuilt) toast('Building your preview. The new tab opens the page when it is ready, about a minute.', 'ok', 6000);
     } catch (e) { toast(`Preview failed: ${e.message}`, 'bad', 7000); }
     finally { setPreviewing(false); }
   };
@@ -83,8 +87,7 @@ export default function Shell() {
             ? <span className="badge badge--warn">{pending.length} unpublished change{pending.length === 1 ? '' : 's'}</span>
             : <span className="badge badge--ok">Website is up to date</span>}
           <a className="btn" href={SITE_URL} target="_blank" rel="noopener">View website</a>
-          <button className="btn" onClick={doPreview} disabled={previewing} title="Rebuild the private preview site with your unpublished changes">{previewing && <span className="spin" />}Update preview</button>
-          {PREVIEW_URL && <a className="btn btn--ghost" href={PREVIEW_URL} target="_blank" rel="noopener">Open preview</a>}
+          <button className="btn" onClick={doPreview} disabled={previewing} title={currentPage ? `Preview the ${currentPage.title} page with your unpublished changes` : 'Preview the website with your unpublished changes'}>{previewing && <span className="spin" />}Preview changes</button>
           <button className="btn btn--primary" onClick={() => setShowPublish(true)} disabled={pending.length === 0}>Publish</button>
         </div>
         {error && <div className="banner banner--bad" style={{ margin: '16px 32px 0' }}><span style={{ flex: 1 }}>{error}</span><button className="btn btn--sm" onClick={clearError}>Dismiss</button></div>}

@@ -4,7 +4,7 @@
 {% block main %}
   {% set h = s.hero %}
   <!-- ============ PAGE HERO ============ -->
-  <section class="page-hero">
+  <section class="page-hero" data-section="hero">
     <div class="wrap page-hero__in">
       <p class="eyebrow">{{ h.eyebrow }}</p>
       <h1>{{ h.headline | accent }}</h1>
@@ -15,7 +15,7 @@
   {% if shown('dealer') %}
   {% set d = s.dealer %}
   <!-- ============ ABOUT THE DEALER ============ -->
-  <section class="section">
+  <section class="section" data-section="dealer">
     <div class="wrap">
       <div class="grid g2" style="gap:44px; align-items:start;">
         <div>
@@ -41,7 +41,7 @@
   {% if shown('steps') %}
   {% set st = s.steps %}
   <!-- ============ THREE STEPS ============ -->
-  <section class="section section--surface">
+  <section class="section section--surface" data-section="steps">
     <div class="wrap">
       <p class="eyebrow reveal">{{ st.eyebrow }}</p>
       <h2 class="section-h reveal">{{ st.headline | accent }}</h2>
@@ -56,7 +56,7 @@
   {% if shown('faq') %}
   {% set fq = s.faq %}
   <!-- ============ FAQ ============ -->
-  <section class="section" id="faq">
+  <section class="section" data-section="faq" id="faq">
     <div class="wrap wrap--narrow">
       <p class="eyebrow reveal">{{ fq.eyebrow }}</p>
       <h2 class="section-h reveal">{{ fq.headline | accent }}</h2>
@@ -77,7 +77,7 @@
       <div class="grid g2" style="gap:44px; align-items:start;">
         {% if shown('industry_links') %}
         {% set il = s.industry_links %}
-        <div>
+        <div data-section="industry_links">
           <p class="eyebrow reveal">{{ il.eyebrow }}</p>
           <h2 class="section-h reveal">{{ il.headline | accent }}</h2>
           <p class="section-sub reveal">{{ il.body }}</p>
@@ -90,7 +90,7 @@
         {% endif %}
         {% if shown('complaints') %}
         {% set cp = s.complaints %}
-        <div class="card reveal" id="complaints">
+        <div class="card reveal" data-section="complaints" id="complaints">
           <p class="eyebrow eyebrow--muted">{{ cp.eyebrow }}</p>
           <p style="color:var(--muted); margin-top:12px; font-size:0.95rem;">{{ cp.body_1 }}</p>
           <p style="color:var(--muted); margin-top:12px; font-size:0.95rem;">{{ cp.body_2 }}</p>
@@ -103,7 +103,7 @@
 
   {% if shown('final_cta') %}
   <!-- ============ FINAL CTA ============ -->
-  <section class="section">
+  <section class="section" data-section="final_cta">
     <div class="wrap">
       {{ m.ctaband(s.final_cta) }}
     </div>

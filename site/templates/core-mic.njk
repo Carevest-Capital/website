@@ -4,7 +4,7 @@
 {% block main %}
   {% set h = s.hero %}
   <!-- ============ PAGE HERO ============ -->
-  <section class="page-hero">
+  <section class="page-hero" data-section="hero">
     <div class="wrap page-hero__in">
       <p class="eyebrow">{{ h.eyebrow }}</p>
       <h1>{{ h.headline | accent }}</h1>
@@ -19,7 +19,7 @@
   {% if shown('objectives') %}
   {% set o = s.objectives %}
   <!-- ============ INVESTMENT OBJECTIVES ============ -->
-  <section class="section">
+  <section class="section" data-section="objectives">
     <div class="wrap">
       <div class="grid g2" style="align-items:center; gap:44px;">
         <div>
@@ -37,7 +37,7 @@
   {% if shown('highlights') %}
   {% set hl = s.highlights %}
   <!-- ============ FUND HIGHLIGHTS ============ -->
-  <section class="section section--band">
+  <section class="section section--band" data-section="highlights">
     <div class="wrap">
       <p class="eyebrow reveal">{{ hl.eyebrow }}</p>
       <h2 class="section-h reveal">{{ hl.headline | accent }}</h2>
@@ -61,7 +61,7 @@
       <div class="grid g2" style="align-items:start; gap:44px;">
         {% if shown('facts') %}
         {% set f = s.facts %}
-        <div>
+        <div data-section="facts">
           <p class="eyebrow reveal">{{ f.eyebrow }}</p>
           <h2 class="section-h reveal">{{ f.headline | accent }}</h2>
           <div class="factlist reveal" style="margin-top:26px;">
@@ -75,7 +75,7 @@
         <div style="display:grid; gap:16px;">
           {% if shown('mic_card') %}
           {% set mc = s.mic_card %}
-          <div class="card reveal">
+          <div class="card reveal" data-section="mic_card">
             <p class="eyebrow eyebrow--muted">{{ mc.eyebrow }}</p>
             <h3 style="font-size:var(--s2); font-weight:300; margin-top:10px;">{{ mc.heading }}</h3>
             <p style="color:var(--muted); margin-top:12px;">{{ mc.body }}</p>
@@ -88,7 +88,7 @@
           {% endif %}
           {% if shown('resources') %}
           {% set rs = s.resources %}
-          <div class="card reveal">
+          <div class="card reveal" data-section="resources">
             <p class="eyebrow eyebrow--muted">{{ rs.eyebrow }}</p>
             <div style="margin-top:14px; display:grid; gap:10px;">
               {% for l in rs.links %}<a class="btn {{ 'btn--dark' if loop.first else 'btn--ghost' }}" href="{{ l.document | docurl }}" style="justify-content:center;">{{ l.label }}</a>
@@ -107,7 +107,7 @@
   {% if shown('investors') %}
   {% set inv = s.investors %}
   <!-- ============ FOR INVESTORS (Real Values) ============ -->
-  <section class="section section--surface">
+  <section class="section section--surface" data-section="investors">
     <div class="wrap">
       <p class="eyebrow reveal">{{ inv.eyebrow }}</p>
       <h2 class="section-h reveal">{{ inv.headline | accent }}</h2>
@@ -130,7 +130,7 @@
   {% if shown('promotion') %}
   {% set pr = s.promotion %}
   <!-- ============ PROMOTION ============ -->
-  <section class="section" id="promotion">
+  <section class="section" data-section="promotion" id="promotion">
     <div class="wrap">
       <div class="ctaband reveal" style="text-align:left;">
         <p class="eyebrow">{{ pr.eyebrow }}</p>
@@ -147,7 +147,7 @@
   {% if shown('get_in_touch') %}
   {% set gt = s.get_in_touch %}
   <!-- ============ GET IN TOUCH ============ -->
-  <section class="section" style="padding-top:0;">
+  <section class="section" data-section="get_in_touch" style="padding-top:0;">
     <div class="wrap">
       <div class="card reveal split-uneven">
         <div>

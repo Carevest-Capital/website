@@ -4,7 +4,7 @@
 {% block main %}
   {% set h = s.hero %}
   <!-- ============ PAGE HERO ============ -->
-  <section class="page-hero">
+  <section class="page-hero" data-section="hero">
     <div class="wrap page-hero__in">
       <p class="eyebrow">{{ h.eyebrow }}</p>
       <h1>{{ h.headline | accent }}</h1>
@@ -15,7 +15,7 @@
   {% if shown('local') %}
   {% set lo = s.local %}
   <!-- ============ LOCAL BUSINESS ============ -->
-  <section class="section">
+  <section class="section" data-section="local">
     <div class="wrap">
       <div class="grid g2" style="gap:44px; align-items:center;">
         <div>
@@ -35,7 +35,7 @@
   {% if shown('entities') %}
   {% set en = s.entities %}
   <!-- ============ THE FOUR ENTITIES ============ -->
-  <section class="section section--surface">
+  <section class="section section--surface" data-section="entities">
     <div class="wrap">
       <p class="eyebrow reveal">{{ en.eyebrow }}</p>
       <h2 class="section-h reveal">{{ en.headline | accent }}</h2>
@@ -55,7 +55,7 @@
   {% if shown('values') %}
   {% set v = s.values %}
   <!-- ============ CORE VALUES ============ -->
-  <section class="section section--band">
+  <section class="section section--band" data-section="values">
     <div class="wrap">
       <p class="eyebrow reveal">{{ v.eyebrow }}</p>
       <h2 class="section-h reveal">{{ v.headline | accent }}</h2>
@@ -75,7 +75,7 @@
       <div class="grid g2" style="gap:44px; align-items:start;">
         {% if shown('fund_manager') %}
         {% set fm = s.fund_manager %}
-        <div>
+        <div data-section="fund_manager">
           <p class="eyebrow reveal">{{ fm.eyebrow }}</p>
           <h2 class="section-h reveal">{{ fm.headline | accent }}</h2>
           <p class="section-sub reveal">{{ fm.body_1 }}</p>
@@ -85,7 +85,7 @@
         {% endif %}
         {% if shown('board') %}
         {% set bd = s.board %}
-        <div class="card reveal" id="board">
+        <div class="card reveal" data-section="board" id="board">
           <p class="eyebrow eyebrow--muted">{{ bd.eyebrow }}</p>
           <p style="color:var(--muted); margin-top:12px;">{{ bd.body }}</p>
           <div class="factlist" style="margin-top:16px;">
@@ -102,7 +102,7 @@
   {% if shown('shareholder_admin') %}
   {% set sa = s.shareholder_admin %}
   <!-- ============ SHAREHOLDER ADMIN ============ -->
-  <section class="section section--surface" id="shareholder-admin">
+  <section class="section section--surface" data-section="shareholder_admin" id="shareholder-admin">
     <div class="wrap">
       <div class="grid g2" style="gap:44px; align-items:start;">
         <div>
@@ -132,7 +132,7 @@
   {% if shown('careers') %}
   {% set ca = s.careers %}
   <!-- ============ CAREERS ============ -->
-  <section class="section" id="careers">
+  <section class="section" data-section="careers" id="careers">
     <div class="wrap">
       <div class="card reveal split-uneven">
         <div>
@@ -154,7 +154,7 @@
 
   {% if shown('cta') %}
   <!-- ============ CTA ============ -->
-  <section class="section" style="padding-top:0;">
+  <section class="section" data-section="cta" style="padding-top:0;">
     <div class="wrap">
       {{ m.ctaband(s.cta) }}
     </div>

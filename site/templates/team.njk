@@ -4,7 +4,7 @@
 {% block main %}
   {% set h = s.hero %}
   <!-- ============ PAGE HERO ============ -->
-  <section class="page-hero">
+  <section class="page-hero" data-section="hero">
     <div class="wrap page-hero__in">
       <p class="eyebrow">{{ h.eyebrow }}</p>
       <h1>{{ h.headline | accent }}</h1>
@@ -14,7 +14,7 @@
 
   {% if shown('grid') %}
   <!-- ============ TEAM GRID ============ -->
-  <section class="section">
+  <section class="section" data-section="grid">
     <div class="wrap">
       <div class="grid g3">
 
@@ -31,7 +31,7 @@
   {% if shown('board') %}
   {% set bd = s.board %}
   <!-- ============ BOARD ============ -->
-  <section class="section section--surface">
+  <section class="section section--surface" data-section="board">
     <div class="wrap">
       <div class="grid g2" style="gap:44px; align-items:start;">
         <div>
@@ -52,7 +52,7 @@
 
   {% if shown('cta') %}
   <!-- ============ CTA ============ -->
-  <section class="section">
+  <section class="section" data-section="cta">
     <div class="wrap">
       {{ m.ctaband(s.cta) }}
     </div>

@@ -4,7 +4,7 @@
 {% block main %}
   {% set h = s.hero %}
   <!-- ============ PAGE HERO ============ -->
-  <section class="page-hero">
+  <section class="page-hero" data-section="hero">
     <div class="wrap page-hero__in">
       <p class="eyebrow">{{ h.eyebrow }}</p>
       <h1>{{ h.headline | accent }}</h1>
@@ -14,7 +14,7 @@
 
   {% if shown('image_band') %}
   <!-- ============ DOWNTOWN IMAGE ============ -->
-  <section class="section--tight">
+  <section class="section--tight" data-section="image_band">
     <div class="wrap">
       <figure class="photo photo--wide reveal"><img src="{{ s.image_band.image.src }}" alt="{{ s.image_band.image.alt }}" loading="lazy" /></figure>
     </div>
@@ -23,7 +23,7 @@
 
   {% if shown('timeline') %}
   <!-- ============ TIMELINE ============ -->
-  <section class="section">
+  <section class="section" data-section="timeline">
     <div class="wrap wrap--narrow">
       <div class="timeline">
         {% for t in items('timeline') %}<div class="tl-item reveal"{% if loop.first %} style="border-top:0;"{% endif %}>
@@ -44,7 +44,7 @@
   {% if shown('numbers') %}
   {% set n = s.numbers %}
   <!-- ============ NUMBERS ============ -->
-  <section class="section section--band">
+  <section class="section section--band" data-section="numbers">
     <div class="wrap">
       <p class="eyebrow reveal">{{ n.eyebrow }}</p>
       <h2 class="section-h reveal">{{ n.headline | accent }}</h2>
@@ -58,7 +58,7 @@
 
   {% if shown('cta') %}
   <!-- ============ CTA ============ -->
-  <section class="section">
+  <section class="section" data-section="cta">
     <div class="wrap">
       {{ m.ctaband(s.cta) }}
     </div>

@@ -11,7 +11,7 @@
     <div class="wrap page-hero__in">
       {% if showHero %}
       <div class="hero" style="padding-block:0;{% if not showReg %} grid-template-columns:1fr;{% endif %}">
-        <div>
+        <div data-section="hero">
           <p class="eyebrow">{{ ev.series }} &middot; {{ ev.city }}</p>
           <h1>{{ ev.title | accent }}</h1>
           <p class="sub">{{ ev.summary }}</p>
@@ -22,7 +22,7 @@
           </div>
         </div>
         {% if showReg %}
-        <div class="card" style="box-shadow:0 40px 90px -50px rgba(0,0,0,0.6);">
+        <div class="card" data-section="registration" style="box-shadow:0 40px 90px -50px rgba(0,0,0,0.6);">
           <p class="eyebrow">{{ r.eyebrow }}</p>
           <form class="form" data-demo style="margin-top:16px;">
             <div class="form-row">
@@ -61,7 +61,7 @@
 
   {% if shown('image_band') %}
   <!-- ============ EVENT ATMOSPHERE ============ -->
-  <section class="section--tight">
+  <section class="section--tight" data-section="image_band">
     <div class="wrap">
       <figure class="photo photo--wide reveal"><img src="{{ s.image_band.image.src }}" alt="{{ s.image_band.image.alt }}" loading="lazy" /></figure>
     </div>
@@ -71,7 +71,7 @@
   {% if shown('why_attend') %}
   {% set w = s.why_attend %}
   <!-- ============ WHY ATTEND ============ -->
-  <section class="section">
+  <section class="section" data-section="why_attend">
     <div class="wrap">
       <p class="eyebrow reveal">{{ w.eyebrow }}</p>
       <h2 class="section-h reveal">{{ w.headline | accent }}</h2>
@@ -97,7 +97,7 @@
     <div class="wrap">
       <div class="grid{% if showReplay and showPast %} g2{% endif %}">
         {% if showReplay %}
-        <div class="card split-card reveal">
+        <div class="card split-card reveal" data-section="replay">
           <p class="eyebrow">{{ rp.eyebrow }}</p>
           <h3>{{ rp.heading }}</h3>
           <p>{{ rp.body }}</p>
@@ -109,7 +109,7 @@
         </div>
         {% endif %}
         {% if showPast %}
-        <div class="card split-card reveal">
+        <div class="card split-card reveal" data-section="past_events">
           <p class="eyebrow">{{ pe.eyebrow }}</p>
           <h3>{{ pe.heading }}</h3>
           <p>{{ pe.body }}</p>
@@ -123,7 +123,7 @@
 
   {% if shown('cta') %}
   <!-- ============ CTA ============ -->
-  <section class="section">
+  <section class="section" data-section="cta">
     <div class="wrap">
       {{ m.ctaband(s.cta) }}
     </div>

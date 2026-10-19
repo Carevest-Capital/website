@@ -110,12 +110,40 @@ export function StoreProvider({ children }) {
     return store.requestPreview();
   }, [flushAll]);
 
+  /**
+   * Open a preview of one page (and optionally jump to one section) in a new tab.
+   * The tab opens immediately (browsers only allow that inside the click), shows a waiting screen,
+   * and moves on to the preview site as soon as the preview build with these drafts has landed.
+   * When nothing is unpublished the preview equals the live site, so it opens straight away.
+   */
+  const openPreview = useCallback(async ({ path = '/', section = '' } = {}) => {
+    const hash = section ? `#section=${encodeURIComponent(section)}` : '';
+    const unsaved = Object.values(saving).some((st) => st === 'pending' || st === 'saving');
+    const base = PREVIEW_URL || SITE_URL;
+    if (!PREVIEW_URL || (pending.length === 0 && !unsaved)) {
+      window.open(`${base.replace(/\/$/, '')}${path}${hash}`, '_blank', 'noopener');
+      return { rebuilt: false };
+    }
+    const since = Date.now();
+    const params = new URLSearchParams({ to: path, section, since: String(since) });
+    const tab = window.open(`/preview-wait?${params.toString()}`, '_blank');
+    try {
+      await flushAll();
+      await store.requestPreview();
+      return { rebuilt: true };
+    } catch (e) {
+      try { localStorage.setItem(`cv-preview-error-${since}`, e.message || 'Preview request failed'); } catch {}
+      if (tab && !tab.closed) tab.location.replace(`/preview-wait?${params.toString()}&error=1`);
+      throw e;
+    }
+  }, [flushAll, pending, saving]);
+
   const refreshDocuments = useCallback(async () => setDocuments(await store.listDocuments()), []);
 
   const value = {
     store, session, profile, rows, documents, saving, error, pending,
     isAdmin: profile?.role === 'admin' || store.mode === 'demo',
-    reload, updateDraft, flushAll, publish, requestPreview, refreshDocuments,
+    reload, updateDraft, flushAll, publish, requestPreview, openPreview, refreshDocuments,
     clearError: () => setError(null),
     signOut: () => store.signOut(),
   };

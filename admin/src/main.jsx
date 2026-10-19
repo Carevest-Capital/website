@@ -13,6 +13,7 @@ import FiguresEditor from './pages/FiguresEditor.jsx';
 import Documents from './pages/Documents.jsx';
 import Globals from './pages/Globals.jsx';
 import { Users, Settings, History } from './pages/Admin.jsx';
+import PreviewWait from './pages/PreviewWait.jsx';
 
 function Gate({ children }) {
   const { session } = useStore();
@@ -32,6 +33,7 @@ function App() {
     <Gate>
       <Routes>
         <Route path="/set-password" element={<SetPassword />} />
+        <Route path="/preview-wait" element={<PreviewWait />} />
         <Route element={<Shell />}>
           <Route index element={<Overview />} />
           <Route path="pages/:slug" element={<PageEditor />} />

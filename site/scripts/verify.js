@@ -49,6 +49,7 @@ function normalise(html) {
     .replace(/\s+/g, ' ')
     .replace(/>\s+</g, '><')
     .replace(/ data-yield="[^"]*"/g, '') // deliberate addition: calculator reads the yield figure
+    .replace(/ data-section="[^"]*"/g, '') // deliberate addition: preview deep links
     .trim();
 }
 

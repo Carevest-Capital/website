@@ -323,6 +323,9 @@ async function main() {
   /* Static files (internal pages that are not part of the content model). */
   if (fs.existsSync(STATIC)) copyDir(STATIC, OUT);
 
+  /* build.json: lets the dashboard know when a preview or publish build has landed. */
+  fs.writeFileSync(path.join(OUT, 'build.json'), JSON.stringify({ built_at: new Date().toISOString(), state: STATE, theme: THEME, source: from }, null, 2) + '\n');
+
   /* vercel.json: the project file plus a temporary redirect for every hidden page. */
   const vercelConfig = JSON.parse(fs.readFileSync(VERCEL_FILE, 'utf8'));
   if (hiddenPages.length) {

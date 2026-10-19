@@ -4,7 +4,7 @@
 {% block main %}
   {% set h = s.hero %}
   <!-- ============ HERO ============ -->
-  <section class="hero-cine">
+  <section class="hero-cine" data-section="hero">
     <img class="hero-cine__bg" src="{{ h.background.src }}" alt="{{ h.background.alt }}" aria-hidden="true" fetchpriority="high" />
     <div class="hero-cine__scrim" aria-hidden="true"></div>
     <div class="wrap hero-cine__in">
@@ -25,7 +25,7 @@
   {% if shown('trustbar') %}
   {% set t = s.trustbar %}
   <!-- ============ TRUST BAR ============ -->
-  <div class="trustbar">
+  <div class="trustbar" data-section="trustbar">
     <div class="wrap trustbar__in">
       {% for it in t.items %}<div class="trust-item"><div class="k">{{ it.label }}</div><div class="v">{{ it.value }}</div></div>
       {% endfor %}<div class="trust-item"><div class="k">{{ t.phone_label }}</div><div class="v"><a href="tel:{{ g.phone_investor_relations | tel }}" style="text-decoration:none; color:inherit;" class="tnum">{{ g.phone_investor_relations }}</a></div></div>
@@ -36,7 +36,7 @@
   {% if shown('audiences') %}
   {% set a = s.audiences %}
   <!-- ============ INVESTORS / BORROWERS ============ -->
-  <section class="section">
+  <section class="section" data-section="audiences">
     <div class="wrap">
       <p class="eyebrow reveal">{{ a.eyebrow }}</p>
       <h2 class="section-h reveal">{{ a.headline | accent }}</h2>
@@ -62,7 +62,7 @@
   {% if shown('numbers') %}
   {% set n = s.numbers %}
   <!-- ============ NUMBERS BAND ============ -->
-  <section class="section section--band">
+  <section class="section section--band" data-section="numbers">
     <div class="wrap">
       <p class="eyebrow reveal">{{ n.eyebrow }}</p>
       <h2 class="section-h reveal">{{ n.headline | accent }}<a href="#yield-note" style="text-decoration:none; color:var(--accent);">*</a></h2>
@@ -79,7 +79,7 @@
   {% if shown('calculator') %}
   {% set c = s.calculator %}
   <!-- ============ CALCULATOR ============ -->
-  <section class="section">
+  <section class="section" data-section="calculator">
     <div class="wrap">
       <p class="eyebrow reveal">{{ c.eyebrow }}</p>
       <h2 class="section-h reveal">{{ c.headline | accent }}</h2>
@@ -124,7 +124,7 @@
   {% if shown('how_it_works') %}
   {% set hw = s.how_it_works %}
   <!-- ============ HOW IT WORKS ============ -->
-  <section class="section section--surface">
+  <section class="section section--surface" data-section="how_it_works">
     <div class="wrap">
       <p class="eyebrow reveal">{{ hw.eyebrow }}</p>
       <h2 class="section-h reveal">{{ hw.headline | accent }}</h2>
@@ -143,7 +143,7 @@
 
   {% if shown('image_band') %}
   <!-- ============ IMAGE BAND ============ -->
-  <section class="section--tight">
+  <section class="section--tight" data-section="image_band">
     <div class="wrap">
       <figure class="photo photo--wide reveal"><img src="{{ s.image_band.image.src }}" alt="{{ s.image_band.image.alt }}" loading="lazy" /></figure>
     </div>
@@ -153,7 +153,7 @@
   {% if shown('values') %}
   {% set v = s.values %}
   <!-- ============ VALUES BAND ============ -->
-  <section class="section section--band">
+  <section class="section section--band" data-section="values">
     <div class="wrap">
       <p class="eyebrow reveal">{{ v.eyebrow }}</p>
       <h2 class="section-h reveal">{{ v.headline | accent }}</h2>
@@ -169,7 +169,7 @@
   {% if shown('transactions') %}
   {% set tr = s.transactions %}
   <!-- ============ REPRESENTATIVE TRANSACTIONS ============ -->
-  <section class="section">
+  <section class="section" data-section="transactions">
     <div class="wrap">
       <p class="eyebrow reveal">{{ tr.eyebrow }}</p>
       <h2 class="section-h reveal">{{ tr.headline | accent }}</h2>
@@ -186,7 +186,7 @@
   {% if shown('teasers') %}
   {% set te = s.teasers %}
   <!-- ============ EVENTS + HISTORY TEASERS ============ -->
-  <section class="section" style="padding-top:0;">
+  <section class="section" data-section="teasers" style="padding-top:0;">
     <div class="wrap">
       <div class="grid g2">
         <div class="card split-card reveal">
@@ -208,7 +208,7 @@
 
   {% if shown('final_cta') %}
   <!-- ============ FINAL CTA ============ -->
-  <section class="section" style="padding-top:0;">
+  <section class="section" data-section="final_cta" style="padding-top:0;">
     <div class="wrap">
       {{ m.ctaband(s.final_cta) }}
     </div>

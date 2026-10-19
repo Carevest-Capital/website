@@ -4,7 +4,7 @@
 {% block main %}
   {% set h = s.hero %}
   <!-- ============ PAGE HERO ============ -->
-  <section class="page-hero">
+  <section class="page-hero" data-section="hero">
     <div class="wrap page-hero__in">
       <p class="eyebrow">{{ h.eyebrow }}</p>
       <h1>{{ h.headline | accent }}</h1>
@@ -19,7 +19,7 @@
   {% if shown('broker') %}
   {% set b = s.broker %}
   <!-- ============ ABOUT THE BROKER ============ -->
-  <section class="section">
+  <section class="section" data-section="broker">
     <div class="wrap">
       <div class="grid g2" style="gap:44px; align-items:center;">
         <div>
@@ -45,7 +45,7 @@
   {% set p = s.projects %}
   {% set half = ((p.project_types | length) + 1) // 2 %}
   <!-- ============ TYPES OF PROJECTS / FINANCING ============ -->
-  <section class="section section--band">
+  <section class="section section--band" data-section="projects">
     <div class="wrap">
       <p class="eyebrow reveal">{{ p.eyebrow }}</p>
       <h2 class="section-h reveal">{{ p.headline | accent }}</h2>
@@ -72,7 +72,7 @@
   {% if shown('process') %}
   {% set pr = s.process %}
   <!-- ============ LENDING PROCESS ============ -->
-  <section class="section">
+  <section class="section" data-section="process">
     <div class="wrap wrap--narrow">
       <p class="eyebrow reveal">{{ pr.eyebrow }}</p>
       <h2 class="section-h reveal">{{ pr.headline | accent }}</h2>
@@ -89,7 +89,7 @@
   {% if shown('transactions') %}
   {% set tr = s.transactions %}
   <!-- ============ REPRESENTATIVE TRANSACTIONS ============ -->
-  <section class="section section--surface" id="transactions">
+  <section class="section section--surface" data-section="transactions" id="transactions">
     <div class="wrap">
       <p class="eyebrow reveal">{{ tr.eyebrow }}</p>
       <h2 class="section-h reveal">{{ tr.headline | accent }}</h2>
@@ -104,7 +104,7 @@
 
   {% if shown('cta') %}
   <!-- ============ CTA ============ -->
-  <section class="section">
+  <section class="section" data-section="cta">
     <div class="wrap">
       {{ m.ctaband(s.cta) }}
     </div>

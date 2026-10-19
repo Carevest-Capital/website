@@ -138,3 +138,45 @@
     });
   });
 })();
+
+/* ---- preview deep links: #section=<key> scrolls to that section and highlights it briefly ---- */
+(function () {
+  "use strict";
+  var HEADER_OFFSET = 92;
+  var HIGHLIGHT_MS = 2500;
+
+  function previewSection() {
+    var m = /^#section=([A-Za-z0-9_-]+)$/.exec(window.location.hash || "");
+    if (!m) return;
+    var target = document.querySelector('[data-section="' + m[1] + '"]');
+    if (!target) return;
+
+    if (!document.getElementById("preview-highlight-style")) {
+      var style = document.createElement("style");
+      style.id = "preview-highlight-style";
+      style.textContent =
+        ".is-previewed{outline:2px solid currentColor;outline-offset:4px;transition:outline-color " + (HIGHLIGHT_MS / 1000) + "s ease}" +
+        ".is-previewed.is-previewed--fade{outline-color:transparent}";
+      document.head.appendChild(style);
+    }
+
+    /* The reveal observer only shows elements once they scroll into view; force them on so the target is visible. */
+    if (target.classList.contains("reveal")) target.classList.add("is-in");
+    Array.prototype.forEach.call(target.querySelectorAll(".reveal"), function (el) { el.classList.add("is-in"); });
+
+    var top = target.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop) - HEADER_OFFSET;
+    window.scrollTo(0, Math.max(0, top));
+
+    target.classList.remove("is-previewed--fade");
+    target.classList.add("is-previewed");
+    window.setTimeout(function () { target.classList.add("is-previewed--fade"); }, 50);
+    window.setTimeout(function () {
+      target.classList.remove("is-previewed");
+      target.classList.remove("is-previewed--fade");
+    }, HIGHLIGHT_MS + 100);
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", previewSection);
+  else previewSection();
+  window.addEventListener("hashchange", previewSection);
+})();

@@ -8,7 +8,8 @@ import { SaveState, timeAgo } from '../components/ui.jsx';
 export default function PageEditor() {
   const { slug } = useParams();
   const page = schema.pages.find((p) => p.slug === slug);
-  const { rows, updateDraft, saving } = useStore();
+  const { rows, updateDraft, saving, openPreview } = useStore();
+  const [previewing, setPreviewing] = useState(null);
   const [collapsed, setCollapsed] = useState({});
   if (!page) return <Navigate to="/" replace />;
   const key = ROW_KEYS.page(slug);
@@ -25,6 +26,12 @@ export default function PageEditor() {
   };
   const setSectionHidden = (sKey, hidden) => setSection(sKey, '_hidden', hidden);
   const hiddenCount = page.sections.filter((sec) => draft[sec.key]?._hidden === true).length;
+  const preview = async (sectionKey) => {
+    setPreviewing(sectionKey || '_page');
+    try { await openPreview({ path: page.path, section: sectionKey || '' }); }
+    catch (e) { alert(`Preview failed: ${e.message}`); }
+    finally { setPreviewing(null); }
+  };
 
   return (
     <>
@@ -42,7 +49,8 @@ export default function PageEditor() {
               <span className="small" style={{ fontWeight: 500 }}>{pageHidden ? 'Page hidden' : 'Page shown'}</span>
             </label>
           )}
-          <a className="btn" href={`${SITE_URL}${page.path}`} target="_blank" rel="noopener">Open page</a>
+          <button className="btn btn--primary" onClick={() => preview('')} disabled={previewing === '_page'} title="See this page with your unpublished changes">{previewing === '_page' && <span className="spin" />}Preview page</button>
+          <a className="btn" href={`${SITE_URL}${page.path}`} target="_blank" rel="noopener" title="The live page, as visitors see it now">Live page</a>
         </div>
       </div>
 
@@ -74,6 +82,7 @@ export default function PageEditor() {
               <div><h3>{section.label}{isHidden && <span className="badge badge--warn" style={{ marginLeft: 10, verticalAlign: 'middle' }}>Hidden from website</span>}</h3>{section.hint && <div className="hint">{section.hint}</div>}</div>
               <div className="spacer" />
               {section.collection && <Link className="badge badge--accent" to={`/collections/${section.collection}`}>Items come from {schema.collections[section.collection]?.label || section.collection}</Link>}
+              <button className="btn btn--sm btn--ghost" onClick={() => preview(section.key)} disabled={previewing === section.key} title="Preview the page and jump to this section">{previewing === section.key ? <span className="spin" /> : null}Preview</button>
               {section.required ? (
                 <span className="small faint" title="This section opens the page and cannot be hidden.">Always shown</span>
               ) : (

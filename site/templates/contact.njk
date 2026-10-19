@@ -4,7 +4,7 @@
 {% block main %}
   {% set h = s.hero %}
   <!-- ============ PAGE HERO ============ -->
-  <section class="page-hero">
+  <section class="page-hero" data-section="hero">
     <div class="wrap page-hero__in">
       <p class="eyebrow">{{ h.eyebrow }}</p>
       <h1>{{ h.headline | accent }}</h1>
@@ -19,7 +19,7 @@
       <div class="split-uneven split-uneven--top">
         {% if shown('form') %}
         {% set f = s.form %}
-        <div class="card reveal">
+        <div class="card reveal" data-section="form">
           <p class="eyebrow">{{ f.eyebrow }}</p>
           <form class="form" data-demo style="margin-top:18px;">
             <div class="field">
@@ -56,7 +56,7 @@
         {% endif %}
         {% if shown('details') %}
         {% set d = s.details %}
-        <div style="display:grid; gap:20px;">
+        <div data-section="details" style="display:grid; gap:20px;">
           <div class="card reveal">
             <p class="eyebrow eyebrow--muted">{{ d.ir_heading }}</p>
             <p style="font-size:var(--s2); font-weight:300; margin-top:8px;" class="tnum">{{ g.phone_investor_relations }}</p>
