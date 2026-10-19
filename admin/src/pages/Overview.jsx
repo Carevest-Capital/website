@@ -47,7 +47,7 @@ export default function Overview() {
           const r = rows?.[ROW_KEYS.page(p.slug)];
           return (
             <Link key={p.slug} to={`/pages/${p.slug}`} className="card pagecard">
-              <div className="row" style={{ justifyContent: 'space-between' }}><h3>{p.title}</h3>{pendingKeys.has(ROW_KEYS.page(p.slug)) ? <span className="badge badge--warn">Edited</span> : <span className="badge badge--ok">Live</span>}</div>
+              <div className="row" style={{ justifyContent: 'space-between' }}><h3>{p.title}</h3><span className="row" style={{ gap: 6 }}>{r?.draft?._meta?.hidden === true && <span className="badge">Hidden</span>}{pendingKeys.has(ROW_KEYS.page(p.slug)) ? <span className="badge badge--warn">Edited</span> : <span className="badge badge--ok">Live</span>}</span></div>
               <div className="sections">{p.sections.map((s) => s.label).join(' · ')}</div>
               <div className="foot"><span className="mono">{p.path}</span><span>{r?.updated_at ? `edited ${timeAgo(r.updated_at)}` : ''}</span></div>
             </Link>

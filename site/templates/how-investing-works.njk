@@ -12,6 +12,7 @@
     </div>
   </section>
 
+  {% if shown('dealer') %}
   {% set d = s.dealer %}
   <!-- ============ ABOUT THE DEALER ============ -->
   <section class="section">
@@ -35,7 +36,9 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
+  {% if shown('steps') %}
   {% set st = s.steps %}
   <!-- ============ THREE STEPS ============ -->
   <section class="section section--surface">
@@ -48,7 +51,9 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
+  {% if shown('faq') %}
   {% set fq = s.faq %}
   <!-- ============ FAQ ============ -->
   <section class="section" id="faq">
@@ -63,13 +68,15 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
-  {% set il = s.industry_links %}
-  {% set cp = s.complaints %}
+  {% if shown('industry_links') or shown('complaints') %}
   <!-- ============ INDUSTRY LINKS ============ -->
   <section class="section section--surface" id="industry-links">
     <div class="wrap">
       <div class="grid g2" style="gap:44px; align-items:start;">
+        {% if shown('industry_links') %}
+        {% set il = s.industry_links %}
         <div>
           <p class="eyebrow reveal">{{ il.eyebrow }}</p>
           <h2 class="section-h reveal">{{ il.headline | accent }}</h2>
@@ -80,19 +87,26 @@
           </ul>
           <p class="fine reveal" style="margin-top:18px;">{{ il.fine }}</p>
         </div>
+        {% endif %}
+        {% if shown('complaints') %}
+        {% set cp = s.complaints %}
         <div class="card reveal" id="complaints">
           <p class="eyebrow eyebrow--muted">{{ cp.eyebrow }}</p>
           <p style="color:var(--muted); margin-top:12px; font-size:0.95rem;">{{ cp.body_1 }}</p>
           <p style="color:var(--muted); margin-top:12px; font-size:0.95rem;">{{ cp.body_2 }}</p>
         </div>
+        {% endif %}
       </div>
     </div>
   </section>
+  {% endif %}
 
+  {% if shown('final_cta') %}
   <!-- ============ FINAL CTA ============ -->
   <section class="section">
     <div class="wrap">
       {{ m.ctaband(s.final_cta) }}
     </div>
   </section>
+  {% endif %}
 {% endblock %}

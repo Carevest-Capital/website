@@ -25,6 +25,12 @@
   4. Numbering (01, 02, 03), arrows, check marks, footnote asterisks that link to a note, and form
      controls are part of the page design and are not editable; they live in the templates.
 
+  5. Visibility. The team can hide any section (stored as `_hidden: true` on the section's content) and
+     any page except Home (stored as `_meta.hidden: true`). A section marked `required: true` here is the
+     page opening and cannot be hidden; a page marked `hideable: false` cannot be hidden. Templates guard
+     each section with `shown('<key>')`; the build drops hidden pages, removes menu and footer links to
+     them and redirects their address to the home page.
+
   Plain ESM with no dependencies so it can be imported from Node (site/build.js) and from the Vite
   bundle (admin/).
 */
@@ -75,13 +81,13 @@ const metaFields = { title: 'text', description: 'text' };
 export const pages = [
   /* -------------------------------------------------------------------------------- Home ------------ */
   {
-    slug: 'index',
+    slug: 'index', hideable: false,
     path: '/',
     title: 'Home',
     meta: metaFields,
     sections: [
       {
-        key: 'hero',
+        key: 'hero', required: true,
         label: 'Hero',
         hint: 'The large opening panel with the photo and three figures.',
         fields: [
@@ -211,7 +217,7 @@ export const pages = [
     meta: metaFields,
     sections: [
       {
-        key: 'hero',
+        key: 'hero', required: true,
         label: 'Page Opening',
         hint: 'The dark opening panel.',
         fields: [eyebrow(), heading('headline', 'Headline'), sub('Opening Paragraph'), link('primary_cta', 'Main Button', 'Shown with an arrow.'), link('secondary_cta', 'Second Button')],
@@ -307,7 +313,7 @@ export const pages = [
     title: 'How Investing Works',
     meta: metaFields,
     sections: [
-      { key: 'hero', label: 'Page Opening', hint: 'The dark opening panel.', fields: [eyebrow(), heading('headline', 'Headline'), sub('Opening Paragraph')] },
+      { key: 'hero', required: true, label: 'Page Opening', hint: 'The dark opening panel.', fields: [eyebrow(), heading('headline', 'Headline'), sub('Opening Paragraph')] },
       {
         key: 'dealer',
         label: 'About CareVest Private Capital',
@@ -361,7 +367,7 @@ export const pages = [
     title: 'Our History',
     meta: metaFields,
     sections: [
-      { key: 'hero', label: 'Page Opening', hint: 'The dark opening panel.', fields: [eyebrow(), heading('headline', 'Headline'), sub('Opening Paragraph')] },
+      { key: 'hero', required: true, label: 'Page Opening', hint: 'The dark opening panel.', fields: [eyebrow(), heading('headline', 'Headline'), sub('Opening Paragraph')] },
       { key: 'image_band', label: 'Wide Photo', hint: 'The full-width photo under the opening.', fields: [image('image', 'Photo')] },
       {
         key: 'timeline',
@@ -437,7 +443,7 @@ export const pages = [
     meta: metaFields,
     sections: [
       {
-        key: 'hero',
+        key: 'hero', required: true,
         label: 'Page Opening',
         hint: 'The dark opening panel.',
         fields: [eyebrow(), heading('headline', 'Headline'), sub('Opening Paragraph'), link('primary_cta', 'Main Button', 'Shown with an arrow.'), link('secondary_cta', 'Second Button', 'Use #transactions to jump down the page.')],
@@ -494,7 +500,7 @@ export const pages = [
     title: 'About',
     meta: metaFields,
     sections: [
-      { key: 'hero', label: 'Page Opening', hint: 'The dark opening panel.', fields: [eyebrow(), heading('headline', 'Headline'), sub('Opening Paragraph')] },
+      { key: 'hero', required: true, label: 'Page Opening', hint: 'The dark opening panel.', fields: [eyebrow(), heading('headline', 'Headline'), sub('Opening Paragraph')] },
       {
         key: 'local',
         label: 'Where We Work',
@@ -572,7 +578,7 @@ export const pages = [
     title: 'Team',
     meta: metaFields,
     sections: [
-      { key: 'hero', label: 'Page Opening', hint: 'The dark opening panel.', fields: [eyebrow(), heading('headline', 'Headline'), sub('Opening Paragraph')] },
+      { key: 'hero', required: true, label: 'Page Opening', hint: 'The dark opening panel.', fields: [eyebrow(), heading('headline', 'Headline'), sub('Opening Paragraph')] },
       {
         key: 'grid',
         label: 'Team Grid',
@@ -599,7 +605,7 @@ export const pages = [
     title: 'Contact',
     meta: metaFields,
     sections: [
-      { key: 'hero', label: 'Page Opening', hint: 'The dark opening panel.', fields: [eyebrow(), heading('headline', 'Headline'), sub('Opening Paragraph')] },
+      { key: 'hero', required: true, label: 'Page Opening', hint: 'The dark opening panel.', fields: [eyebrow(), heading('headline', 'Headline'), sub('Opening Paragraph')] },
       {
         key: 'form',
         label: 'Contact Form',

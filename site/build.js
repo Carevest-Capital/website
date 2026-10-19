@@ -28,7 +28,7 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 const TEMPLATES = path.join(HERE, 'templates');
 const ASSETS = path.join(HERE, 'assets');
 const STATIC = path.join(HERE, 'static');
-const CONTENT_FILE = path.join(HERE, 'content', 'content.json');
+const CONTENT_FILE = process.env.CONTENT_FILE ? path.resolve(process.env.CONTENT_FILE) : path.join(HERE, 'content', 'content.json');
 const VERCEL_FILE = path.join(HERE, 'vercel.json');
 
 /* ------------------------------------------------------------------ options */
@@ -267,13 +267,35 @@ async function main() {
   console.log(`build: theme=${THEME} state=${STATE} content=${from}`);
   console.log(`build: output ${OUT}`);
 
+  /* Pages the team has hidden in the dashboard (pages[slug]._meta.hidden). They are not rendered, every
+     menu or footer link to them is dropped, and their address redirects to the home page so that nothing
+     on the site can 404 while they are hidden. The home page can never be hidden. */
+  const hiddenPages = schema.pages.filter((p) => p.slug !== 'index' && content.pages?.[p.slug]?._meta?.hidden === true);
+  const hiddenPaths = new Set(hiddenPages.map((p) => p.path));
+  const linksTo = (href) => {
+    const h = String(href || '').split(/[#?]/)[0].replace(/\/$/, '') || '/';
+    return hiddenPaths.has(h);
+  };
+  const globals = structuredClone(content.globals || {});
+  for (const key of ['nav', 'footer_invest_links', 'footer_company_links']) {
+    if (Array.isArray(globals[key])) globals[key] = globals[key].filter((l) => !linksTo(l && l.href));
+  }
+  if (globals.header_cta && linksTo(globals.header_cta.href)) globals.header_cta = { ...globals.header_cta, href: '/contact' };
+  if (hiddenPages.length) console.log(`build: hidden pages: ${hiddenPages.map((p) => p.path).join(', ')} (redirected to /)`);
+
   for (const page of schema.pages) {
+    if (hiddenPaths.has(page.path)) continue;
     const sections = content.pages?.[page.slug] || {};
     const context = {
       pg: page,
       meta: sections._meta || {},
       s: sections,
-      g: content.globals || {},
+      g: globals,
+      /* shown('sectionKey') is false when the team hid that section in the dashboard. */
+      shown: (sectionKey) => !(sections[sectionKey] && sections[sectionKey]._hidden === true),
+      /* Label used for a page when its own opening section is hidden: the menu label, else the page title. */
+      pageLabel: (globals.nav || []).find((n) => n && n.href === page.path)?.label || page.title,
+      hiddenPage: (href) => linksTo(href),
       col: content.collections || {},
       fig: content.figures || {},
       doc: content.documents || {},
@@ -301,8 +323,16 @@ async function main() {
   /* Static files (internal pages that are not part of the content model). */
   if (fs.existsSync(STATIC)) copyDir(STATIC, OUT);
 
-  fs.copyFileSync(VERCEL_FILE, path.join(OUT, 'vercel.json'));
-  console.log(`build: done, ${schema.pages.length} pages`);
+  /* vercel.json: the project file plus a temporary redirect for every hidden page. */
+  const vercelConfig = JSON.parse(fs.readFileSync(VERCEL_FILE, 'utf8'));
+  if (hiddenPages.length) {
+    vercelConfig.redirects = [
+      ...(vercelConfig.redirects || []).filter((r) => !hiddenPaths.has(r.source)),
+      ...hiddenPages.map((p) => ({ source: p.path, destination: '/', permanent: false })),
+    ];
+  }
+  fs.writeFileSync(path.join(OUT, 'vercel.json'), JSON.stringify(vercelConfig, null, 2) + '\n');
+  console.log(`build: done, ${schema.pages.length - hiddenPages.length} pages${hiddenPages.length ? `, ${hiddenPages.length} hidden` : ''}`);
 }
 
 main().catch((err) => {

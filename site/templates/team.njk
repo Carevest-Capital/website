@@ -12,6 +12,7 @@
     </div>
   </section>
 
+  {% if shown('grid') %}
   <!-- ============ TEAM GRID ============ -->
   <section class="section">
     <div class="wrap">
@@ -25,7 +26,9 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
+  {% if shown('board') %}
   {% set bd = s.board %}
   <!-- ============ BOARD ============ -->
   <section class="section section--surface">
@@ -45,11 +48,14 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
+  {% if shown('cta') %}
   <!-- ============ CTA ============ -->
   <section class="section">
     <div class="wrap">
       {{ m.ctaband(s.cta) }}
     </div>
   </section>
+  {% endif %}
 {% endblock %}

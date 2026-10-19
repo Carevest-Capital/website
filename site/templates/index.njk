@@ -22,6 +22,7 @@
     </div>
   </section>
 
+  {% if shown('trustbar') %}
   {% set t = s.trustbar %}
   <!-- ============ TRUST BAR ============ -->
   <div class="trustbar">
@@ -30,7 +31,9 @@
       {% endfor %}<div class="trust-item"><div class="k">{{ t.phone_label }}</div><div class="v"><a href="tel:{{ g.phone_investor_relations | tel }}" style="text-decoration:none; color:inherit;" class="tnum">{{ g.phone_investor_relations }}</a></div></div>
     </div>
   </div>
+  {% endif %}
 
+  {% if shown('audiences') %}
   {% set a = s.audiences %}
   <!-- ============ INVESTORS / BORROWERS ============ -->
   <section class="section">
@@ -54,7 +57,9 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
+  {% if shown('numbers') %}
   {% set n = s.numbers %}
   <!-- ============ NUMBERS BAND ============ -->
   <section class="section section--band">
@@ -69,7 +74,9 @@
       <p class="footnotes footnotes--band reveal" id="yield-note"><span class="footnotes__label">{{ n.footnote_label }}</span>*{{ fig.yield.note | inlinep }}</p>
     </div>
   </section>
+  {% endif %}
 
+  {% if shown('calculator') %}
   {% set c = s.calculator %}
   <!-- ============ CALCULATOR ============ -->
   <section class="section">
@@ -112,7 +119,9 @@
       <p class="fine fine--wide reveal" style="margin-top:16px;">{{ c.fine }}</p>
     </div>
   </section>
+  {% endif %}
 
+  {% if shown('how_it_works') %}
   {% set hw = s.how_it_works %}
   <!-- ============ HOW IT WORKS ============ -->
   <section class="section section--surface">
@@ -130,14 +139,18 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
+  {% if shown('image_band') %}
   <!-- ============ IMAGE BAND ============ -->
   <section class="section--tight">
     <div class="wrap">
       <figure class="photo photo--wide reveal"><img src="{{ s.image_band.image.src }}" alt="{{ s.image_band.image.alt }}" loading="lazy" /></figure>
     </div>
   </section>
+  {% endif %}
 
+  {% if shown('values') %}
   {% set v = s.values %}
   <!-- ============ VALUES BAND ============ -->
   <section class="section section--band">
@@ -151,7 +164,9 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
+  {% if shown('transactions') %}
   {% set tr = s.transactions %}
   <!-- ============ REPRESENTATIVE TRANSACTIONS ============ -->
   <section class="section">
@@ -166,7 +181,9 @@
       <p class="fine reveal" style="margin-top:10px;">{{ tr.fine }}</p>
     </div>
   </section>
+  {% endif %}
 
+  {% if shown('teasers') %}
   {% set te = s.teasers %}
   <!-- ============ EVENTS + HISTORY TEASERS ============ -->
   <section class="section" style="padding-top:0;">
@@ -187,11 +204,14 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
+  {% if shown('final_cta') %}
   <!-- ============ FINAL CTA ============ -->
   <section class="section" style="padding-top:0;">
     <div class="wrap">
       {{ m.ctaband(s.final_cta) }}
     </div>
   </section>
+  {% endif %}
 {% endblock %}

@@ -16,6 +16,7 @@
     </div>
   </section>
 
+  {% if shown('broker') %}
   {% set b = s.broker %}
   <!-- ============ ABOUT THE BROKER ============ -->
   <section class="section">
@@ -38,7 +39,9 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
+  {% if shown('projects') %}
   {% set p = s.projects %}
   {% set half = ((p.project_types | length) + 1) // 2 %}
   <!-- ============ TYPES OF PROJECTS / FINANCING ============ -->
@@ -64,7 +67,9 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
+  {% if shown('process') %}
   {% set pr = s.process %}
   <!-- ============ LENDING PROCESS ============ -->
   <section class="section">
@@ -79,7 +84,9 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
+  {% if shown('transactions') %}
   {% set tr = s.transactions %}
   <!-- ============ REPRESENTATIVE TRANSACTIONS ============ -->
   <section class="section section--surface" id="transactions">
@@ -93,11 +100,14 @@
       <p class="fine reveal" style="margin-top:16px;">{{ tr.fine }}</p>
     </div>
   </section>
+  {% endif %}
 
+  {% if shown('cta') %}
   <!-- ============ CTA ============ -->
   <section class="section">
     <div class="wrap">
       {{ m.ctaband(s.cta) }}
     </div>
   </section>
+  {% endif %}
 {% endblock %}

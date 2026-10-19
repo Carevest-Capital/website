@@ -12,13 +12,16 @@
     </div>
   </section>
 
+  {% if shown('image_band') %}
   <!-- ============ DOWNTOWN IMAGE ============ -->
   <section class="section--tight">
     <div class="wrap">
       <figure class="photo photo--wide reveal"><img src="{{ s.image_band.image.src }}" alt="{{ s.image_band.image.alt }}" loading="lazy" /></figure>
     </div>
   </section>
+  {% endif %}
 
+  {% if shown('timeline') %}
   <!-- ============ TIMELINE ============ -->
   <section class="section">
     <div class="wrap wrap--narrow">
@@ -36,7 +39,9 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
+  {% if shown('numbers') %}
   {% set n = s.numbers %}
   <!-- ============ NUMBERS ============ -->
   <section class="section section--band">
@@ -49,11 +54,14 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
+  {% if shown('cta') %}
   <!-- ============ CTA ============ -->
   <section class="section">
     <div class="wrap">
       {{ m.ctaband(s.cta) }}
     </div>
   </section>
+  {% endif %}
 {% endblock %}

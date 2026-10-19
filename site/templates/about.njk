@@ -12,6 +12,7 @@
     </div>
   </section>
 
+  {% if shown('local') %}
   {% set lo = s.local %}
   <!-- ============ LOCAL BUSINESS ============ -->
   <section class="section">
@@ -29,7 +30,9 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
+  {% if shown('entities') %}
   {% set en = s.entities %}
   <!-- ============ THE FOUR ENTITIES ============ -->
   <section class="section section--surface">
@@ -47,7 +50,9 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
+  {% if shown('values') %}
   {% set v = s.values %}
   <!-- ============ CORE VALUES ============ -->
   <section class="section section--band">
@@ -61,13 +66,15 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
-  {% set fm = s.fund_manager %}
-  {% set bd = s.board %}
+  {% if shown('fund_manager') or shown('board') %}
   <!-- ============ FUND MANAGER ============ -->
   <section class="section" id="fund-manager">
     <div class="wrap">
       <div class="grid g2" style="gap:44px; align-items:start;">
+        {% if shown('fund_manager') %}
+        {% set fm = s.fund_manager %}
         <div>
           <p class="eyebrow reveal">{{ fm.eyebrow }}</p>
           <h2 class="section-h reveal">{{ fm.headline | accent }}</h2>
@@ -75,6 +82,9 @@
           <p class="section-sub reveal" style="margin-top:14px;">{{ fm.body_2 }}</p>
           <p class="section-sub reveal" style="margin-top:14px;">{{ fm.body_3 }}</p>
         </div>
+        {% endif %}
+        {% if shown('board') %}
+        {% set bd = s.board %}
         <div class="card reveal" id="board">
           <p class="eyebrow eyebrow--muted">{{ bd.eyebrow }}</p>
           <p style="color:var(--muted); margin-top:12px;">{{ bd.body }}</p>
@@ -83,10 +93,13 @@
             {% endfor %}
           </div>
         </div>
+        {% endif %}
       </div>
     </div>
   </section>
+  {% endif %}
 
+  {% if shown('shareholder_admin') %}
   {% set sa = s.shareholder_admin %}
   <!-- ============ SHAREHOLDER ADMIN ============ -->
   <section class="section section--surface" id="shareholder-admin">
@@ -114,7 +127,9 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
+  {% if shown('careers') %}
   {% set ca = s.careers %}
   <!-- ============ CAREERS ============ -->
   <section class="section" id="careers">
@@ -135,11 +150,14 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
+  {% if shown('cta') %}
   <!-- ============ CTA ============ -->
   <section class="section" style="padding-top:0;">
     <div class="wrap">
       {{ m.ctaband(s.cta) }}
     </div>
   </section>
+  {% endif %}
 {% endblock %}

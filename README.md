@@ -89,6 +89,13 @@ Already done for the CareVest project: the deploy hooks of `carevest-blue` (Prod
 - **See before going live**: Update preview, then Open preview.
 - **Go live**: Publish (top right). It lists what changed. About a minute later the website is updated.
 - **Add a team member, transaction, FAQ or event**: the matching screen under Shared content.
+- **Hide a section**: every section card has a Shown / Hidden switch. A hidden section disappears from the
+  website after Publish but keeps its content, so it can be switched back on later. The opening section of a
+  page cannot be hidden (Events is the exception: hide the Featured Event and the page shows a plain title).
+- **Hide a whole page**: the Page shown / Page hidden switch at the top of a page. After Publish the page leaves
+  the menu and footer and its address sends visitors to the home page, so nothing can break. Home cannot be
+  hidden. Sections on other pages that point to a hidden page (for example the events card on Home) stay
+  until you hide them too.
 
 Deleting is rare and deliberate: nothing in the dashboard deletes anything from the live website until Publish.
 

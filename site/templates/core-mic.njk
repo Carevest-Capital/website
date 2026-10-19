@@ -16,6 +16,7 @@
     </div>
   </section>
 
+  {% if shown('objectives') %}
   {% set o = s.objectives %}
   <!-- ============ INVESTMENT OBJECTIVES ============ -->
   <section class="section">
@@ -31,7 +32,9 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
+  {% if shown('highlights') %}
   {% set hl = s.highlights %}
   <!-- ============ FUND HIGHLIGHTS ============ -->
   <section class="section section--band">
@@ -49,14 +52,15 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
-  {% set f = s.facts %}
-  {% set mc = s.mic_card %}
-  {% set rs = s.resources %}
+  {% if shown('facts') or shown('mic_card') or shown('resources') %}
   <!-- ============ FUND FACTS AT A GLANCE ============ -->
   <section class="section">
     <div class="wrap">
       <div class="grid g2" style="align-items:start; gap:44px;">
+        {% if shown('facts') %}
+        {% set f = s.facts %}
         <div>
           <p class="eyebrow reveal">{{ f.eyebrow }}</p>
           <h2 class="section-h reveal">{{ f.headline | accent }}</h2>
@@ -66,7 +70,11 @@
           </div>
           <p class="fine reveal" style="margin-top:18px;">{{ f.fine }}</p>
         </div>
+        {% endif %}
+        {% if shown('mic_card') or shown('resources') %}
         <div style="display:grid; gap:16px;">
+          {% if shown('mic_card') %}
+          {% set mc = s.mic_card %}
           <div class="card reveal">
             <p class="eyebrow eyebrow--muted">{{ mc.eyebrow }}</p>
             <h3 style="font-size:var(--s2); font-weight:300; margin-top:10px;">{{ mc.heading }}</h3>
@@ -77,6 +85,9 @@
               {% endif %}{% endfor %}
             </div>
           </div>
+          {% endif %}
+          {% if shown('resources') %}
+          {% set rs = s.resources %}
           <div class="card reveal">
             <p class="eyebrow eyebrow--muted">{{ rs.eyebrow }}</p>
             <div style="margin-top:14px; display:grid; gap:10px;">
@@ -85,11 +96,15 @@
             </div>
             <p class="fine" style="margin-top:14px;">{{ rs.fine }}</p>
           </div>
+          {% endif %}
         </div>
+        {% endif %}
       </div>
     </div>
   </section>
+  {% endif %}
 
+  {% if shown('investors') %}
   {% set inv = s.investors %}
   <!-- ============ FOR INVESTORS (Real Values) ============ -->
   <section class="section section--surface">
@@ -110,7 +125,9 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
+  {% if shown('promotion') %}
   {% set pr = s.promotion %}
   <!-- ============ PROMOTION ============ -->
   <section class="section" id="promotion">
@@ -125,7 +142,9 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
+  {% if shown('get_in_touch') %}
   {% set gt = s.get_in_touch %}
   <!-- ============ GET IN TOUCH ============ -->
   <section class="section" style="padding-top:0;">
@@ -143,4 +162,5 @@
       </div>
     </div>
   </section>
+  {% endif %}
 {% endblock %}

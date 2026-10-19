@@ -12,12 +12,13 @@
     </div>
   </section>
 
-  {% set f = s.form %}
-  {% set d = s.details %}
+  {% if shown('form') or shown('details') %}
   <!-- ============ FORM + DETAILS ============ -->
   <section class="section">
     <div class="wrap">
       <div class="split-uneven split-uneven--top">
+        {% if shown('form') %}
+        {% set f = s.form %}
         <div class="card reveal">
           <p class="eyebrow">{{ f.eyebrow }}</p>
           <form class="form" data-demo style="margin-top:18px;">
@@ -52,6 +53,9 @@
             <p class="fine">{{ f.consent }}</p>
           </form>
         </div>
+        {% endif %}
+        {% if shown('details') %}
+        {% set d = s.details %}
         <div style="display:grid; gap:20px;">
           <div class="card reveal">
             <p class="eyebrow eyebrow--muted">{{ d.ir_heading }}</p>
@@ -68,7 +72,9 @@
             <p style="color:var(--muted); margin-top:10px;">{{ d.borrowers_email }}</p>
           </div>
         </div>
+        {% endif %}
       </div>
     </div>
   </section>
+  {% endif %}
 {% endblock %}

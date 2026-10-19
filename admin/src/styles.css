@@ -86,8 +86,10 @@ p { margin: 0; }
 .content > .card + .card, .section-card + .section-card { margin-top: 18px; }
 .section-card { scroll-margin-top: 80px; }
 .section-card .num { width: 26px; height: 26px; border-radius: 7px; background: var(--navy); color: #fff; font-size: 12px; font-weight: 500; display: grid; place-items: center; flex: none; }
-.section-card .toggle { background: none; border: 0; padding: 0; color: var(--muted); display: flex; align-items: center; gap: 6px; font-size: 13px; }
+.section-card .toggle { background: none; border: 0; padding: 0; color: var(--muted); display: flex; align-items: center; gap: 6px; font-size: 13px; white-space: nowrap; }
 .section-card.is-collapsed .card__h { border-bottom: 0; }
+.section-card.is-hidden { border-style: dashed; background: var(--panel-2); box-shadow: none; }
+.section-card.is-hidden .card__h h3 { color: var(--muted); }
 
 .grid { display: grid; gap: 18px; }
 .grid--2 { grid-template-columns: repeat(2, 1fr); }

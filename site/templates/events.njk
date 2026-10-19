@@ -4,10 +4,13 @@
 {% block main %}
   {% set ev = items('hero') | first %}
   {% set r = s.registration %}
+  {% set showHero = shown('hero') and ev %}
+  {% set showReg = shown('registration') %}
   <!-- ============ PAGE HERO + REGISTRATION ============ -->
   <section class="page-hero">
     <div class="wrap page-hero__in">
-      <div class="hero" style="padding-block:0;">
+      {% if showHero %}
+      <div class="hero" style="padding-block:0;{% if not showReg %} grid-template-columns:1fr;{% endif %}">
         <div>
           <p class="eyebrow">{{ ev.series }} &middot; {{ ev.city }}</p>
           <h1>{{ ev.title | accent }}</h1>
@@ -18,6 +21,7 @@
             <span><b style="color:var(--band-fg); font-weight:500;">Cost:</b> {{ ev.cost }}</span>
           </div>
         </div>
+        {% if showReg %}
         <div class="card" style="box-shadow:0 40px 90px -50px rgba(0,0,0,0.6);">
           <p class="eyebrow">{{ r.eyebrow }}</p>
           <form class="form" data-demo style="margin-top:16px;">
@@ -41,17 +45,30 @@
             <p class="fine">{{ r.consent }}</p>
           </form>
         </div>
+        {% endif %}
       </div>
+      {% else %}
+      {#- The featured event is hidden: a slim opening so the page still has a title. -#}
+      <div class="hero" style="padding-block:0; grid-template-columns:1fr;">
+        <div>
+          <p class="eyebrow">CareVest Group</p>
+          <h1>{{ pageLabel }}</h1>
+        </div>
+      </div>
+      {% endif %}
     </div>
   </section>
 
+  {% if shown('image_band') %}
   <!-- ============ EVENT ATMOSPHERE ============ -->
   <section class="section--tight">
     <div class="wrap">
       <figure class="photo photo--wide reveal"><img src="{{ s.image_band.image.src }}" alt="{{ s.image_band.image.alt }}" loading="lazy" /></figure>
     </div>
   </section>
+  {% endif %}
 
+  {% if shown('why_attend') %}
   {% set w = s.why_attend %}
   <!-- ============ WHY ATTEND ============ -->
   <section class="section">
@@ -68,13 +85,18 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
+  {% set showReplay = shown('replay') %}
+  {% set showPast = shown('past_events') %}
+  {% if showReplay or showPast %}
   {% set rp = s.replay %}
   {% set pe = s.past_events %}
   <!-- ============ REPLAY / PAST EVENTS ============ -->
   <section class="section section--surface">
     <div class="wrap">
-      <div class="grid g2">
+      <div class="grid{% if showReplay and showPast %} g2{% endif %}">
+        {% if showReplay %}
         <div class="card split-card reveal">
           <p class="eyebrow">{{ rp.eyebrow }}</p>
           <h3>{{ rp.heading }}</h3>
@@ -85,20 +107,26 @@
             <p class="form-confirm" hidden style="color:var(--accent); font-weight:500;">{{ rp.confirm }}</p>
           </form>
         </div>
+        {% endif %}
+        {% if showPast %}
         <div class="card split-card reveal">
           <p class="eyebrow">{{ pe.eyebrow }}</p>
           <h3>{{ pe.heading }}</h3>
           <p>{{ pe.body }}</p>
           {{ m.btn(pe.button, 'btn--ghost', true) }}
         </div>
+        {% endif %}
       </div>
     </div>
   </section>
+  {% endif %}
 
+  {% if shown('cta') %}
   <!-- ============ CTA ============ -->
   <section class="section">
     <div class="wrap">
       {{ m.ctaband(s.cta) }}
     </div>
   </section>
+  {% endif %}
 {% endblock %}
