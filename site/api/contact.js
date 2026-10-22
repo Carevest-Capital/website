@@ -53,19 +53,7 @@ export default async function handler(req, res) {
   if (!to) to = process.env.CONTACT_FALLBACK_TO || DEFAULT_ROUTES.general;
   const recipients = to.split(/[,;\s]+/).filter(Boolean);
 
-  // 2. Store the message (never lose one, even if email fails).
-  let id = null;
-  try {
-    if (SUPABASE_URL && KEY) {
-      const r = await fetch(`${SUPABASE_URL}/rest/v1/contact_messages`, {
-        method: 'POST', headers: { ...sbHeaders, Prefer: 'return=representation' },
-        body: JSON.stringify({ kind, first_name: first, last_name: last, email, province, message, routed_to: recipients.join(', '), user_agent: clean(req.headers['user-agent'], 300) }),
-      });
-      if (r.ok) id = (await r.json())?.[0]?.id || null;
-    }
-  } catch { /* storage is best effort */ }
-
-  // 3. Email it.
+  // 2. Email it.
   let sent = false; let sendError = '';
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.CONTACT_FROM || 'CareVest Website <onboarding@resend.dev>';
@@ -86,12 +74,21 @@ export default async function handler(req, res) {
     sendError = 'RESEND_API_KEY is not configured';
   }
 
-  if (id && SUPABASE_URL && KEY) {
-    try { await fetch(`${SUPABASE_URL}/rest/v1/contact_messages?id=eq.${id}`, { method: 'PATCH', headers: sbHeaders, body: JSON.stringify({ sent, send_error: sent ? null : sendError }) }); } catch { /* ignore */ }
-  }
+  // 3. Store the message with its delivery status (never lose one, even if email failed).
+  // The anon key may insert but not read back, so the id is generated here and nothing is returned.
+  let stored = false;
+  try {
+    if (SUPABASE_URL && KEY) {
+      const r = await fetch(`${SUPABASE_URL}/rest/v1/contact_messages`, {
+        method: 'POST', headers: { ...sbHeaders, Prefer: 'return=minimal' },
+        body: JSON.stringify({ id: crypto.randomUUID(), kind, first_name: first, last_name: last, email, province, message, routed_to: recipients.join(', '), sent, send_error: sent ? null : sendError, user_agent: clean(req.headers['user-agent'], 300) }),
+      });
+      stored = r.ok;
+    }
+  } catch { /* storage is best effort */ }
 
   // The visitor sees success when the message was either emailed or safely stored for the team.
-  if (sent || id) { res.status(200).json({ ok: true, sent }); return; }
+  if (sent || stored) { res.status(200).json({ ok: true, sent }); return; }
   res.status(502).json({ ok: false, message: 'Sorry, your message could not be sent right now. Please email us directly.' });
 }
 
