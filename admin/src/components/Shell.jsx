@@ -60,6 +60,7 @@ export default function Shell() {
           <div className="grp">Shared content</div>
           <NavLink to="/figures" className={({ isActive }) => `nav${isActive ? ' active' : ''}`}>{schema.figures?.label || 'Key figures'}{pendingKeys.has('figures') && <span className="dot" />}</NavLink>
           <NavLink to="/documents" className={({ isActive }) => `nav${isActive ? ' active' : ''}`}>Documents</NavLink>
+          <NavLink to="/messages" className={({ isActive }) => `nav${isActive ? ' active' : ''}`}>Messages</NavLink>
           {Object.entries(schema.collections).map(([name, c]) => (
             <NavLink key={name} to={`/collections/${name}`} className={({ isActive }) => `nav${isActive ? ' active' : ''}`}>{c.label}{pendingKeys.has(ROW_KEYS.collection(name)) && <span className="dot" />}</NavLink>
           ))}
@@ -117,6 +118,6 @@ function crumbsFor(path) {
   const out = [{ label: 'Overview', to: '/' }];
   if (parts[0] === 'pages' && parts[1]) out.push({ label: 'Pages', to: '/' }, { label: schema.pages.find((p) => p.slug === parts[1])?.title || parts[1], to: path });
   else if (parts[0] === 'collections' && parts[1]) out.push({ label: schema.collections[parts[1]]?.label || parts[1], to: path });
-  else if (parts[0]) out.push({ label: { figures: schema.figures?.label || 'Key figures', documents: 'Documents', site: schema.globals?.label || 'Site-wide', users: 'Users', settings: 'Publishing setup', history: 'Publish history' }[parts[0]] || parts[0], to: path });
+  else if (parts[0]) out.push({ label: { messages: 'Messages', changes: 'Unpublished changes', figures: schema.figures?.label || 'Key figures', documents: 'Documents', site: schema.globals?.label || 'Site-wide', users: 'Users', settings: 'Publishing setup', history: 'Publish history' }[parts[0]] || parts[0], to: path });
   return out;
 }

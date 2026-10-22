@@ -609,8 +609,18 @@ export const pages = [
       {
         key: 'form',
         label: 'Contact Form',
-        hint: 'The message form. Field labels and choices are fixed; the heading, button and notes are editable.',
-        fields: [eyebrow('Form Heading'), text('button_label', 'Button Label'), text('confirm', 'Thank You Message', 'Shown after the form is sent.'), text('consent', 'Consent Note Under The Form')],
+        hint: 'The message form and where each kind of message is delivered. Field labels are fixed; everything else is editable.',
+        fields: [
+          eyebrow('Form Heading'),
+          text('selection_label', 'Label Of The "Selection" Dropdown', 'The dropdown offers New Investor, Borrower and General Inquiries.'),
+          text('route_new_investor', 'New Investor Messages Go To', 'Email address. One address, or several separated by commas.'),
+          text('route_borrower', 'Borrower Messages Go To', 'Email address.'),
+          text('route_general', 'General Inquiries Go To', 'Email address.'),
+          text('button_label', 'Button Label'),
+          text('confirm', 'Thank You Message', 'Shown after the message is sent.'),
+          text('error', 'Problem Message', 'Shown if the message could not be sent.'),
+          text('consent', 'Consent Note Under The Form'),
+        ],
       },
       {
         key: 'details',

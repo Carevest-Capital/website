@@ -88,6 +88,14 @@ export function createDemoStore() {
     async deleteDocument(id) { await wait(200); documents = documents.filter((d) => d.id !== id); },
     async uploadImage(file) { await wait(500); return URL.createObjectURL(file); },
 
+    async listMessages() {
+      return [
+        { id: 'm1', created_at: new Date(Date.now() - 3600e3).toISOString(), kind: 'new_investor', first_name: 'Jordan', last_name: 'Lee', email: 'jordan@example.com', province: 'British Columbia', message: 'I would like to learn more about the Core Fund and the minimum investment.', routed_to: 'invest@carevest.com', sent: true, read_at: null },
+        { id: 'm2', created_at: new Date(Date.now() - 86400e3 * 2).toISOString(), kind: 'borrower', first_name: 'Priya', last_name: 'Singh', email: 'priya@example.com', province: 'Alberta', message: 'Looking for construction financing on a 12-unit townhome project in Calgary.', routed_to: 'dnguyen@carevest.com', sent: false, send_error: 'RESEND_API_KEY is not configured', read_at: new Date().toISOString() },
+      ];
+    },
+    async markMessageRead() {},
+    async deleteMessage() {},
     async listProfiles() { return clone(profiles); },
     async updateProfileRole(id, role) { const p = profiles.find((x) => x.id === id); if (p) p.role = role; },
     async listDeployTargets() { return clone(targets); },

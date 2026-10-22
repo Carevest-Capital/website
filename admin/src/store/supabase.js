@@ -76,6 +76,10 @@ export function createSupabaseStore(url, anonKey) {
       return sb.storage.from('media').getPublicUrl(path).data.publicUrl;
     },
 
+    async listMessages() { return must(await sb.from('contact_messages').select('*').order('created_at', { ascending: false }).limit(200)); },
+    async markMessageRead(id, read) { must(await sb.from('contact_messages').update({ read_at: read ? new Date().toISOString() : null }).eq('id', id)); },
+    async deleteMessage(id) { must(await sb.from('contact_messages').delete().eq('id', id)); },
+
     async listProfiles() { return must(await sb.from('profiles').select('*').order('created_at')); },
     async updateProfileRole(id, role) { must(await sb.from('profiles').update({ role }).eq('id', id)); },
     async listDeployTargets() { return must(await sb.from('deploy_targets').select('*').order('kind').order('name')); },

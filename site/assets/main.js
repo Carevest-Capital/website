@@ -130,6 +130,40 @@
   });
 
   /* ---- forms: front-end only until a form backend is wired ---- */
+  /* Real forms: post to the serverless endpoint in data-endpoint, show the confirmation or the error text. */
+  document.querySelectorAll("form[data-endpoint]").forEach(function (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var ok = form.querySelector(".form-confirm");
+      var bad = form.querySelector(".form-error");
+      var btn = form.querySelector('button[type="submit"]');
+      var required = Array.prototype.slice.call(form.querySelectorAll("[required]"));
+      var missing = required.filter(function (el) { return !String(el.value || "").trim(); });
+      if (missing.length) { missing[0].focus(); if (bad) { bad.textContent = "Please fill in the required fields."; bad.hidden = false; } return; }
+      var data = {};
+      Array.prototype.forEach.call(form.elements, function (el) { if (el.name) data[el.name] = el.value; });
+      data.page = location.pathname;
+      if (btn) { btn.disabled = true; btn.setAttribute("data-label", btn.textContent); btn.textContent = "Sending"; }
+      if (bad) bad.hidden = true;
+      fetch(form.getAttribute("data-endpoint"), { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) })
+        .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { status: r.status, body: j }; }); })
+        .then(function (res) {
+          if (res.status >= 200 && res.status < 300 && res.body && res.body.ok) {
+            form.reset();
+            if (ok) ok.hidden = false;
+            if (btn) { btn.textContent = "Sent"; }
+          } else {
+            if (bad) { bad.textContent = (res.body && res.body.message) || bad.getAttribute("data-default") || bad.textContent; bad.hidden = false; }
+            if (btn) { btn.disabled = false; btn.textContent = btn.getAttribute("data-label"); }
+          }
+        })
+        .catch(function () {
+          if (bad) bad.hidden = false;
+          if (btn) { btn.disabled = false; btn.textContent = btn.getAttribute("data-label"); }
+        });
+    });
+  });
+
   document.querySelectorAll("form[data-demo]").forEach(function (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();

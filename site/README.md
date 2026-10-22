@@ -37,8 +37,8 @@ for anything missing from the database, so the site always builds.
 npm run verify
 ```
 
-Builds cream and blue into temporary folders from the local content and compares each of the nine
-pages with `carevest-site` and `carevest-blue` (entities decoded, whitespace normalised). Prints
+Builds the site into a temporary folder from the local content and compares each page with the approved
+snapshot in `__snapshot__/` (entities decoded, whitespace normalised). `--update` approves the current output. Prints
 PASS or FAIL per page and exits non-zero on any difference. Run it after any template change.
 
 ## Environment variables

@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="description" content="Draft emails for the CareVest CORE MIC investor welcome series. Internal review only." />
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+<title>CORE MIC Welcome Emails</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
+
+<style>
+:root{
+  --ground:#FFFFFF; --panel:#F5F8FA; --paper:#FFFFFF;
+  --ink:#16273F; --ink-soft:#44566C; --muted:#6A7C90;
+  --accent:#00529C; --accent-ink:#FFFFFF;
+  --line:rgba(22,39,63,0.12); --line-strong:rgba(22,39,63,0.24);
+  --fill-bg:#FFF0B3; --fill-ink:#4A3B00;
+  --warn:#9A5B12; --crit:#9B3434; --ok:#2F6B4F;
+  --chip:rgba(22,39,63,0.055);
+  --shadow:0 1px 2px rgba(22,39,63,0.06),0 8px 24px -12px rgba(22,39,63,0.14);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0E1825; --panel:#152232; --paper:#18273A;
+    --ink:#E8EEF5; --ink-soft:#B8C6D6; --muted:#8597AB;
+    --accent:#7FB2E5; --accent-ink:#0E1825;
+    --line:rgba(232,238,245,0.12); --line-strong:rgba(232,238,245,0.26);
+    --fill-bg:rgba(255,210,90,0.22); --fill-ink:#FFE7A3;
+    --warn:#E3A35C; --crit:#E39191; --ok:#7CC2A0;
+    --chip:rgba(232,238,245,0.07);
+    --shadow:0 1px 2px rgba(0,0,0,0.35),0 8px 24px -12px rgba(0,0,0,0.5);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0E1825; --panel:#152232; --paper:#18273A;
+  --ink:#E8EEF5; --ink-soft:#B8C6D6; --muted:#8597AB;
+  --accent:#7FB2E5; --accent-ink:#0E1825;
+  --line:rgba(232,238,245,0.12); --line-strong:rgba(232,238,245,0.26);
+  --fill-bg:rgba(255,210,90,0.22); --fill-ink:#FFE7A3;
+  --warn:#E3A35C; --crit:#E39191; --ok:#7CC2A0;
+  --chip:rgba(232,238,245,0.07);
+  --shadow:0 1px 2px rgba(0,0,0,0.35),0 8px 24px -12px rgba(0,0,0,0.5);
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:"Hanken Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px 110px}
+@media (max-width:640px){.wrap{padding:0 16px 70px}}
+h1,h2,h3{font-family:"Newsreader",Georgia,serif;font-weight:400;margin:0;text-wrap:balance}
+h1{font-size:clamp(2.2rem,5vw,3.25rem);line-height:1.08;letter-spacing:-0.015em}
+h2{font-size:clamp(1.55rem,3vw,2rem);line-height:1.15;letter-spacing:-0.01em}
+h3{font-size:1.3rem;line-height:1.25}
+p{margin:0}
+a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:0.69rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted)}
+mark.fill{background:var(--fill-bg);color:var(--fill-ink);padding:0 4px;border-radius:2px;font-weight:500}
+
+/* header */
+header.masthead{padding:70px 0 0}
+.bar{height:3px;width:56px;background:var(--accent);margin-bottom:26px}
+.masthead h1{margin:10px 0 18px;max-width:18ch}
+.lede{font-size:1.08rem;color:var(--ink-soft);max-width:64ch;margin-bottom:34px}
+.metastrip{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.metastrip div{background:var(--ground);padding:14px 18px 16px}
+.metastrip .k{display:block;font-family:"IBM Plex Mono",monospace;font-size:0.63rem;letter-spacing:0.13em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.metastrip .v{font-size:0.92rem;line-height:1.35}
+
+section.block{padding-top:72px}
+.sechead{display:flex;align-items:baseline;gap:14px;margin-bottom:10px}
+.sechead .num{font-family:"IBM Plex Mono",monospace;font-size:0.76rem;color:var(--accent);letter-spacing:0.08em}
+.secintro{color:var(--ink-soft);max-width:66ch;margin-bottom:26px}
+
+/* index */
+.index{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.index .grp{background:var(--ground);padding:18px 20px 20px}
+.index .grp .eyebrow{display:block;margin-bottom:10px}
+.index ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.index li a{display:grid;grid-template-columns:70px 1fr;gap:12px;padding:7px 0;border-top:1px solid var(--line);text-decoration:none;color:var(--ink);font-size:0.93rem}
+.index li:first-child a{border-top:none}
+.index li a:hover .t{color:var(--accent)}
+.index .d{font-family:"IBM Plex Mono",monospace;font-size:0.76rem;color:var(--muted);padding-top:2px;font-variant-numeric:tabular-nums}
+@media (max-width:760px){.index{grid-template-columns:1fr}}
+
+/* checklist */
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.checks > div{background:var(--ground);padding:20px 22px 22px}
+.checks h4{margin:0 0 12px;font-family:"IBM Plex Mono",monospace;font-size:0.68rem;letter-spacing:0.13em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.checks ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px}
+.checks li{display:grid;grid-template-columns:18px 1fr;gap:10px;font-size:0.9rem;color:var(--ink-soft)}
+.checks li::before{content:"";width:12px;height:12px;border:1.5px solid var(--line-strong);border-radius:2px;margin-top:5px}
+.checks li b{color:var(--ink);font-weight:600}
+@media (max-width:760px){.checks{grid-template-columns:1fr}}
+
+/* shared elements */
+.shared{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.shared .card{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:20px 22px;display:flex;flex-direction:column;gap:10px}
+.shared .card.wide{grid-column:1 / -1}
+.shared .card .eyebrow{color:var(--accent)}
+.shared .card p{font-size:0.92rem;color:var(--ink-soft)}
+.shared .card p.legal{font-size:0.8rem;line-height:1.55}
+@media (max-width:760px){.shared{grid-template-columns:1fr}}
+
+/* email block */
+.group-title{padding-top:80px}
+.email{display:grid;grid-template-columns:270px 1fr;gap:34px;padding:44px 0;border-top:1px solid var(--line)}
+.email:first-of-type{border-top:none}
+.rail{display:flex;flex-direction:column;gap:14px;font-size:0.88rem}
+.rail .tag{display:inline-flex;align-items:center;gap:8px;font-family:"IBM Plex Mono",monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent)}
+.rail h3{margin-top:-4px}
+.rail .row .k{display:block;font-family:"IBM Plex Mono",monospace;font-size:0.6rem;letter-spacing:0.13em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.rail .row .v{color:var(--ink);line-height:1.4}
+.rail .row .v code{font-family:"IBM Plex Mono",monospace;font-size:0.78rem;background:var(--chip);padding:1px 6px;border-radius:2px}
+.rail .note{font-size:0.82rem;color:var(--ink-soft);background:var(--chip);border-radius:3px;padding:10px 12px}
+.rail .note b{color:var(--ink);font-weight:600}
+.copybtn{align-self:flex-start;font:500 0.78rem "IBM Plex Mono",monospace;letter-spacing:0.06em;background:transparent;color:var(--ink);border:1px solid var(--line-strong);border-radius:3px;padding:7px 12px;cursor:pointer}
+.copybtn:hover{border-color:var(--accent);color:var(--accent)}
+.copybtn.done{border-color:var(--ok);color:var(--ok)}
+@media (max-width:860px){.email{grid-template-columns:1fr;gap:20px}}
+
+/* inbox mock */
+.mail{background:var(--paper);border:1px solid var(--line);border-radius:6px;box-shadow:var(--shadow);max-width:640px;width:100%;overflow:hidden}
+.mail .hdr{padding:16px 22px 14px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:4px;background:var(--panel)}
+.mail .hdr .from{font-size:0.84rem;color:var(--ink-soft)}
+.mail .hdr .from b{color:var(--ink);font-weight:600}
+.mail .hdr .subj{font-weight:600;font-size:1.04rem;color:var(--ink)}
+.mail .hdr .pre{font-size:0.84rem;color:var(--muted)}
+.mail .body{padding:26px 26px 30px;display:flex;flex-direction:column;gap:15px;font-size:1rem;line-height:1.62;color:var(--ink)}
+.mail .body ul,.mail .body ol{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px}
+.mail .body .stats{background:var(--panel);border-radius:4px;padding:14px 18px;display:grid;grid-template-columns:auto 1fr;gap:4px 18px;font-variant-numeric:tabular-nums;max-width:260px}
+.mail .body .stats span:nth-child(odd){color:var(--ink-soft)}
+.mail .body .stats span:nth-child(even){text-align:right;font-weight:500}
+.mail .body .lead{font-weight:600}
+.cta{display:flex;flex-direction:column;gap:6px;align-items:flex-start;padding:4px 0}
+.cta .btn{display:inline-block;background:var(--accent);color:var(--accent-ink);font-weight:600;font-size:0.95rem;padding:12px 22px;border-radius:4px}
+.cta .dest{font-family:"IBM Plex Mono",monospace;font-size:0.72rem;color:var(--muted)}
+.sig{display:flex;flex-direction:column;gap:2px}
+.sig .small{font-size:0.86rem;color:var(--ink-soft)}
+.ps{font-size:0.97rem}
+.inlink{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+.fn{font-size:0.78rem;color:var(--muted);line-height:1.5;border-top:1px solid var(--line);padding-top:12px}
+.alt{border:1px dashed var(--line-strong);border-radius:4px;padding:12px 14px;font-size:0.92rem;color:var(--ink-soft)}
+.alt .eyebrow{display:block;margin-bottom:6px}
+
+footer{margin-top:80px;padding-top:26px;border-top:1px solid var(--line);font-size:0.8rem;color:var(--muted)}
+@media (prefers-reduced-motion: no-preference){.copybtn{transition:color .15s,border-color .15s}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div class="bar"></div>
+  <span class="eyebrow">CareVest Core MIC &nbsp;/&nbsp; Welcome series &nbsp;/&nbsp; Drafts for review</span>
+  <h1>CORE MIC welcome emails</h1>
+  <p class="lede">All fifteen drafts, written in Jeevan's voice and ready to build in Constant Contact. Six short welcome emails, one per entry point, then a nine-email series everyone shares. Fund figures come from the CORE MIC Fund Fact Sheet as of August 2026 and CareVest's recent fundings list.</p>
+  <div class="metastrip">
+    <div><span class="k">From</span><span class="v">Jeevan Khunkhun</span></div>
+    <div><span class="k">Emails</span><span class="v">6 welcome + 9 core</span></div>
+    <div><span class="k">Runs</span><span class="v">Day 0 to day 35</span></div>
+    <div><span class="k">Data as of</span><span class="v">August 2026</span></div>
+    <div><span class="k">Status</span><span class="v">Draft, pre EMD review</span></div>
+  </div>
+</header>
+
+<section class="block" id="index">
+  <div class="sechead"><span class="num">01</span><h2>The sequence</h2></div>
+  <div class="index">
+    <div class="grp">
+      <span class="eyebrow">Welcome emails &middot; one per entry point</span>
+      <ol>
+        <li><a href="#w1"><span class="d">W1</span><span class="t">Event attendee</span></a></li>
+        <li><a href="#w2"><span class="d">W2</span><span class="t">Event no show</span></a></li>
+        <li><a href="#w3"><span class="d">W3</span><span class="t">Lunch and Learn attendee</span></a></li>
+        <li><a href="#w4"><span class="d">W4</span><span class="t">Website enquiry</span></a></li>
+        <li><a href="#w5"><span class="d">W5</span><span class="t">LinkedIn or referral</span></a></li>
+        <li><a href="#w6"><span class="d">W6</span><span class="t">Event follow-up, any time</span></a></li>
+      </ol>
+    </div>
+    <div class="grp">
+      <span class="eyebrow">Core series &middot; everyone</span>
+      <ol>
+        <li><a href="#c1"><span class="d">Day 2</span><span class="t">What a MIC actually is</span></a></li>
+        <li><a href="#c2"><span class="d">Day 5</span><span class="t">What we look at before we lend</span></a></li>
+        <li><a href="#c3"><span class="d">Day 8</span><span class="t">Thirty years in one market</span></a></li>
+        <li><a href="#c4"><span class="d">Day 12</span><span class="t">What happens when a borrower stops paying</span></a></li>
+        <li><a href="#c5"><span class="d">Day 16</span><span class="t">How you actually get paid</span></a></li>
+        <li><a href="#c6"><span class="d">Day 20</span><span class="t">A MIC is not a GIC</span></a></li>
+        <li><a href="#c7"><span class="d">Day 25</span><span class="t">Nine townhomes and two rental buildings</span></a></li>
+        <li><a href="#c8"><span class="d">Day 30</span><span class="t">What happens on a first call</span></a></li>
+        <li><a href="#c9"><span class="d">Day 35</span><span class="t">Worth 20 minutes?</span></a></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="before">
+  <div class="sechead"><span class="num">02</span><h2>Before these go live</h2></div>
+  <p class="secintro">Anything highlighted like <mark class="fill">[this]</mark> in the drafts is a fill-in.</p>
+  <div class="checks">
+    <div>
+      <h4>Fill in</h4>
+      <ul>
+        <li><span><b>Dealer name.</b> Core 08 and the footer disclaimer. The fact sheet names Belco Private Capital; the website names CareVest Private Capital.</span></li>
+        <li><span><b>Booking link.</b> Used in Core 04, 05, 07, 08 and 09.</span></li>
+        <li><span><b>Reply-to address.</b> A monitored inbox. Replies are a buying signal and should be answered same day.</span></li>
+        <li><span><b>Fact sheet link.</b> Host the August 2026 PDF on the website or in the Constant Contact library.</span></li>
+        <li><span><b>Per event:</b> event name, speaker, one-line takeaway, slides link (W1, W2, W6), firm name and topic (W3).</span></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Confirm</h4>
+      <ul>
+        <li><span><b>Headline return.</b> The fact sheet shows 7.65% average annual return in the table and "exceeding 7.75%" compound yield in the overview. These emails use neither; they use calendar-year returns and growth of $10,000.</span></li>
+        <li><span><b>Core 07 loans.</b> Both are CareVest Capital fundings. The email doesn't say CORE MIC holds them. Confirm province-level location is acceptable.</span></li>
+        <li><span><b>Process in Core 02 and 04.</b> Site visits, staged construction advances, and extensions: Jeevan to confirm this is how CareVest works.</span></li>
+        <li><span><b>Registered plans.</b> Core 05 names RRSP, TFSA and RRIF. The fact sheet only says "Yes."</span></li>
+        <li><span><b>Personal lines.</b> Jeevan to read Core 03 closely. It describes his move from RBC in his own words.</span></li>
+        <li><span><b>Links</b> point to pages on the new website. Confirm it's live before the series starts.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="shared">
+  <div class="sechead"><span class="num">03</span><h2>Shared across every email</h2></div>
+  <div class="shared">
+    <div class="card">
+      <span class="eyebrow">From and sign-off</span>
+      <p><b>From name:</b> Jeevan Khunkhun<br><b>Greeting:</b> Hi {First name}, using Constant Contact's first name field with the fallback "there"<br><b>Sign-off:</b> "Jeevan", then the signature below</p>
+      <p>Jeevan Khunkhun<br>Group President, CareVest<br>1 (855) 278-3611</p>
+    </div>
+    <div class="card">
+      <span class="eyebrow">Format</span>
+      <p>Single column, no header image, no logo banner. The emails should look like a note from Jeevan, not a newsletter. One button per email. Body text 16px. Constant Contact adds the unsubscribe link and mailing address automatically.</p>
+    </div>
+    <div class="card wide">
+      <span class="eyebrow">Footer disclaimer, every email</span>
+      <p class="legal">This email is for information only. It is not an offer to sell, or a solicitation of an offer to buy, any security. CareVest Core Mortgage Investment Corporation is offered only by Offering Memorandum, through <mark class="fill">[Dealer name]</mark>, an exempt market dealer, to eligible investors in British Columbia and Alberta. Private investments involve risk, including the loss of some or all of your capital, and are not insured by CDIC. Past performance does not guarantee future results. Please read the Offering Memorandum, including the risk factors, before making any investment decision. CareVest Capital Inc., Suite 1150, 510 Burrard Street, Vancouver, BC V6C 3A8.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =================== WELCOME EMAILS =================== -->
+<div class="group-title"><div class="sechead"><span class="num">04</span><h2>Welcome emails</h2></div>
+<p class="secintro">Each one is short and specific to how the person reached us. All six end with the same paragraph, then hand off to Core 01 two days later.</p></div>
+
+<article class="email" id="w1">
+  <div class="rail">
+    <span class="tag">W1 &middot; Event attendee</span>
+    <h3>Thanks for coming tonight</h3>
+    <div class="row"><span class="k">Send</span><span class="v">Same evening, by 9pm</span></div>
+    <div class="row"><span class="k">Subject A</span><span class="v">Thanks for coming tonight</span></div>
+    <div class="row"><span class="k">Subject B</span><span class="v">Tonight's slides, as promised</span></div>
+    <div class="row"><span class="k">Tag on entry</span><span class="v"><code>Source - Event</code></span></div>
+    <div class="note"><b>Pre-load before the event</b> so it can go out the same night. Fill the takeaway line by hand.</div>
+    <button class="copybtn" type="button" data-copy="w1">Copy email text</button>
+  </div>
+  <div class="mail">
+    <div class="hdr"><span class="from"><b>Jeevan Khunkhun</b></span><span class="subj">Thanks for coming tonight</span><span class="pre">The slides from <mark class="fill">[Event name]</mark>, plus a quick note on what's next.</span></div>
+    <div class="body">
+      <p>Hi {First name},</p>
+      <p>Thanks for coming out tonight. It was good to put faces to names, and I hope <mark class="fill">[Speaker name]</mark> was worth the drive.</p>
+      <p><mark class="fill">[One sentence on the point from the talk that stuck with you.]</mark></p>
+      <p>As promised, here are the slides, along with our latest fund fact sheet:</p>
+      <div class="cta"><span class="btn">Get the slides and fact sheet</span><span class="dest">Links to: <mark class="fill">[Slides link]</mark></span></div>
+      <p>Over the next five weeks I'll send you a short series on how private mortgage lending works: what a MIC is, how we decide who to lend to, what happens when a loan runs into trouble, and how investors get paid. Never more than two emails a week. If it isn't useful, the unsubscribe link is at the bottom.</p>
+      <p>And if tonight raised a question you didn't get to ask, just reply. It comes to our team, and someone will get back to you.</p>
+      <div class="sig"><span>Jeevan</span></div>
+    </div>
+  </div>
+</article>
+
+<article class="email" id="w2">
+  <div class="rail">
+    <span class="tag">W2 &middot; Event no show</span>
+    <h3>Sorry we missed you</h3>
+    <div class="row"><span class="k">Send</span><span class="v">Next morning, 9am</span></div>
+    <div class="row"><span class="k">Subject A</span><span class="v">Sorry we missed you last night</span></div>
+    <div class="row"><span class="k">Subject B</span><span class="v">What you missed at [Event name]</span></div>
+    <div class="row"><span class="k">Tag on entry</span><span class="v"><code>Source - Event No Show</code></span></div>
+    <button class="copybtn" type="button" data-copy="w2">Copy email text</button>
+  </div>
+  <div class="mail">
+    <div class="hdr"><span class="from"><b>Jeevan Khunkhun</b></span><span class="subj">Sorry we missed you last night</span><span class="pre">The short version of <mark class="fill">[Speaker name]</mark>'s talk, and the slides.</span></div>
+    <div class="body">
+      <p>Hi {First name},</p>
+      <p>We missed you at <mark class="fill">[Event name]</mark> last night. No worries at all. Life gets in the way.</p>
+      <p>The short version: <mark class="fill">[Two sentences summarizing the talk.]</mark></p>
+      <p>The slides are here if you'd like to flip through them, along with our latest fund fact sheet:</p>
+      <div class="cta"><span class="btn">See the slides</span><span class="dest">Links to: <mark class="fill">[Slides link]</mark></span></div>
+      <p>Over the next five weeks I'll send you a short series on how private mortgage lending works: what a MIC is, how we decide who to lend to, what happens when a loan runs into trouble, and how investors get paid. Never more than two emails a week. If it isn't useful, the unsubscribe link is at the bottom.</p>
+      <p>We hold these evenings a few times a year, and I'll make sure you hear about the next one early.</p>
+      <div class="sig"><span>Jeevan</span></div>
+    </div>
+  </div>
+</article>
+
+<article class="email" id="w3">
+  <div class="rail">
+    <span class="tag">W3 &middot; Lunch and Learn</span>
+    <h3>Thanks for having us</h3>
+    <div class="row"><span class="k">Send</span><span class="v">Same afternoon</span></div>
+    <div class="row"><span class="k">Subject A</span><span class="v">Thanks for having us at [Firm name]</span></div>
+    <div class="row"><span class="k">Subject B</span><span class="v">Notes from today's lunch</span></div>
+    <div class="row"><span class="k">Tag on entry</span><span class="v"><code>Source - Lunch and Learn</code></span></div>
+    <button class="copybtn" type="button" data-copy="w3">Copy email text</button>
+  </div>
+  <div class="mail">
+    <div class="hdr"><span class="from"><b>Jeevan Khunkhun</b></span><span class="subj">Thanks for having us at <mark class="fill">[Firm name]</mark></span><span class="pre">The fact sheet, and the RRSP and TFSA points we covered.</span></div>
+    <div class="body">
+      <p>Hi {First name},</p>
+      <p>Thanks for having us at <mark class="fill">[Firm name]</mark> today, and for the questions, particularly on <mark class="fill">[topic raised]</mark>.</p>
+      <p>Here's the fact sheet we mentioned. It's one page, and it covers the fund details, including the monthly distributions and registered plan eligibility we talked about.</p>
+      <div class="cta"><span class="btn">Download the fact sheet</span><span class="dest">Links to: Fact sheet PDF, August 2026</span></div>
+      <p>Over the next five weeks I'll send you a short series on how private mortgage lending works: what a MIC is, how we decide who to lend to, what happens when a loan runs into trouble, and how investors get paid. Never more than two emails a week. If it isn't useful, the unsubscribe link is at the bottom.</p>
+      <p>The one on tax and registered accounts lands in about two weeks. Given your line of work, it may be the most useful of the lot.</p>
+      <div class="sig"><span>Jeevan</span></div>
+    </div>
+  </div>
+</article>
+
+<article class="email" id="w4">
+  <div class="rail">
+    <span class="tag">W4 &middot; Website enquiry</span>
+    <h3>Thanks for reaching out</h3>
+    <div class="row"><span class="k">Send</span><span class="v">Immediately on form submit</span></div>
+    <div class="row"><span class="k">Subject A</span><span class="v">Thanks for reaching out</span></div>
+    <div class="row"><span class="k">Subject B</span><span class="v">Your CORE MIC fact sheet</span></div>
+    <div class="row"><span class="k">Tag on entry</span><span class="v"><code>Source - Website</code></span></div>
+    <button class="copybtn" type="button" data-copy="w4">Copy email text</button>
+  </div>
+  <div class="mail">
+    <div class="hdr"><span class="from"><b>Jeevan Khunkhun</b></span><span class="subj">Thanks for reaching out</span><span class="pre">The fund details on one page, and a note on what happens next.</span></div>
+    <div class="body">
+      <p>Hi {First name},</p>
+      <p>Thanks for getting in touch through our website. Someone from our team will reply to your message directly. In the meantime, here's the CORE MIC fact sheet. It's one page, and it has the numbers most people ask about first.</p>
+      <div class="cta"><span class="btn">Download the fact sheet</span><span class="dest">Links to: Fact sheet PDF, August 2026</span></div>
+      <p>A Dealing Representative may also give you a call in the next day or two. You don't need to be ready to invest to take that call, and there's no obligation.</p>
+      <p>Over the next five weeks I'll send you a short series on how private mortgage lending works: what a MIC is, how we decide who to lend to, what happens when a loan runs into trouble, and how investors get paid. Never more than two emails a week. If it isn't useful, the unsubscribe link is at the bottom.</p>
+      <div class="sig"><span>Jeevan</span></div>
+    </div>
+  </div>
+</article>
+
+<article class="email" id="w5">
+  <div class="rail">
+    <span class="tag">W5 &middot; LinkedIn or referral</span>
+    <h3>Good to connect</h3>
+    <div class="row"><span class="k">Send</span><span class="v">Within 24 hours</span></div>
+    <div class="row"><span class="k">Subject A</span><span class="v">Good to connect, {First name}</span></div>
+    <div class="row"><span class="k">Subject B</span><span class="v">A bit about what we do</span></div>
+    <div class="row"><span class="k">Tag on entry</span><span class="v"><code>Source - LinkedIn</code> or <code>Source - Referral</code></span></div>
+    <div class="note"><b>Referrals:</b> swap the first line for the alternate opening and send personally where possible.</div>
+    <button class="copybtn" type="button" data-copy="w5">Copy email text</button>
+  </div>
+  <div class="mail">
+    <div class="hdr"><span class="from"><b>Jeevan Khunkhun</b></span><span class="subj">Good to connect, {First name}</span><span class="pre">What we do, on one page, and a short series on how it works.</span></div>
+    <div class="body">
+      <p>Hi {First name},</p>
+      <p>Thanks for connecting, and for asking to hear more.</p>
+      <p>The short version: CareVest has been lending on real estate in British Columbia and Alberta since 1994. CORE MIC is the fund that lets individual investors take part in that lending. It holds a portfolio of first mortgages, mostly loans to residential builders and developers, and distributes its income to investors monthly.</p>
+      <p>Everything's on one page here:</p>
+      <div class="cta"><span class="btn">See the fact sheet</span><span class="dest">Links to: Fact sheet PDF, August 2026</span></div>
+      <p>Over the next five weeks I'll send you a short series on how private mortgage lending works: what a MIC is, how we decide who to lend to, what happens when a loan runs into trouble, and how investors get paid. Never more than two emails a week. If it isn't useful, the unsubscribe link is at the bottom.</p>
+      <div class="sig"><span>Jeevan</span></div>
+      <div class="alt"><span class="eyebrow">Alternate opening for referrals</span><mark class="fill">[Referrer name]</mark> suggested I get in touch, so I wanted to reach out personally. Thank you for being open to hearing from us.</div>
+    </div>
+  </div>
+</article>
+
+<article class="email" id="w6">
+  <div class="rail">
+    <span class="tag">W6 &middot; Event follow-up, any time</span>
+    <h3>Thank you for joining us</h3>
+    <div class="row"><span class="k">Send</span><span class="v">Any time after the event, ideally within two weeks</span></div>
+    <div class="row"><span class="k">Subject A</span><span class="v">Thank you for joining us at [Event name]</span></div>
+    <div class="row"><span class="k">Subject B</span><span class="v">The slides from [Event name]</span></div>
+    <div class="row"><span class="k">Tag on entry</span><span class="v"><code>Source - Event</code></span></div>
+    <div class="note"><b>Use when the same-day window for W1 has passed.</b> There's nothing in it about when the event was, so it reads naturally a few days or a few weeks later. For registrants who didn't attend, swap the first two paragraphs for the alternate opening.</div>
+    <button class="copybtn" type="button" data-copy="w6">Copy email text</button>
+  </div>
+  <div class="mail">
+    <div class="hdr"><span class="from"><b>Jeevan Khunkhun</b></span><span class="subj">Thank you for joining us at <mark class="fill">[Event name]</mark></span><span class="pre">The slides, our latest fact sheet, and a short series on how private lending works.</span></div>
+    <div class="body">
+      <p>Hi {First name},</p>
+      <p>Thank you for joining us at <mark class="fill">[Event name]</mark>. It was good to have you in the room, and I hope you came away with something useful from <mark class="fill">[Speaker name]</mark>.</p>
+      <p>The point I keep coming back to: <mark class="fill">[One sentence on the takeaway from the talk.]</mark></p>
+      <p>If you'd like a second look, here are the slides, along with our latest fund fact sheet:</p>
+      <div class="cta"><span class="btn">Get the slides and fact sheet</span><span class="dest">Links to: <mark class="fill">[Slides link]</mark></span></div>
+      <p>Over the next five weeks I'll send you a short series on how private mortgage lending works: what a MIC is, how we decide who to lend to, what happens when a loan runs into trouble, and how investors get paid. Never more than two emails a week. If it isn't useful, the unsubscribe link is at the bottom.</p>
+      <p>And if the event raised a question you didn't get a chance to ask, just reply. It comes to our team, and someone will get back to you.</p>
+      <div class="sig"><span>Jeevan</span></div>
+      <div class="alt"><span class="eyebrow">Alternate opening for registrants who didn't attend</span>Thank you for registering for <mark class="fill">[Event name]</mark>. I'm sorry we didn't get to see you there. The short version: <mark class="fill">[Two sentences summarizing the talk.]</mark></div>
+    </div>
+  </div>
+</article>
+
+<!-- =================== CORE SERIES =================== -->
+<div class="group-title"><div class="sechead"><span class="num">05</span><h2>Core series</h2></div>
+<p class="secintro">Identical for every contact. Days count from the welcome email.</p></div>
+
+<article class="email" id="c1">
+  <div class="rail">
+    <span class="tag">Core 01 &middot; Day 2</span>
+    <h3>What a MIC actually is</h3>
+    <div class="row"><span class="k">Subject A</span><span class="v">What a MIC actually is</span></div>
+    <div class="row"><span class="k">Subject B</span><span class="v">Mortgages, not stocks</span></div>
+    <div class="row"><span class="k">Tag on click</span><span class="v"><code>Clicked - Education</code></span></div>
+    <button class="copybtn" type="button" data-copy="c1">Copy email text</button>
+  </div>
+  <div class="mail">
+    <div class="hdr"><span class="from"><b>Jeevan Khunkhun</b></span><span class="subj">What a MIC actually is</span><span class="pre">The two-minute version I give when people ask what I do.</span></div>
+    <div class="body">
+      <p>Hi {First name},</p>
+      <p>When people ask what I do, I skip the acronym and start with a builder.</p>
+      <p>Say a builder needs $3 million to finish six homes. The bank can't do the loan, or can't do it fast enough to keep the trades on site. So the builder borrows from a private lender instead, puts the property up as security, and pays interest every month until the homes are sold or refinanced.</p>
+      <p>A mortgage investment corporation, or MIC, is a pool of loans like that one. Investors buy shares in the MIC. The MIC lends the money out as mortgages. Borrowers pay interest, and the MIC passes that income back to its shareholders as dividends.</p>
+      <p>A few rules set MICs apart from an ordinary company:</p>
+      <ul>
+        <li>As long as it pays out its income, the MIC itself generally pays no corporate tax. The income is taxed once, in the shareholders' hands, as interest.</li>
+        <li>At least half of its assets have to be residential mortgages or cash.</li>
+        <li>It needs at least 20 shareholders, and no single shareholder can own more than 25%.</li>
+      </ul>
+      <p>There are also two things a MIC isn't. It isn't a GIC: there's no CDIC insurance, and your capital isn't guaranteed. And it isn't a stock you can sell on a Tuesday afternoon. You get your money back through the fund's redemption process, which at CORE MIC runs quarterly.</p>
+      <p>That's the whole idea. The rest of this series is about how we run ours.</p>
+      <div class="cta"><span class="btn">Read the longer explainer</span><span class="dest">Links to: carevest.com/how-investing-works</span></div>
+      <div class="sig"><span>Jeevan</span></div>
+    </div>
+  </div>
+</article>
+
+<article class="email" id="c2">
+  <div class="rail">
+    <span class="tag">Core 02 &middot; Day 5</span>
+    <h3>What we look at before we lend</h3>
+    <div class="row"><span class="k">Subject A</span><span class="v">What we look at before we lend</span></div>
+    <div class="row"><span class="k">Subject B</span><span class="v">How a loan gets into the fund</span></div>
+    <div class="row"><span class="k">Tag on click</span><span class="v"><code>High Intent - Fact Sheet</code></span></div>
+    <div class="row"><span class="k">Resend</span><span class="v">To non-openers after 3 days, Subject B</span></div>
+    <div class="note"><b>Source:</b> all four fund figures are from the August 2026 fact sheet. 73% is the sum of the under 50%, 50 to 60% and 61 to 65% bands.</div>
+    <button class="copybtn" type="button" data-copy="c2">Copy email text</button>
+  </div>
+  <div class="mail">
+    <div class="hdr"><span class="from"><b>Jeevan Khunkhun</b></span><span class="subj">What we look at before we lend</span><span class="pre">It starts with someone walking the site. Then the real work begins.</span></div>
+    <div class="body">
+      <p>Hi {First name},</p>
+      <p>A big part of my job is deciding which loans we don't make. Before any investor money goes out the door, a loan goes through roughly these steps:</p>
+      <ol>
+        <li>Someone from our team walks the site. What's being built, how far along it is, and whether there's real demand for it once it's finished.</li>
+        <li>We look hard at the borrower: their track record, their other projects, and how much of their own money is in this one.</li>
+        <li>We size the loan against an independent appraisal. That's where the loan-to-value ratio comes from.</li>
+        <li>We structure and approve it. On construction loans, the money is usually advanced in stages as the work gets done.</li>
+        <li>We manage it until it's paid back.</li>
+      </ol>
+      <p>If you remember one number from this series, make it loan-to-value. If a property appraises at $1,000,000 and we lend $600,000, the loan-to-value is 60%. The other 40% is the cushion: roughly how much value would have to disappear before the loan itself is at risk.</p>
+      <p>As of August 2026, CORE MIC looked like this:</p>
+      <ul>
+        <li>100% first mortgages, so the fund ranks ahead of any other mortgage on each property</li>
+        <li>A weighted average loan-to-value of 60.57%</li>
+        <li>Almost three quarters of the portfolio (73%) at 65% loan-to-value or lower</li>
+        <li>Lending focused on BC and Alberta</li>
+      </ul>
+      <p>The fact sheet has the full breakdown, including the mix of loan-to-value bands and interest rates:</p>
+      <div class="cta"><span class="btn">Download the fact sheet</span><span class="dest">Links to: Fact sheet PDF, August 2026</span></div>
+      <div class="sig"><span>Jeevan</span></div>
+    </div>
+  </div>
+</article>
+
+<article class="email" id="c3">
+  <div class="rail">
+    <span class="tag">Core 03 &middot; Day 8</span>
+    <h3>Thirty years in one market</h3>
+    <div class="row"><span class="k">Subject A</span><span class="v">Thirty years in one market</span></div>
+    <div class="row"><span class="k">Subject B</span><span class="v">From RBC to CareVest</span></div>
+    <div class="row"><span class="k">Tag on click</span><span class="v"><code>Clicked - Team</code></span></div>
+    <div class="note"><b>Jeevan to review closely.</b> Career facts are from his website bio. If an event is within six weeks of sending, swap the button for event registration and tag <code>High Intent - Event</code>.</div>
+    <button class="copybtn" type="button" data-copy="c3">Copy email text</button>
+  </div>
+  <div class="mail">
+    <div class="hdr"><span class="from"><b>Jeevan Khunkhun</b></span><span class="subj">Thirty years in one market</span><span class="pre">I joined CareVest from RBC in 2006. This is what I found.</span></div>
+    <div class="body">
+      <p>Hi {First name},</p>
+      <p>Before I joined CareVest in 2006, I was a senior manager in commercial real estate at RBC in Vancouver. Banks are very good at the loans they're built for. But plenty of sound projects in BC and Alberta don't fit neatly into a bank's criteria, or can't wait on a bank's timeline.</p>
+      <p>CareVest had been lending into that gap since 1994. What I learned early is that in private lending, the work you do before a loan is funded matters far more than anything you can do after. Knowing the borrower, and the street the project is on, is the job.</p>
+      <p>Since 2010, our leadership team has managed more than $2.1 billion in mortgage originations. That number matters less to me than where the money went: Vancouver and the Lower Mainland, Calgary, Edmonton, the BC Interior. Markets our team knows first-hand, with offices in Vancouver and Calgary.</p>
+      <p>CORE MIC came out of that history in 2021. It gives individual investors a way into the same kind of lending, starting at $5,000.</p>
+      <p>I'd like you to meet the people who make these decisions. The team page is a start. Our events are better.</p>
+      <div class="cta"><span class="btn">Meet the team</span><span class="dest">Links to: carevest.com/team</span></div>
+      <div class="sig"><span>Jeevan</span></div>
+    </div>
+  </div>
+</article>
+
+<article class="email" id="c4">
+  <div class="rail">
+    <span class="tag">Core 04 &middot; Day 12</span>
+    <h3>What happens when a borrower stops paying</h3>
+    <div class="row"><span class="k">Subject A</span><span class="v">What happens when a borrower stops paying</span></div>
+    <div class="row"><span class="k">Subject B</span><span class="v">If a borrower stops paying</span></div>
+    <div class="row"><span class="k">Primary action</span><span class="v">Reply. Remove anyone who replies from the series and pass to a DR.</span></div>
+    <div class="row"><span class="k">Tag on click</span><span class="v"><code>High Intent - Booking</code> (P.S. link)</span></div>
+    <div class="note"><b>Highest-sensitivity email.</b> Flag for EMD attention. Jeevan to confirm the process steps.</div>
+    <button class="copybtn" type="button" data-copy="c4">Copy email text</button>
+  </div>
+  <div class="mail">
+    <div class="hdr"><span class="from"><b>Jeevan Khunkhun</b></span><span class="subj">What happens when a borrower stops paying</span><span class="pre">It's the right question to ask. Here's the plain answer.</span></div>
+    <div class="body">
+      <p>Hi {First name},</p>
+      <p>If you're thinking about lending money, the most useful thing to ask is what happens when someone doesn't pay it back. So let me answer it plainly.</p>
+      <p>It happens. In more than thirty years, CareVest has seen loans run late and projects stall. This is roughly what follows.</p>
+      <p><span class="lead">We usually see it coming.</span> Construction loans are advanced in stages, so we're watching costs and progress the whole way through.</p>
+      <p><span class="lead">We talk first.</span> Most problems are timing problems: a sale that's slower than planned, or a refinance that takes longer. Often the sensible answer is a short extension, on terms that protect the fund.</p>
+      <p><span class="lead">If that doesn't work, the borrower sells or refinances.</span> Someone with real equity in a project has every reason to protect it.</p>
+      <p><span class="lead">Enforcement comes last.</span> In BC and Alberta it goes through the courts, and it takes time. This is where being in first position counts. The fund's mortgage ranks ahead of any other mortgage on the property, and the borrower's equity sits behind it.</p>
+      <p>It's also where loan-to-value earns its keep. At 60% loan-to-value, the property would have to lose roughly 40% of its appraised value before the loan itself was underwater. That isn't a promise. Legal costs and a soft market both eat into that cushion, and timing can stretch.</p>
+      <p>I'd rather you hear the rest from me now. CORE MIC is a private investment with real risk. Your capital isn't guaranteed or insured, past returns don't promise future ones, and the Offering Memorandum sets out the risks in full.</p>
+      <p>If there's a question I haven't answered, just reply. It goes to our team, and a Dealing Representative can walk you through anything specific to your situation.</p>
+      <div class="sig"><span>Jeevan</span></div>
+      <p class="ps">P.S. If you'd rather talk it through, you can <span class="inlink">book 20 minutes with a Dealing Representative</span>. <span class="dest mono" style="font-size:0.72rem;color:var(--muted)">Links to: <mark class="fill">[Booking link]</mark></span></p>
+    </div>
+  </div>
+</article>
+
+<article class="email" id="c5">
+  <div class="rail">
+    <span class="tag">Core 05 &middot; Day 16</span>
+    <h3>How you actually get paid</h3>
+    <div class="row"><span class="k">Subject A</span><span class="v">How you actually get paid</span></div>
+    <div class="row"><span class="k">Subject B</span><span class="v">Monthly income, the DRIP, and your RRSP</span></div>
+    <div class="row"><span class="k">Tag on click</span><span class="v"><code>High Intent - Booking</code></span></div>
+    <div class="row"><span class="k">Resend</span><span class="v">To non-openers after 3 days, Subject B</span></div>
+    <div class="note"><b>The website calculator is left out on purpose.</b> It uses 7.75%, which doesn't match the fact sheet. Link it once the figure is reconciled and EMD-approved. All return figures here are from the August 2026 fact sheet; 2021 is included so no year is left out.</div>
+    <button class="copybtn" type="button" data-copy="c5">Copy email text</button>
+  </div>
+  <div class="mail">
+    <div class="hdr"><span class="from"><b>Jeevan Khunkhun</b></span><span class="subj">How you actually get paid</span><span class="pre">Cash each month or reinvested, and where the tax lands.</span></div>
+    <div class="body">
+      <p>Hi {First name},</p>
+      <p>This one's practical: how the money would actually reach you.</p>
+      <p>CORE MIC pays dividends monthly, and you choose what happens to them. You can take them as cash, deposited every month, which suits people who want the investment to pay them an income. Or you can reinvest them through the dividend reinvestment plan (DRIP). Each month your dividends buy more shares at net asset value, so your income starts earning income.</p>
+      <p>To give you a sense of what reinvesting has done so far: $10,000 invested in Class A shares when the fund launched in August 2021, with every dividend reinvested, was worth $14,642 as of August 2026.*</p>
+      <p>Calendar-year returns, after all fees:</p>
+      <div class="stats"><span>2021*</span><span>5.25%</span><span>2022</span><span>7.37%</span><span>2023</span><span>8.50%</span><span>2024</span><span>8.76%</span><span>2025</span><span>8.01%</span></div>
+      <p>Those numbers are real, and they're also history. Returns depend on the loans in the portfolio and on interest rates, and some years will come in lower.</p>
+      <p>Now the tax. MIC dividends are taxed as interest income, at your full marginal rate. That's why where you hold the shares matters. CORE MIC is eligible for registered plans, so it can be held inside an RRSP, TFSA or RRIF, where that income is either sheltered or tax-deferred. Holding it that way usually means a self-directed plan, and a Dealing Representative can explain how that works.</p>
+      <p>This is general information, not tax advice. Your accountant can tell you which account makes sense for you.</p>
+      <p>If you'd like to talk through how this would work for your own accounts, that's exactly what a first call is for:</p>
+      <div class="cta"><span class="btn">Book a 20-minute call</span><span class="dest">Links to: <mark class="fill">[Booking link]</mark></span></div>
+      <div class="sig"><span>Jeevan</span></div>
+      <p class="fn">*Class A shares. Returns are net of all fees, including the 1.50% management fee, as reported in the CareVest Core MIC Fund Fact Sheet as of August 2026. 2021 is a partial year, annualized from the first distribution in September 2021. Growth of $10,000 assumes all dividends were reinvested. Past performance does not guarantee future results.</p>
+    </div>
+  </div>
+</article>
+
+<article class="email" id="c6">
+  <div class="rail">
+    <span class="tag">Core 06 &middot; Day 20</span>
+    <h3>A MIC is not a GIC</h3>
+    <div class="row"><span class="k">Subject A</span><span class="v">A MIC is not a GIC</span></div>
+    <div class="row"><span class="k">Subject B</span><span class="v">Who this isn't for</span></div>
+    <div class="row"><span class="k">Tag on click</span><span class="v"><code>Clicked - FAQ</code></span></div>
+    <div class="note"><b>EMD attention:</b> comparisons with other products.</div>
+    <button class="copybtn" type="button" data-copy="c6">Copy email text</button>
+  </div>
+  <div class="mail">
+    <div class="hdr"><span class="from"><b>Jeevan Khunkhun</b></span><span class="subj">A MIC is not a GIC</span><span class="pre">The trade-offs in plain terms, and who it tends to suit.</span></div>
+    <div class="body">
+      <p>Hi {First name},</p>
+      <p>Some people shouldn't invest in CORE MIC, and part of this email is about who. First, how it compares with what's probably already in your portfolio:</p>
+      <p><span class="lead">Against a GIC.</span> A GIC at a bank is covered by CDIC insurance up to its limits, and your capital is guaranteed. CORE MIC has neither.</p>
+      <p><span class="lead">Against a bond fund.</span> You can sell a bond fund on any business day. CORE MIC doesn't trade on a market, so there's no daily price to watch, but you can only redeem quarterly, under the notice and other terms in the Offering Memorandum.</p>
+      <p><span class="lead">Against a REIT.</span> A REIT owns property, so you share in property values going up and down. A MIC lends against property instead. Your return comes from interest, not appreciation, and as a first mortgage lender the fund ranks ahead of the owner's equity.</p>
+      <p>It's not for you if:</p>
+      <ul>
+        <li>you might need the money back on short notice</li>
+        <li>you can't afford to lose some of your capital</li>
+        <li>you're thinking of putting most of your savings in one place</li>
+      </ul>
+      <p>It tends to suit people who want monthly income or steady compounding, who have money they can leave in place for a few years, and who like knowing what's behind their investment.</p>
+      <p>Whether that describes you is a conversation for you and a Dealing Representative. I can't decide it in an email.</p>
+      <div class="cta"><span class="btn">Read the investor FAQ</span><span class="dest">Links to: carevest.com/how-investing-works#faq</span></div>
+      <div class="sig"><span>Jeevan</span></div>
+    </div>
+  </div>
+</article>
+
+<article class="email" id="c7">
+  <div class="rail">
+    <span class="tag">Core 07 &middot; Day 25</span>
+    <h3>Nine townhomes and two rental buildings</h3>
+    <div class="row"><span class="k">Subject A</span><span class="v">Nine townhomes and two rental buildings</span></div>
+    <div class="row"><span class="k">Subject B</span><span class="v">Two recent loans, up close</span></div>
+    <div class="row"><span class="k">Tag on click</span><span class="v"><code>Clicked - Lending</code>, <code>High Intent - Booking</code> (P.S.)</span></div>
+    <div class="note"><b>Source:</b> CCI Fundings, August 2026. No borrower names or cities, per Danson. Province only. Swap in newer loans as they fund.</div>
+    <button class="copybtn" type="button" data-copy="c7">Copy email text</button>
+  </div>
+  <div class="mail">
+    <div class="hdr"><span class="from"><b>Jeevan Khunkhun</b></span><span class="subj">Nine townhomes and two rental buildings</span><span class="pre">What we lent, what it's building, and how much cushion sits behind each.</span></div>
+    <div class="body">
+      <p>Hi {First name},</p>
+      <p>I've spent a few emails on how we lend. This is what it looks like on two loans CareVest funded recently. I've left out the borrowers and exact locations for their privacy.</p>
+      <p class="lead">Townhomes in British Columbia</p>
+      <ul>
+        <li>First mortgage of $5.7 million</li>
+        <li>Funds the first 9 homes in a 19-unit townhouse project</li>
+        <li>65% loan-to-value</li>
+      </ul>
+      <p>The detail I'd point to is the phasing. The loan covers the first nine of the nineteen homes, so the money stays matched to what's actually being built.</p>
+      <p class="lead">Rental housing in Alberta</p>
+      <ul>
+        <li>First mortgage of $3.35 million</li>
+        <li>Funds construction of two 8-plex rental buildings</li>
+        <li>67% loan-to-value</li>
+      </ul>
+      <p>That's sixteen new rental homes. Once a building like this is finished and leased, it's typically refinanced with long-term financing, and that's usually how a construction loan like ours gets repaid.</p>
+      <p>Both are first mortgages on new housing. Both have roughly a third of the property's value sitting behind our loan. And both are the kind of lending CORE MIC exists to do.</p>
+      <div class="cta"><span class="btn">See more of our recent lending</span><span class="dest">Links to: carevest.com/lending#transactions</span></div>
+      <div class="sig"><span>Jeevan</span></div>
+      <p class="ps">P.S. Questions about loans like these are good ones to bring to a first call. You can <span class="inlink">book 20 minutes with a Dealing Representative here</span>. <span class="dest mono" style="font-size:0.72rem;color:var(--muted)">Links to: <mark class="fill">[Booking link]</mark></span></p>
+    </div>
+  </div>
+</article>
+
+<article class="email" id="c8">
+  <div class="rail">
+    <span class="tag">Core 08 &middot; Day 30</span>
+    <h3>What happens on a first call</h3>
+    <div class="row"><span class="k">Subject A</span><span class="v">What happens on a first call</span></div>
+    <div class="row"><span class="k">Subject B</span><span class="v">What the first call is actually like</span></div>
+    <div class="row"><span class="k">Tag on click</span><span class="v"><code>High Intent - Booking</code></span></div>
+    <div class="row"><span class="k">Resend</span><span class="v">To non-openers after 3 days, Subject B</span></div>
+    <div class="note"><b>EMD attention:</b> confirm the steps match the actual subscription process.</div>
+    <button class="copybtn" type="button" data-copy="c8">Copy email text</button>
+  </div>
+  <div class="mail">
+    <div class="hdr"><span class="from"><b>Jeevan Khunkhun</b></span><span class="subj">What happens on a first call</span><span class="pre">Who you'd talk to, what they'll ask, and what comes after.</span></div>
+    <div class="body">
+      <p>Hi {First name},</p>
+      <p>Booking a call about an investment can feel like agreeing to be sold to. So here's exactly what happens.</p>
+      <p>You'd speak with a Dealing Representative from <mark class="fill">[Dealer name]</mark>, an exempt market dealer registered in BC and Alberta. Before anyone can invest in a private offering like CORE MIC, a registered dealer is required to understand your finances, your goals and how much risk you can take on. That's what the first call is for.</p>
+      <p>It takes about 20 minutes. They'll ask what you want the money to do, how long you can leave it invested, and whether you'd hold it in a registered account. You can ask them anything, including the questions you'd rather not ask me.</p>
+      <p>If it looks like a fit and you want to go ahead:</p>
+      <ol>
+        <li>You'll receive the Offering Memorandum. It's the full legal document, risks included, and you should read it.</li>
+        <li>You'll complete the subscription and know-your-client forms with the Dealing Representative.</li>
+        <li>Your investment is placed, and you join the monthly dividend schedule.</li>
+      </ol>
+      <p>The minimum is $5,000, from cash or a registered account.</p>
+      <p>And if it isn't a fit, they'll say so. There's no obligation at any point.</p>
+      <div class="cta"><span class="btn">Book a 20-minute call</span><span class="dest">Links to: <mark class="fill">[Booking link]</mark></span></div>
+      <div class="sig"><span>Jeevan</span></div>
+    </div>
+  </div>
+</article>
+
+<article class="email" id="c9">
+  <div class="rail">
+    <span class="tag">Core 09 &middot; Day 35</span>
+    <h3>Worth 20 minutes?</h3>
+    <div class="row"><span class="k">Subject A</span><span class="v">Worth 20 minutes?</span></div>
+    <div class="row"><span class="k">Subject B</span><span class="v">Where we go from here</span></div>
+    <div class="row"><span class="k">Tag on click</span><span class="v"><code>High Intent - Booking</code></span></div>
+    <div class="row"><span class="k">After send</span><span class="v">Add to <code>Monthly Investor Letter</code>, remove from <code>Core Series</code></span></div>
+    <button class="copybtn" type="button" data-copy="c9">Copy email text</button>
+  </div>
+  <div class="mail">
+    <div class="hdr"><span class="from"><b>Jeevan Khunkhun</b></span><span class="subj">Worth 20 minutes?</span><span class="pre">The last email in this series, and one question.</span></div>
+    <div class="body">
+      <p>Hi {First name},</p>
+      <p>This is the last email in the series. Over the past five weeks I've tried to give you the honest version of how we lend:</p>
+      <ul>
+        <li>what a MIC is, and what it isn't</li>
+        <li>how a loan gets approved, and why loan-to-value matters</li>
+        <li>what happens when a borrower stops paying</li>
+        <li>how the income reaches you, and where the tax lands</li>
+        <li>what you give up compared with a GIC</li>
+        <li>two real loans, up close</li>
+      </ul>
+      <p>If any of it made you curious, the next step is a short conversation. So I'll ask once: would 20 minutes with a Dealing Representative be useful?</p>
+      <div class="cta"><span class="btn">Book a 20-minute call</span><span class="dest">Links to: <mark class="fill">[Booking link]</mark></span></div>
+      <p>If the timing isn't right, that's completely fine. You'll keep getting my monthly investor letter, with fund updates, the kinds of loans we're funding and what we're seeing in the BC and Alberta markets. You're also always welcome at our events.</p>
+      <p>If you'd rather hear from us less often, you can update your email preferences at the bottom of this message.</p>
+      <p>Thanks for reading.</p>
+      <div class="sig"><span>Jeevan</span></div>
+    </div>
+  </div>
+</article>
+
+<footer>
+  Draft for internal review by CareVest and its exempt market dealer. Not for distribution until approved. Fund figures from the CareVest Core MIC Fund Fact Sheet as of August 2026; loan details from CCI Fundings, August 2026.
+</footer>
+
+</div>
+
+<script>
+(function(){
+  function textOf(article){
+    var subj = article.querySelector('.mail .subj');
+    var pre = article.querySelector('.mail .pre');
+    var body = article.querySelector('.mail .body');
+    var out = 'Subject: ' + subj.innerText.trim() + '\nPreview text: ' + pre.innerText.trim() + '\n\n' + body.innerText.trim();
+    return out.replace(/\n{3,}/g, '\n\n');
+  }
+  function fallbackCopy(t){
+    var ta = document.createElement('textarea');
+    ta.value = t; ta.setAttribute('readonly',''); ta.style.position='absolute'; ta.style.left='-9999px';
+    document.body.appendChild(ta); ta.select();
+    var ok = false; try { ok = document.execCommand('copy'); } catch(e) {}
+    document.body.removeChild(ta); return ok;
+  }
+  document.querySelectorAll('.copybtn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var art = document.getElementById(btn.getAttribute('data-copy'));
+      var t = textOf(art);
+      var done = function(){ btn.textContent = 'Copied'; btn.classList.add('done'); setTimeout(function(){ btn.textContent = 'Copy email text'; btn.classList.remove('done'); }, 1800); };
+      var fail = function(){ btn.textContent = 'Select and copy manually'; };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(t).then(done, function(){ fallbackCopy(t) ? done() : fail(); });
+      } else { fallbackCopy(t) ? done() : fail(); }
+    });
+  });
+})();
+</script>
+</body>
+</html>

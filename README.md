@@ -66,8 +66,15 @@ from it: `carevest-blue` (production) and `carevest-preview` (drafts). Both:
 | `CONTENT_STATE` | `published` | `draft` |
 | `SUPABASE_URL` | yes | yes |
 | `SUPABASE_ANON_KEY` | yes | yes |
+| `RESEND_API_KEY` | yes | optional | Sends contact-form emails (resend.com). Without it messages are only stored. |
+| `CONTACT_FROM` | yes | optional | Sender on a verified Resend domain, e.g. `CareVest Website <website@mail.carevest.com>` |
 
-The anon key is enough for both: the build reads the public `published_content` and `draft_content` views.
+The anon key is enough for the build: it reads the public `published_content` and `draft_content` views.
+
+**Contact form.** `site/api/contact.js` is a Vercel serverless function behind `/api/contact`. It stores every
+message in the `contact_messages` table (visible under Messages in the dashboard) and emails it to the address
+set on the Contact page for that kind of message (New Investor, Borrower, General Inquiries). Editors change
+those addresses in the dashboard; no redeploy needed.
 
 - Settings, Git, Deploy Hooks: create a hook named "CMS publish" per project and copy its address.
 
@@ -96,6 +103,8 @@ Already done for the CareVest project: the deploy hooks of `carevest-blue` (Prod
   area, or everything; then Publish the rest from the same screen.
 - **Go live**: Publish (top right). It lists what changed. About a minute later the website is updated.
 - **Add a team member, transaction, FAQ or event**: the matching screen under Shared content.
+- **Read contact-form messages**: Messages. Every submission is kept there even if the email could not be sent.
+- **Change where contact-form messages are emailed**: Contact page, Contact Form section.
 - **Hide a section**: every section card has a Shown / Hidden switch. A hidden section disappears from the
   website after Publish but keeps its content, so it can be switched back on later. The opening section of a
   page cannot be hidden (Events is the exception: hide the Featured Event and the page shows a plain title).
