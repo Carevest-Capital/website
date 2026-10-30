@@ -5,7 +5,9 @@
 
 {#- A button. `cls` is the style variant, `arrow` adds the trailing arrow, `style` an inline style. -#}
 {%- macro btn(l, cls, arrow=false, style='') -%}
+{%- if l and l.label -%}
 <a class="btn {{ cls }}" href="{{ l.href }}"{% if style %} style="{{ style }}"{% endif %}>{{ l.label }}{% if arrow %} <span class="arw">&rarr;</span>{% endif %}</a>
+{%- endif -%}
 {%- endmacro -%}
 
 {#- Just the large number of a stat. Animated by default (data-count); `count` false renders it static. -#}

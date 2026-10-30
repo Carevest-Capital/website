@@ -68,7 +68,7 @@ const ctaBand = (key = 'cta', label = 'Closing Call To Action', hint = 'The high
     heading('headline', 'Headline'),
     text('body', 'Paragraph'),
     link('primary_cta', 'Main Button'),
-    link('secondary_cta', 'Second Button'),
+    link('secondary_cta', 'Second Button', 'Optional. Leave the button text empty to show one button only.'),
   ],
 });
 
@@ -220,7 +220,7 @@ export const pages = [
         key: 'hero', required: true,
         label: 'Page Opening',
         hint: 'The dark opening panel.',
-        fields: [eyebrow(), heading('headline', 'Headline'), sub('Opening Paragraph'), link('primary_cta', 'Main Button', 'Shown with an arrow.'), link('secondary_cta', 'Second Button')],
+        fields: [eyebrow(), heading('headline', 'Headline'), sub('Opening Paragraph'), link('primary_cta', 'Main Button', 'Shown with an arrow.'), link('secondary_cta', 'Second Button', 'Leave the button text empty to show one button only.'), text('fine', 'Small Note Under The Buttons', 'Optional. Leave empty to show nothing.')],
       },
       {
         key: 'objectives',
@@ -301,7 +301,7 @@ export const pages = [
         key: 'get_in_touch',
         label: 'Get In Touch Card',
         hint: 'The card at the bottom with two stacked buttons.',
-        fields: [eyebrow(), text('heading', 'Heading'), text('body', 'Paragraph'), link('primary_cta', 'Main Button', 'Shown with an arrow.'), link('secondary_cta', 'Second Button', 'Use tel: in the address for a phone number.')],
+        fields: [eyebrow(), text('heading', 'Heading'), text('body', 'Paragraph'), link('primary_cta', 'Main Button', 'Shown with an arrow.'), link('secondary_cta', 'Second Button', 'Optional. Leave the button text empty to show one button only. Use tel: in the address for a phone number.')],
       },
     ],
   },
@@ -628,10 +628,12 @@ export const pages = [
         hint: 'The cards beside the form. The phone number comes from Site-wide settings and the office cards from the Offices collection.',
         collection: 'offices',
         fields: [
-          text('ir_heading', 'Investor Relations Card: Small Label'),
-          text('ir_emails', 'Investor Relations Card: Email Addresses'),
-          text('borrowers_heading', 'Borrowers Card: Small Label'),
-          text('borrowers_email', 'Borrowers Card: Email Address'),
+          text('ir_heading', 'First Card: Small Label'),
+          text('ir_phone', 'First Card: Phone Number', 'Leave empty to show no phone number on this card.'),
+          text('ir_emails', 'First Card: Email Address'),
+          text('borrowers_heading', 'Last Card: Small Label'),
+          text('borrowers_phone', 'Last Card: Phone Number', 'Leave empty to show no phone number on this card.'),
+          text('borrowers_email', 'Last Card: Email Address'),
         ],
       },
     ],

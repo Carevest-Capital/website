@@ -13,6 +13,7 @@
         {{ m.btn(h.primary_cta, 'btn--accent', true) }}
         {{ m.btn(h.secondary_cta, 'btn--onband') }}
       </div>
+      {% if h.fine %}<p class="fine fine--wide" style="margin-top:22px; color:var(--band-muted); max-width:62ch;">{{ h.fine }}</p>{% endif %}
     </div>
   </section>
 

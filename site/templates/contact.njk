@@ -59,9 +59,10 @@
         {% if shown('details') %}
         {% set d = s.details %}
         <div data-section="details" style="display:grid; gap:20px;">
+          {% set phone1 = g.phone_investor_relations if d.ir_phone is undefined else d.ir_phone %}
           <div class="card reveal">
             <p class="eyebrow eyebrow--muted">{{ d.ir_heading }}</p>
-            <p style="font-size:var(--s2); font-weight:300; margin-top:8px;" class="tnum">{{ g.phone_investor_relations }}</p>
+            {% if phone1 %}<p style="font-size:var(--s2); font-weight:300; margin-top:8px;" class="tnum">{{ phone1 }}</p>{% endif %}
             <p style="color:var(--muted); font-size:0.92rem; margin-top:8px;">{{ d.ir_emails }}</p>
           </div>
           {% for o in items('details') %}<div class="card reveal">
@@ -71,7 +72,8 @@
           </div>
           {% endfor %}<div class="card reveal">
             <p class="eyebrow eyebrow--muted">{{ d.borrowers_heading }}</p>
-            <p style="color:var(--muted); margin-top:10px;">{{ d.borrowers_email }}</p>
+            {% if d.borrowers_phone %}<p style="font-size:var(--s2); font-weight:300; margin-top:8px;" class="tnum">{{ d.borrowers_phone }}</p>{% endif %}
+            <p style="color:var(--muted); margin-top:{% if d.borrowers_phone %}8px; font-size:0.92rem{% else %}10px{% endif %};">{{ d.borrowers_email }}</p>
           </div>
         </div>
         {% endif %}
