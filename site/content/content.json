@@ -412,15 +412,15 @@
       },
       "get_in_touch": {
         "eyebrow": "Get in Touch",
-        "heading": "Ready to Learn More?",
-        "body": "CareVest has retained Belco Private Capital Ltd. (\"Belco\") as Exempt Market Dealer for investment into CareVest Core MIC. If you are interested in placing an investment or would like to learn more, please get in touch and we will connect you with a licensed Belco Dealing Representative.",
+        "heading": "Interested in placing an investment?",
+        "body": "If you are interested in placing an investment or would like to learn more from a registered dealer, please contact us. Available in British Columbia and Alberta.",
         "primary_cta": {
           "label": "Contact us",
           "href": "/contact"
         },
         "secondary_cta": {
-          "label": "",
-          "href": ""
+          "label": "1 (855) 278-3611",
+          "href": "tel:18552783611"
         }
       }
     },
@@ -950,15 +950,15 @@
       },
       "cta": {
         "eyebrow": "Get in Touch",
-        "headline": "Talk to a member of our team.",
-        "body": "If you are interested in placing an investment or would like to learn more from a registered dealer, please contact us. Available in British Columbia and Alberta.",
+        "headline": "Ready to Learn More?",
+        "body": "CareVest has retained Belco Private Capital Ltd. (\"Belco\") as Exempt Market Dealer for investment into CareVest Core MIC. If you are interested in placing an investment or would like to learn more, please get in touch and we will connect you with a licensed Belco Dealing Representative.",
         "primary_cta": {
           "label": "Contact us",
           "href": "/contact"
         },
         "secondary_cta": {
-          "label": "Call 1 (855) 278-3611",
-          "href": "tel:18552783611"
+          "label": "",
+          "href": ""
         }
       }
     },

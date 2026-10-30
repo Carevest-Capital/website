@@ -17,13 +17,16 @@ export function mutate(c) {
   /* Home: no button next to "Contact us" in the closing band. */
   set(p.index?.final_cta, 'secondary_cta', { label: '', href: '' }, 'home closing band: second button removed');
 
-  /* Core Fund: small note under the opening buttons; bottom card reworded, phone button removed. */
+  /* Core Fund: small note under the opening buttons. */
   set(p['core-mic']?.hero, 'fine', BELCO, 'core fund opening: note under buttons');
-  const gt = p['core-mic']?.get_in_touch;
-  if (gt) {
-    set(gt, 'heading', 'Ready to Learn More?', 'core fund bottom card heading');
-    set(gt, 'body', BELCO, 'core fund bottom card paragraph');
-    set(gt, 'secondary_cta', { label: '', href: '' }, 'core fund bottom card: phone button removed');
+
+  /* Team page closing band ("Talk to a member of our team"): phone button removed, heading and
+     paragraph changed to the requested wording. */
+  const tc = p.team?.cta;
+  if (tc) {
+    set(tc, 'headline', 'Ready to Learn More?', 'team page closing band heading');
+    set(tc, 'body', BELCO, 'team page closing band paragraph');
+    set(tc, 'secondary_cta', { label: '', href: '' }, 'team page closing band: phone button removed');
   }
 
   /* Contact: phone moves from the first card to the Investor Relations card. */
