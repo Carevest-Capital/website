@@ -39,6 +39,10 @@ const THEME = String(args.theme || process.env.THEME || 'blue').toLowerCase();
 const STATE = String(args.state || process.env.CONTENT_STATE || 'published').toLowerCase();
 const SOURCE = String(args.source || (process.env.SUPABASE_URL ? 'supabase' : 'local')).toLowerCase();
 const OUT = path.resolve(HERE, String(args.out || process.env.OUT || 'dist'));
+/* Launch switches (production project only). SITE_INDEXING=on lets search engines in: drops the noindex tag,
+   publishes a real robots.txt and leaves internal pages out of the build. SITE_URL is used for the sitemap. */
+const INDEXING = /^(on|true|1|yes)$/i.test(String(args.indexing || process.env.SITE_INDEXING || ''));
+const SITE_URL = String(process.env.SITE_URL || 'https://www.carevest.com').replace(/\/+$/, '');
 
 if (!['cream', 'blue'].includes(THEME)) fail(`Unknown THEME "${THEME}". Use cream or blue.`);
 if (!['published', 'draft'].includes(STATE)) fail(`Unknown CONTENT_STATE "${STATE}". Use published or draft.`);
@@ -205,7 +209,8 @@ async function main() {
   for (const page of schema.pages) {
     if (hiddenPaths.has(page.path)) continue;
     const context = render.pageContext({ page, content, schema, theme: THEME });
-    const html = env.render(`${page.slug}.njk`, context);
+    let html = env.render(`${page.slug}.njk`, context);
+    if (INDEXING) html = html.replace(/\s*<meta name="robots" content="noindex, nofollow" \/>/, '');
     const file = path.join(OUT, `${page.slug}.html`);
     fs.writeFileSync(file, html);
     console.log(`built  ${path.basename(file).padEnd(26)} ${formatBytes(Buffer.byteLength(html)).padStart(14)}   ${page.title}`);
@@ -215,8 +220,22 @@ async function main() {
   copyDir(ASSETS, path.join(OUT, 'assets'), { skip: (p) => p === path.join(ASSETS, 'themes') });
   fs.copyFileSync(path.join(ASSETS, 'themes', `${THEME}.css`), path.join(OUT, 'assets', 'styles.css'));
 
-  /* Static files (internal pages that are not part of the content model). */
-  if (fs.existsSync(STATIC)) copyDir(STATIC, OUT);
+  /* Static files. Internal pages (welcome-series plans) are left out once the site is indexed; the
+     legal/ folder always ships. */
+  if (fs.existsSync(STATIC)) copyDir(STATIC, OUT, { skip: (p) => INDEXING && /welcome-series/.test(path.basename(p)) });
+
+  /* Hidden pages: a tiny page at their address that sends visitors to the home page. This works on any
+     host (Vercel reads redirects only from the project's own vercel.json, not from the build output). */
+  for (const page of hiddenPages) {
+    const stub = `<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><meta name="robots" content="noindex" /><meta http-equiv="refresh" content="0; url=/" /><link rel="canonical" href="${SITE_URL}/" /><title>CareVest Group</title><script>location.replace('/')</script></head><body><a href="/">CareVest Group</a></body></html>\n`;
+    fs.writeFileSync(path.join(OUT, `${page.slug}.html`), stub);
+  }
+
+  /* robots.txt and sitemap.xml */
+  const visible = schema.pages.filter((p) => !hiddenPaths.has(p.path));
+  const today = new Date().toISOString().slice(0, 10);
+  fs.writeFileSync(path.join(OUT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${visible.map((p) => `  <url><loc>${SITE_URL}${p.path === '/' ? '/' : p.path}</loc><lastmod>${today}</lastmod></url>`).join('\n')}\n</urlset>\n`);
+  fs.writeFileSync(path.join(OUT, 'robots.txt'), INDEXING ? `User-agent: *\nAllow: /\nDisallow: /welcome-series\n\nSitemap: ${SITE_URL}/sitemap.xml\n` : `User-agent: *\nDisallow: /\n`);
 
   /* build.json: lets the dashboard know when a preview or publish build has landed. */
   fs.writeFileSync(path.join(OUT, 'build.json'), JSON.stringify({ built_at: new Date().toISOString(), state: STATE, theme: THEME, source: from }, null, 2) + '\n');
@@ -230,7 +249,7 @@ async function main() {
     ];
   }
   fs.writeFileSync(path.join(OUT, 'vercel.json'), JSON.stringify(vercelConfig, null, 2) + '\n');
-  console.log(`build: done, ${schema.pages.length - hiddenPages.length} pages${hiddenPages.length ? `, ${hiddenPages.length} hidden` : ''}`);
+  console.log(`build: done, ${schema.pages.length - hiddenPages.length} pages${hiddenPages.length ? `, ${hiddenPages.length} hidden` : ''}, indexing ${INDEXING ? 'ON' : 'off'}`);
 }
 
 main().catch((err) => {

@@ -1,16 +1,124 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-  "headers": [
+  "redirects": [
     {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex, nofollow"
-        }
-      ]
+      "source": "/corefund",
+      "destination": "/core-mic",
+      "permanent": true
     },
+    {
+      "source": "/corefund-investors",
+      "destination": "/core-mic",
+      "permanent": true
+    },
+    {
+      "source": "/corefund-disclaimer",
+      "destination": "/core-mic",
+      "permanent": true
+    },
+    {
+      "source": "/copy-of-core-fund-1",
+      "destination": "/core-mic",
+      "permanent": true
+    },
+    {
+      "source": "/promotions",
+      "destination": "/core-mic#promotion",
+      "permanent": true
+    },
+    {
+      "source": "/be-informed",
+      "destination": "/how-investing-works",
+      "permanent": true
+    },
+    {
+      "source": "/dealer-services",
+      "destination": "/how-investing-works",
+      "permanent": true
+    },
+    {
+      "source": "/investor-education",
+      "destination": "/how-investing-works#faq",
+      "permanent": true
+    },
+    {
+      "source": "/industry-links",
+      "destination": "/how-investing-works#industry-links",
+      "permanent": true
+    },
+    {
+      "source": "/financing",
+      "destination": "/lending",
+      "permanent": true
+    },
+    {
+      "source": "/capital-advisory",
+      "destination": "/lending",
+      "permanent": true
+    },
+    {
+      "source": "/representative-transactions",
+      "destination": "/lending#transactions",
+      "permanent": true
+    },
+    {
+      "source": "/corevalues",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/fundmanager",
+      "destination": "/about#fund-manager",
+      "permanent": true
+    },
+    {
+      "source": "/shareholder-admin",
+      "destination": "/about#shareholder-admin",
+      "permanent": true
+    },
+    {
+      "source": "/careers",
+      "destination": "/about#careers",
+      "permanent": true
+    },
+    {
+      "source": "/dealing-representative",
+      "destination": "/about#careers",
+      "permanent": true
+    },
+    {
+      "source": "/team-1",
+      "destination": "/team",
+      "permanent": true
+    },
+    {
+      "source": "/team-1/:slug*",
+      "destination": "/team",
+      "permanent": true
+    },
+    {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/terms-of-use",
+      "destination": "/legal/terms-of-use.pdf",
+      "permanent": false
+    },
+    {
+      "source": "/_files/ugd/bf9305_8633260fac9b4cabbe5f18044bad6a52.pdf",
+      "destination": "/legal/privacy-policy.pdf",
+      "permanent": false
+    },
+    {
+      "source": "/_files/ugd/bf9305_149c84d04faf4e36ac0c0ed19cf7479e.pdf",
+      "destination": "/legal/relationship-disclosure.pdf",
+      "permanent": false
+    }
+  ],
+  "headers": [
     {
       "source": "/build.json",
       "headers": [
@@ -21,6 +129,15 @@
         {
           "key": "Cache-Control",
           "value": "no-store"
+        }
+      ]
+    },
+    {
+      "source": "/welcome-series(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
         }
       ]
     }
