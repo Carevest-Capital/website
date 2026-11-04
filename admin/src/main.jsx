@@ -27,7 +27,9 @@ function Gate({ children }) {
 }
 
 function AdminOnly({ children }) {
-  const { isAdmin } = useStore();
+  const { isAdmin, profile, store } = useStore();
+  /* Wait for the signed-in person's role before deciding, so a bookmarked admin page does not bounce. */
+  if (profile === undefined && store.mode !== 'demo') return <div style={{ padding: 40 }} className="muted">Loading</div>;
   return isAdmin ? children : <Navigate to="/" replace />;
 }
 

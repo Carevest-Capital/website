@@ -19,7 +19,7 @@ const SAVE_DELAY = 900;
 
 export function StoreProvider({ children }) {
   const [session, setSession] = useState(undefined); // undefined = unknown yet
-  const [profile, setProfile] = useState(null);
+  const [profile, setProfile] = useState(undefined); // undefined = still loading
   const [rows, setRows] = useState(null);             // { key: { draft, published, updated_at, published_at } }
   const [documents, setDocuments] = useState([]);
   const [saving, setSaving] = useState({});           // { key: 'saving' | 'saved' | 'error' }
@@ -37,7 +37,8 @@ export function StoreProvider({ children }) {
 
   useEffect(() => {
     if (!session) { setProfile(null); setRows(null); return; }
-    store.currentProfile().then(setProfile).catch(() => setProfile(null));
+    setProfile(undefined);
+    store.currentProfile().then((p) => setProfile(p || null)).catch(() => setProfile(null));
     reload();
   }, [session]);
 

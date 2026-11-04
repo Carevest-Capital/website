@@ -89,6 +89,9 @@ Already done for the CareVest project: the deploy hooks of `carevest-blue` (Prod
 
 ## Day to day (for the CareVest team)
 
+Dashboard: https://admin.carevest.com (the old address https://carevest-admin.vercel.app also still works).
+
+
 - **Edit a page**: pick it in the left menu, change the text in its sections, it saves by itself.
 - **Change a number** such as the yield or AUA: Key figures. One edit updates every place it appears.
   Update the "as of" date and the footnote with it.
