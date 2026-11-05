@@ -6,7 +6,7 @@ import { sanitize } from './sanitize.js';
 /* ------------------------------------------------------------------ */
 /*  Field: renders the right editor for a schema field                 */
 /* ------------------------------------------------------------------ */
-export default function Field({ field, value, onChange, compact = false }) {
+export default function Field({ field, value, onChange, compact = false, hideLabel = false }) {
   const v = value === undefined || value === null ? emptyValue(field) : value;
   const common = { field, value: v, onChange };
   const body = (() => {
@@ -30,7 +30,7 @@ export default function Field({ field, value, onChange, compact = false }) {
   if (field.type === 'boolean') return body;
   return (
     <div className="field" data-type={field.type}>
-      <label>{field.label || humanize(field.key)}{field.required && <span className="faint">required</span>}</label>
+      {!hideLabel && <label>{field.label || humanize(field.key)}{field.required && <span className="faint">required</span>}</label>}
       {body}
       {field.hint && field.type !== 'heading' && <div className="hint">{field.hint}</div>}
     </div>

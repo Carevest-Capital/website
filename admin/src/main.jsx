@@ -17,6 +17,7 @@ import PreviewWait from './pages/PreviewWait.jsx';
 import Preview from './pages/Preview.jsx';
 import Changes from './pages/Changes.jsx';
 import Messages from './pages/Messages.jsx';
+import Disclaimers from './pages/Disclaimers.jsx';
 
 function Gate({ children }) {
   const { session } = useStore();
@@ -47,6 +48,7 @@ function App() {
           <Route path="collections/:name" element={<CollectionEditor />} />
           <Route path="changes" element={<Changes />} />
           <Route path="figures" element={<FiguresEditor />} />
+          <Route path="disclaimers" element={<Disclaimers />} />
           <Route path="documents" element={<Documents />} />
           <Route path="messages" element={<Messages />} />
           <Route path="site" element={<Globals />} />

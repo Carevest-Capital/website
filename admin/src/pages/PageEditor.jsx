@@ -4,6 +4,7 @@ import { useStore, SITE_URL } from '../store/index.jsx';
 import { schema, ROW_KEYS } from '../store/content.js';
 import Field from '../fields/Field.jsx';
 import { SaveState, timeAgo } from '../components/ui.jsx';
+import InlineCollection from '../components/InlineCollection.jsx';
 
 export default function PageEditor() {
   const { slug } = useParams();
@@ -81,7 +82,6 @@ export default function PageEditor() {
               <span className="num tnum">{i + 1}</span>
               <div><h3>{section.label}{isHidden && <span className="badge badge--warn" style={{ marginLeft: 10, verticalAlign: 'middle' }}>Hidden from website</span>}</h3>{section.hint && <div className="hint">{section.hint}</div>}</div>
               <div className="spacer" />
-              {section.collection && <Link className="badge badge--accent" to={`/collections/${section.collection}`}>Items come from {schema.collections[section.collection]?.label || section.collection}</Link>}
               <button className="btn btn--sm btn--ghost" onClick={() => preview(section.key)} disabled={previewing === section.key} title="Preview the page and jump to this section">{previewing === section.key ? <span className="spin" /> : null}Preview</button>
               {section.required ? (
                 <span className="small faint" title="This section opens the page and cannot be hidden.">Always shown</span>
@@ -95,11 +95,26 @@ export default function PageEditor() {
             </div>
             {!isCollapsed && (
               <div className="card__b">
-                {section.fields?.length ? (
+                {section.fields?.length > 0 && (
                   <div className="fields">
                     {section.fields.map((f) => <Field key={f.key} field={f} value={values[f.key]} onChange={(v) => setSection(section.key, f.key, v)} />)}
                   </div>
-                ) : <p className="muted">This section has nothing to edit here{section.collection ? `: its items are managed under ${schema.collections[section.collection]?.label || section.collection}.` : '.'}</p>}
+                )}
+                {(section.figureNotes || []).map((fk) => {
+                  const fig = schema.figures?.items?.find((x) => x.key === fk);
+                  return (
+                    <div key={fk} className="fields" style={{ marginTop: section.fields?.length ? 18 : 0 }}>
+                      <div className="field">
+                        <label>Footnote text</label>
+                        <Field field={{ key: 'note', type: 'richtext', label: '' }} value={rows.figures?.draft?.[fk]?.note}
+                          onChange={(v) => updateDraft('figures', (d) => ({ ...(d || {}), [fk]: { ...((d || {})[fk] || {}), note: v } }))} hideLabel />
+                        <div className="hint">This is the footnote of the key figure "{fig?.label || fk}". It is the same text you see under Key figures and on the Disclaimers screen.</div>
+                      </div>
+                    </div>
+                  );
+                })}
+                {section.collection && <div style={{ marginTop: section.fields?.length || section.figureNotes?.length ? 22 : 0 }}><InlineCollection section={section} page={page} /></div>}
+                {!section.fields?.length && !section.collection && !section.figureNotes?.length && <p className="muted">This section has nothing to edit.</p>}
               </div>
             )}
           </div>

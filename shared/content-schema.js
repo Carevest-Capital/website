@@ -129,6 +129,7 @@ export const pages = [
       },
       {
         key: 'numbers',
+        figureNotes: ['yield'],
         label: 'Results Band',
         hint: 'The dark band with four large figures and the footnote about the yield.',
         fields: [
@@ -136,7 +137,7 @@ export const pages = [
           heading('headline', 'Headline', 'A footnote asterisk is added automatically after the headline.'),
           text('body', 'Paragraph'),
           list('stats', 'Four Key Figures', [statItem[0]], { max: 4 }),
-          text('footnote_label', 'Footnote Label', 'The footnote text itself is edited under Key figures, on the yield figure.'),
+          text('footnote_label', 'Footnote Label', 'The small heading above the footnote. The footnote text is just below.'),
         ],
       },
       {
@@ -179,14 +180,14 @@ export const pages = [
       {
         key: 'values',
         label: 'Core Values Band',
-        hint: 'The dark band listing the core values. The three values themselves are edited under the Core Values collection and are shared with the About page.',
+        hint: 'The dark band listing the core values. The values are edited below and are shared with the About page.',
         collection: 'values',
         fields: [eyebrow(), heading('headline', 'Headline'), text('body', 'Paragraph')],
       },
       {
         key: 'transactions',
         label: 'Representative Transactions',
-        hint: 'The scrolling row of project cards. The projects are edited under the Representative Transactions collection.',
+        hint: 'The scrolling row of project cards. The cards are edited below and are shared with the Lending page.',
         collection: 'transactions',
         fields: [eyebrow(), heading('headline', 'Headline'), text('body', 'Paragraph'), text('fine', 'Fine Print Under The Cards')],
       },
@@ -338,7 +339,7 @@ export const pages = [
       {
         key: 'faq',
         label: 'Frequently Asked Questions',
-        hint: 'The expandable questions. The questions and answers are edited under the Investor FAQ collection (group "Investor FAQ").',
+        hint: 'The expandable questions. The questions and answers are edited below.',
         collection: 'faqs',
         group: 'Investor FAQ',
         fields: [eyebrow(), heading('headline', 'Headline')],
@@ -346,7 +347,7 @@ export const pages = [
       {
         key: 'industry_links',
         label: 'Industry Links',
-        hint: 'The list of securities authorities. The links themselves are edited under the Industry Links collection.',
+        hint: 'The list of securities authorities. The links are edited below.',
         collection: 'industry_links',
         fields: [eyebrow(), heading('headline', 'Headline'), text('body', 'Introduction Line'), text('fine', 'Fine Print Under The Links')],
       },
@@ -372,7 +373,7 @@ export const pages = [
       {
         key: 'timeline',
         label: 'Timeline',
-        hint: 'The year-by-year story. The entries are edited under the Timeline collection.',
+        hint: 'The year-by-year story. The entries are edited below.',
         collection: 'timeline',
         fields: [],
       },
@@ -477,7 +478,7 @@ export const pages = [
       {
         key: 'process',
         label: 'The Lending Process',
-        hint: 'The expandable numbered phases. The phases are edited under the Investor FAQ collection (group "Lending Process").',
+        hint: 'The expandable numbered phases. The phases are edited below.',
         collection: 'faqs',
         group: 'Lending Process',
         fields: [eyebrow(), heading('headline', 'Headline')],
@@ -485,7 +486,7 @@ export const pages = [
       {
         key: 'transactions',
         label: 'Representative Transactions',
-        hint: 'The grid of project cards. The projects are edited under the Representative Transactions collection.',
+        hint: 'The grid of project cards. The cards are edited below and are shared with the Home page.',
         collection: 'transactions',
         fields: [eyebrow(), heading('headline', 'Headline'), text('fine', 'Fine Print Under The Cards')],
       },
@@ -520,7 +521,7 @@ export const pages = [
       {
         key: 'values',
         label: 'Core Values Band',
-        hint: 'The dark band listing the core values. The three values themselves are edited under the Core Values collection and are shared with the home page.',
+        hint: 'The dark band listing the core values. The values are edited below and are shared with the home page.',
         collection: 'values',
         fields: [eyebrow(), heading('headline', 'Headline'), text('body', 'Paragraph')],
       },
@@ -533,7 +534,7 @@ export const pages = [
       {
         key: 'board',
         label: 'Board Of Directors Card',
-        hint: 'The card listing the directors. The names come from the Team collection (group "Board").',
+        hint: 'The card listing the directors. The directors are edited below and are shared with the Team page.',
         collection: 'team',
         group: 'Board',
         fields: [eyebrow('Small Label'), text('body', 'Paragraph')],
@@ -582,7 +583,7 @@ export const pages = [
       {
         key: 'grid',
         label: 'Team Grid',
-        hint: 'The photo grid. People are edited under the Team collection; Leadership is shown first, then Team.',
+        hint: 'The photo grid. People are edited below; Leadership is shown first, then Team.',
         collection: 'team',
         fields: [],
       },
